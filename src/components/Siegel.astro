@@ -1,0 +1,29 @@
+---
+// Das Originalsiegel, unverändert. Ausgeliefert wird eine gerechnete Fassung in passender Grösse,
+// die Vorlage bleibt die Vektordatei daneben (siehe werkzeuge/markenbilder.mjs).
+import { getImage } from 'astro:assets';
+import schwarz from '../assets/marke/siegel.webp';
+import weiss from '../assets/marke/siegel-weiss.webp';
+import { betrieb } from '../inhalt/betrieb.js';
+
+const { farbe = 'schwarz', breiten = [160, 320], sizes, eilig = false, class: klasse } = Astro.props;
+const quelle = farbe === 'weiss' ? weiss : schwarz;
+
+const stufen = await Promise.all(
+  breiten.map((breite) => getImage({ src: quelle, width: breite, height: breite, format: 'webp', quality: 90 })),
+);
+const srcset = stufen.map((bild, i) => `${bild.src} ${breiten[i]}w`).join(', ');
+---
+
+<img
+  class={klasse}
+  src={stufen[0].src}
+  srcset={srcset}
+  sizes={sizes ?? `${breiten[0]}px`}
+  width={breiten[0]}
+  height={breiten[0]}
+  alt={`${betrieb.name}, Logo: gezeichnetes Brett mit Käse, Feigen, Rosmarin und Messer`}
+  loading={eilig ? 'eager' : 'lazy'}
+  fetchpriority={eilig ? 'high' : undefined}
+  decoding="async"
+/>

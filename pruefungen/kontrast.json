@@ -1,0 +1,9 @@
+[
+  { "text": "ink", "grund": "paper", "mindestens": 7, "wofuer": "Fliesstext" },
+  { "text": "ink", "grund": "linen", "mindestens": 7, "wofuer": "Fliesstext auf Wechselfläche" },
+  { "text": "pine", "grund": "paper", "mindestens": 7, "wofuer": "Verweise, Fokusrahmen" },
+  { "text": "pine", "grund": "linen", "mindestens": 7, "wofuer": "Verweise auf Wechselfläche" },
+  { "text": "paper", "grund": "pine", "mindestens": 7, "wofuer": "Knopf, Fuss, Hinweisband" },
+  { "text": "fig", "grund": "paper", "mindestens": 4.5, "wofuer": "Handschrift, gross gesetzt" },
+  { "text": "fig", "grund": "linen", "mindestens": 4.5, "wofuer": "Handschrift auf Wechselfläche" }
+]

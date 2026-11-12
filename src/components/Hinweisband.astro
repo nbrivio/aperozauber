@@ -1,0 +1,24 @@
+---
+import { gueltigerHinweis } from '../inhalt/hinweis.js';
+const text = gueltigerHinweis();
+---
+
+{
+  text && (
+    <aside class="band" aria-label="Aktueller Hinweis">
+      <p class="rahmen">{text}</p>
+    </aside>
+  )
+}
+
+<style>
+  .band {
+    background: var(--az-pine);
+    color: var(--az-paper);
+    font-size: var(--fs-klein);
+    padding-block: var(--raum-1);
+  }
+  .band p {
+    max-inline-size: calc(var(--az-content-width) + 2 * var(--rand));
+  }
+</style>

@@ -1,0 +1,64 @@
+name: Prüfen und veröffentlichen
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    # Täglicher Neubau kurz nach Mitternacht Schweizer Zeit, damit Hinweise pünktlich erscheinen und verschwinden.
+    - cron: '17 23 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: seite-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  SITE_ADRESSE: ${{ vars.SITE_ADRESSE || format('https://{0}.github.io', github.repository_owner) }}
+  SITE_PFAD: ${{ vars.SITE_PFAD || format('/{0}', github.event.repository.name) }}
+  SITE_STUFE: ${{ vars.SITE_STUFE || 'test' }}
+
+jobs:
+  pruefen:
+    name: Bauen und prüfen
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Abhängigkeiten nach Sperrdatei einrichten
+        run: npm ci --ignore-scripts
+      - name: Bekannte Sicherheitslücken
+        run: npm audit --audit-level=high
+      - name: Bauen und alle Prüfungen
+        run: npm run pruefen
+      - name: Seite übergeben
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: dist
+
+  veroeffentlichen:
+    name: Veröffentlichen
+    needs: pruefen
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.ausliefern.outputs.page_url }}
+    steps:
+      - id: ausliefern
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

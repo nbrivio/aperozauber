@@ -1,0 +1,24 @@
+---
+import Seite from '../layouts/Seite.astro';
+import { pfad } from '../inhalt/pfad.js';
+---
+
+<Seite intern titel="Seite nicht gefunden" beschreibung="Diese Adresse gibt es nicht.">
+  <section class="rahmen leer" aria-labelledby="leer-titel">
+    <h1 id="leer-titel">Hier ist der Tisch noch leer.</h1>
+    <p class="lead">Diese Seite gibt es nicht, oder sie ist umgezogen.</p>
+    <a class="knopf" href={pfad('/')}>Zur Startseite</a>
+  </section>
+</Seite>
+
+<style>
+  .leer {
+    display: grid;
+    gap: var(--raum-4);
+    justify-items: start;
+    padding-block-start: var(--raum-12);
+  }
+  h1 {
+    max-inline-size: 12em;
+  }
+</style>

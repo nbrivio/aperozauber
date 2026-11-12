@@ -1,0 +1,153 @@
+---
+// Arbeitsseite für die Abnahme der Gestaltung. Nicht verlinkt, nicht in der Sitemap, nicht für Suchmaschinen.
+import Seite from '../layouts/Seite.astro';
+import tokens from '../stile/tokens.css?raw';
+import { farbtoken, kontrast } from '../inhalt/kontrast.js';
+
+const farben = farbtoken(tokens);
+const palette = [
+  ['paper', 'Paper Cream', 'Grund, grosse ruhige Flächen'],
+  ['ink', 'Deep Ink', 'Titel, Text, feine Linien'],
+  ['pine', 'Deep Pine', 'Knöpfe, Fuss, Verweise'],
+  ['fig', 'Fig', 'Handschrift, gezielter Akzent'],
+  ['linen', 'Linen', 'Wechselflächen'],
+  ['olive', 'Muted Olive', 'Nur Dekoration, kein Text'],
+].map(([kurz, name, einsatz]) => ({
+  kurz,
+  name,
+  einsatz,
+  hex: farben[kurz].toUpperCase(),
+  wert: kontrast(farben[kurz], farben.paper).toFixed(2),
+}));
+---
+
+<Seite intern titel="Gestaltungsgrundlagen" beschreibung="Farben, Schriften und Bausteine der Website im Überblick.">
+  <div class="rahmen grundlagen">
+    <header>
+      <p class="marke">Arbeitsstand, zur Freigabe</p>
+      <h1>Gestaltungsgrundlagen</h1>
+    </header>
+
+    <section aria-labelledby="g-farben">
+      <h2 id="g-farben">Farben</h2>
+      <ul class="farben">
+        {
+          palette.map((f) => (
+            <li>
+              <span class={`farben__feld farben__feld--${f.kurz}`} />
+              <strong>{f.name}</strong>
+              <span>{f.hex}</span>
+              <span>{f.einsatz}</span>
+              {!['paper', 'linen'].includes(f.kurz) && <span>Kontrast auf Paper {f.wert}:1</span>}
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section aria-labelledby="g-schrift">
+      <h2 id="g-schrift">Schrift</h2>
+      <div class="proben">
+        <p class="marke">Titel 1, Instrument Serif</p>
+        <p class="probe-h1">Für Abende, an denen <em>niemand</em> nach Hause will.</p>
+        <p class="marke">Titel 2</p>
+        <p class="probe-h2">Bergzauber, Waldmeister, Früchtezauber</p>
+        <p class="marke">Titel 3</p>
+        <p class="probe-h3">Von Hand zusammengestellt. Zum gemeinsamen Geniessen.</p>
+        <p class="marke">Vorspann, DM Sans</p>
+        <p class="lead">Ich bereite den Apéro vor. Du geniesst die Zeit mit deinen Gästen.</p>
+        <p class="marke">Fliesstext</p>
+        <p>Ob im kleinen Kreis oder mit dem ganzen Team: Ich freue mich auf deine Idee. Ziffern zur Probe: 0123456789.</p>
+        <p class="marke">Handschrift, Oooh Baby, nur als Akzent</p>
+        <p class="hand" lang="it">More apéro, per favore.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="g-bausteine">
+      <h2 id="g-bausteine">Bausteine</h2>
+      <div class="bausteine">
+        <a class="knopf" href="#g-bausteine">Apéro anfragen</a>
+        <p>Ein <a href="#g-farben">Verweis im Text</a> steht in Deep Pine und ist unterstrichen. Mit der Tabulatortaste zeigt sich der Fokusrahmen.</p>
+      </div>
+    </section>
+  </div>
+</Seite>
+
+<style>
+  .grundlagen {
+    display: grid;
+    gap: var(--raum-kapitel);
+    padding-block-start: var(--raum-8);
+  }
+  header,
+  section {
+    display: grid;
+    gap: var(--raum-4);
+  }
+  .farben {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    gap: var(--raum-4) var(--raum-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: var(--fs-klein);
+  }
+  .farben li {
+    display: grid;
+    gap: 0.125rem;
+  }
+  .farben__feld {
+    aspect-ratio: 4 / 3;
+    margin-block-end: var(--raum-1);
+    border: 1px solid var(--az-linie);
+    border-radius: var(--az-radius-medium);
+  }
+  .farben__feld--paper {
+    background: var(--az-paper);
+  }
+  .farben__feld--ink {
+    background: var(--az-ink);
+  }
+  .farben__feld--pine {
+    background: var(--az-pine);
+  }
+  .farben__feld--fig {
+    background: var(--az-fig);
+  }
+  .farben__feld--linen {
+    background: var(--az-linen);
+  }
+  .farben__feld--olive {
+    background: var(--az-olive);
+  }
+  .proben {
+    display: grid;
+    gap: var(--raum-2);
+  }
+  .proben .marke {
+    margin-block-start: var(--raum-4);
+  }
+  .probe-h1,
+  .probe-h2,
+  .probe-h3 {
+    max-inline-size: none;
+    font-family: var(--az-font-display);
+    line-height: var(--lh-titel);
+    letter-spacing: var(--ls-titel);
+  }
+  .probe-h1 {
+    font-size: var(--fs-h1);
+  }
+  .probe-h2 {
+    font-size: var(--fs-h2);
+  }
+  .probe-h3 {
+    font-size: var(--fs-h3);
+  }
+  .bausteine {
+    display: grid;
+    gap: var(--raum-4);
+    justify-items: start;
+  }
+</style>

@@ -1,0 +1,50 @@
+---
+// Das Siegel steht fest im Kopf. Es bewegt sich nicht und kommt auf der Seite genau einmal schwarz vor.
+import Siegel from './Siegel.astro';
+import { betrieb } from '../inhalt/betrieb.js';
+import { pfad } from '../inhalt/pfad.js';
+
+const { auftakt = false } = Astro.props;
+---
+
+<header class:list={['kopf', 'rahmen', { 'kopf--auftakt': auftakt }]}>
+  <a class="kopf__siegel" href={pfad('/')} aria-label={`${betrieb.name}, Startseite`} aria-current={auftakt ? 'page' : undefined}>
+    <Siegel breiten={[184, 368]} sizes="(min-width: 60rem) 184px, 112px" eilig />
+  </a>
+  <a class="kopf__kontakt" href={`mailto:${betrieb.email}`}>{betrieb.email}</a>
+</header>
+
+<style>
+  .kopf {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--raum-3);
+    padding-block-start: var(--raum-3);
+  }
+  .kopf__siegel {
+    display: block;
+    inline-size: 5.5rem;
+    margin-inline-start: -0.4rem;
+    border-radius: 50%;
+  }
+  .kopf--auftakt .kopf__siegel {
+    inline-size: clamp(7rem, 4.6rem + 9.5vw, 11.5rem);
+    margin-inline-start: -0.6rem;
+  }
+  .kopf__kontakt {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 2.75rem;
+    margin-block-start: var(--raum-1);
+    color: var(--az-ink);
+    font-size: var(--fs-klein);
+    font-weight: 500;
+    text-decoration-color: var(--az-linie);
+  }
+  @media (hover: hover) {
+    .kopf__kontakt:hover {
+      text-decoration-color: currentColor;
+    }
+  }
+</style>

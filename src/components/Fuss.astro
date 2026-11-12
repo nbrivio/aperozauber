@@ -1,0 +1,64 @@
+---
+import Siegel from './Siegel.astro';
+import { betrieb } from '../inhalt/betrieb.js';
+---
+
+<footer class="fuss">
+  <div class="rahmen fuss__raster">
+    <Siegel farbe="weiss" breiten={[144, 288]} class="fuss__siegel" />
+    <address class="fuss__anbieterin">
+      <span>{betrieb.name}</span>
+      <span>{betrieb.ort}</span>
+      <a href={`mailto:${betrieb.email}`}>{betrieb.email}</a>
+      <a href={betrieb.instagram} rel="noopener noreferrer">Apérozauber auf Instagram</a>
+    </address>
+  </div>
+</footer>
+
+<style>
+  .fuss {
+    margin-block-start: var(--raum-kapitel);
+    padding-block: var(--raum-8) var(--raum-6);
+    background: var(--az-pine);
+    color: var(--az-paper);
+  }
+  .fuss__raster {
+    display: grid;
+    gap: var(--raum-4);
+    align-items: end;
+  }
+  .fuss :global(.fuss__siegel) {
+    inline-size: 9rem;
+    margin-inline-start: -0.5rem;
+  }
+  .fuss__anbieterin {
+    display: grid;
+    gap: var(--raum-1);
+    font-style: normal;
+    font-size: var(--fs-klein);
+  }
+  .fuss a {
+    color: inherit;
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 2.75rem;
+    justify-self: start;
+    text-decoration-color: color-mix(in oklch, var(--az-paper) 45%, transparent);
+  }
+  .fuss :global(:focus-visible) {
+    outline-color: var(--az-paper);
+  }
+  @media (min-width: 48rem) {
+    .fuss__raster {
+      grid-template-columns: 1fr auto;
+      gap: var(--raum-8);
+    }
+    .fuss__anbieterin {
+      justify-items: end;
+      text-align: end;
+    }
+    .fuss a {
+      justify-self: end;
+    }
+  }
+</style>

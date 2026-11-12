@@ -1,0 +1,33 @@
+{
+  "name": "aperozauber",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "markenbilder": "node werkzeuge/markenbilder.mjs",
+    "pruefen:html": "html-validate \"dist/**/*.html\"",
+    "pruefen:gate": "node pruefungen/gate.mjs",
+    "pruefen:kontrast": "node pruefungen/kontrast.mjs",
+    "pruefen:vermerke": "node pruefungen/vermerke.mjs",
+    "pruefen:browser": "node pruefungen/browser.mjs",
+    "pruefen:ladezeit": "node pruefungen/ladezeit.mjs",
+    "pruefen": "npm run build && npm run pruefen:html && npm run pruefen:gate && npm run pruefen:kontrast && npm run pruefen:vermerke && npm run pruefen:browser && npm run pruefen:ladezeit"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "3.7.4",
+    "astro": "7.4.11",
+    "sharp": "0.35.5"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "html-validate": "11.21.1",
+    "lighthouse": "13.6.0",
+    "playwright-core": "1.65.0"
+  }
+}

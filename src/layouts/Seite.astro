@@ -1,0 +1,102 @@
+---
+import '../stile/tokens.css';
+import '../stile/grund.css';
+import Kopf from '../components/Kopf.astro';
+import Fuss from '../components/Fuss.astro';
+import Hinweisband from '../components/Hinweisband.astro';
+import { betrieb } from '../inhalt/betrieb.js';
+import { istLive } from '../inhalt/stufe.js';
+import { pfad } from '../inhalt/pfad.js';
+import schriftTitel from '../assets/schriften/instrument-serif-latin-400-normal.woff2?url';
+import schriftText from '../assets/schriften/dm-sans-latin-wght-normal.woff2?url';
+
+const { titel, beschreibung, auftakt = false, intern = false, daten = [] } = Astro.props;
+
+if (beschreibung.length > 160) {
+  throw new Error(`Beschreibung zu lang (${beschreibung.length} Zeichen): ${Astro.url.pathname}`);
+}
+
+const seitentitel = auftakt ? titel : `${titel} | ${betrieb.name}`;
+const adresse = new URL(Astro.url.pathname, Astro.site).href;
+const start = new URL(pfad('/'), Astro.site).href;
+const vorschau = new URL(pfad('/vorschau.jpg'), Astro.site).href;
+const finden = istLive && !intern;
+
+// Ein Block je Seite, dieselbe Kennung für dieselbe Sache auf allen Seiten.
+const graph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${start}#betrieb`,
+      name: betrieb.name,
+      url: start,
+      email: betrieb.email,
+      logo: new URL(pfad('/apple-touch-icon.png'), Astro.site).href,
+      address: { '@type': 'PostalAddress', addressLocality: betrieb.ort, addressCountry: betrieb.land },
+      sameAs: [betrieb.instagram],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${start}#website`,
+      url: start,
+      name: betrieb.name,
+      inLanguage: 'de-CH',
+      publisher: { '@id': `${start}#betrieb` },
+    },
+    {
+      '@type': 'WebPage',
+      '@id': `${adresse}#seite`,
+      url: adresse,
+      name: seitentitel,
+      description: beschreibung,
+      inLanguage: 'de-CH',
+      isPartOf: { '@id': `${start}#website` },
+      about: { '@id': `${start}#betrieb` },
+    },
+    ...daten,
+  ],
+};
+---
+
+<!doctype html>
+<html lang="de-CH">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{seitentitel}</title>
+    <meta name="description" content={beschreibung} />
+    <meta name="robots" content={finden ? 'index, follow' : 'noindex, nofollow'} />
+    <link rel="canonical" href={adresse} />
+    <meta name="theme-color" content="#f6f3ec" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="icon" href={pfad('/favicon.png')} type="image/png" sizes="96x96" />
+    <link rel="apple-touch-icon" href={pfad('/apple-touch-icon.png')} />
+    <link rel="preload" href={schriftTitel} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={schriftText} as="font" type="font/woff2" crossorigin />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={betrieb.name} />
+    <meta property="og:locale" content="de_CH" />
+    <meta property="og:url" content={adresse} />
+    <meta property="og:title" content={seitentitel} />
+    <meta property="og:description" content={beschreibung} />
+    <meta property="og:image" content={vorschau} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`Logo von ${betrieb.name}`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={seitentitel} />
+    <meta name="twitter:description" content={beschreibung} />
+    <meta name="twitter:image" content={vorschau} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(graph)} />
+  </head>
+  <body>
+    <a class="sprung" href="#inhalt">Zum Inhalt springen</a>
+    <Hinweisband />
+    <Kopf auftakt={auftakt} />
+    <main id="inhalt">
+      <slot />
+    </main>
+    <Fuss />
+  </body>
+</html>
