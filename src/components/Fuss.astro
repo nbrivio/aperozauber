@@ -8,7 +8,7 @@ import { betrieb } from '../inhalt/betrieb.js';
     <Siegel farbe="weiss" breiten={[144, 288]} class="fuss__siegel" />
     <address class="fuss__anbieterin">
       <span>{betrieb.name}</span>
-      <span>{betrieb.ort}</span>
+      <span>{betrieb.strasse}, {betrieb.plz} {betrieb.ort}</span>
       <a href={`mailto:${betrieb.email}`}>{betrieb.email}</a>
       <a href={betrieb.instagram} rel="noopener noreferrer">Apérozauber auf Instagram</a>
     </address>

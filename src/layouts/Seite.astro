@@ -33,7 +33,14 @@ const graph = {
       url: start,
       email: betrieb.email,
       logo: new URL(pfad('/apple-touch-icon.png'), Astro.site).href,
-      address: { '@type': 'PostalAddress', addressLocality: betrieb.ort, addressCountry: betrieb.land },
+      founder: { '@type': 'Person', name: betrieb.inhaberin },
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: betrieb.strasse,
+        postalCode: betrieb.plz,
+        addressLocality: betrieb.ort,
+        addressCountry: betrieb.land,
+      },
       sameAs: [betrieb.instagram],
     },
     {

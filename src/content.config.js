@@ -5,6 +5,7 @@ import { z } from 'astro/zod';
 const groesse = z.object({
   groesse: z.enum(['S', 'M', 'L']),
   personen: z.string().min(1),
+  // Richtpreis «ab» in Franken.
   preis: z.number().positive(),
 });
 
