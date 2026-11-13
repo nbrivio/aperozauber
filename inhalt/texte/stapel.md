@@ -8,7 +8,7 @@ punkte:
     bildAlt: "Früchtezauber: Blutorangen, Heidelbeeren und Erdbeeren"
   - titel: "Bergzauber"
     text: "Schweizer Käse, Salsiz, Bündnerfleisch, Eingelegtes, Nüsse, Konfitüren."
-    bild: ../../src/assets/bilder/bergzauber-von-oben.webp
+    bild: ../../src/assets/bilder/bergzauber.webp
     bildAlt: "Bergzauber von oben auf dunklem Tisch"
   - titel: "Ganz nah"
     text: "Jedes Schälchen hat seinen Platz. Nichts liegt zufällig."

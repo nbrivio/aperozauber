@@ -47,7 +47,8 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgb(20 28 23 / 0.3), transparent 30%, transparent 55%, rgb(20 28 23 / 0.62));
+    /* Die Abdunkelung trägt den Titel: Er steht auch über hellem Käse lesbar. */
+    background: linear-gradient(180deg, rgb(20 28 23 / 0.3), transparent 28%, rgb(20 28 23 / 0.28) 46%, rgb(20 28 23 / 0.78));
     opacity: var(--auf, 0);
   }
   .auftakt {
