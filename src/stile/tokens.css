@@ -10,45 +10,36 @@
   --az-fig: #7f4a54;
   --az-linen: #e9e2d6;
   --az-weiss: #fff;
+  --az-karte: #fcfaf5; /* Kacheln, eine Spur heller als Paper */
+  --az-rand: #fffdf6; /* Papierkante um das Fenster im Auftakt */
 
+  --az-linie: rgb(39 36 31 / 0.18);
+  --az-linie-hell: rgb(246 243 236 / 0.3);
   --az-pine-tief: color-mix(in oklch, var(--az-pine) 82%, black);
-  --az-linie: color-mix(in oklch, var(--az-ink) 16%, transparent);
 
-  --az-font-display: 'Instrument Serif', 'Iowan Old Style', Georgia, serif;
-  --az-font-body: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
-  --az-font-hand: 'Oooh Baby', 'Snell Roundhand', cursive;
+  --az-font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --az-font-body: 'DM Sans', Arial, sans-serif;
+  --az-font-hand: 'Oooh Baby', 'Bradley Hand', 'Segoe Print', cursive;
 
-  /* Eine Skala, fliessend zwischen 390 und 1440 Pixel Breite. */
-  --fs-h1: clamp(2.5rem, 1.1rem + 5.75vw, 6.25rem);
-  --fs-h2: clamp(1.875rem, 1.2rem + 2.9vw, 3.75rem);
-  --fs-h3: clamp(1.5rem, 1.3rem + 0.85vw, 2rem);
-  --fs-lead: clamp(1.1875rem, 1.1rem + 0.4vw, 1.375rem);
-  --fs-text: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
-  --fs-klein: 0.875rem;
-  --fs-marke: 0.75rem;
-  --fs-hand: clamp(1.75rem, 1.3rem + 2vw, 3rem);
-
-  --lh-titel: 1;
+  --fs-text: 1rem;
+  --fs-klein: 0.8125rem;
+  --fs-etikett: 0.75rem;
+  --lh-titel: 0.98;
   --lh-text: 1.55;
-  --ls-titel: -0.02em;
-  --ls-marke: 0.14em;
+  --ls-titel: -0.01em;
 
-  /* Abstände auf einem Raster von 8 Pixel. */
   --az-space-unit: 0.5rem;
-  --raum-1: calc(var(--az-space-unit) * 1);
-  --raum-2: calc(var(--az-space-unit) * 2);
-  --raum-3: calc(var(--az-space-unit) * 3);
-  --raum-4: calc(var(--az-space-unit) * 4);
-  --raum-6: calc(var(--az-space-unit) * 6);
-  --raum-8: calc(var(--az-space-unit) * 8);
-  --raum-12: calc(var(--az-space-unit) * 12);
-  --raum-kapitel: clamp(4.5rem, 3rem + 7vw, 10rem);
-
-  --az-content-width: 82.5rem; /* 1320 Pixel */
-  --rand: clamp(1.25rem, 0.4rem + 3.6vw, 4.5rem);
+  --rand: 1.25rem;
+  --az-content-width: 70rem; /* 1120 Pixel */
   --az-radius-small: 4px;
   --az-radius-medium: 10px;
 
-  --kurve: cubic-bezier(0.22, 0.7, 0.2, 1);
-  --dauer-kurz: 180ms;
+  --kopf-h: 4.25rem; /* 68 Pixel */
+  --band-h: 0rem;
+  --kurve: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Mit Hinweisband wird der feste Kopf um das Band höher. */
+:root:has(.band) {
+  --band-h: 2.75rem;
 }

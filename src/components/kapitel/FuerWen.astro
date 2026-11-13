@@ -1,0 +1,21 @@
+---
+import { getEntry } from 'astro:content';
+
+const t = (await getEntry('texte', 'fuer')).data;
+---
+
+<section class="fuer blatt" aria-labelledby="fuer-titel">
+  <h2 class="verborgen" id="fuer-titel">{t.titel}</h2>
+  <div class="innen zwei">
+    {
+      t.punkte.map((punkt) => (
+        <div class="seite">
+          <p class="etikett">{punkt.etikett}</p>
+          <h3>{punkt.titel}</h3>
+          <ul>{punkt.liste.map((zeile) => <li>{zeile}</li>)}</ul>
+          <a class="knopf" href="#anfrage" data-fuer={punkt.wert}>{punkt.knopf}</a>
+        </div>
+      ))
+    }
+  </div>
+</section>

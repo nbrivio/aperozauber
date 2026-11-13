@@ -1,0 +1,50 @@
+---
+// Stimmen und Firmenlogos erscheinen nur mit Einverständnis. Solange keine erfasst sind,
+// zeigt die Testadresse die leeren Plätze, die richtige Adresse lässt den Teil weg.
+import { getEntry } from 'astro:content';
+import { stimmen, firmen } from '../../inhalt/stimmen.js';
+import { betrieb } from '../../inhalt/betrieb.js';
+import { istLive } from '../../inhalt/stufe.js';
+
+const t = (await getEntry('texte', 'stimmen')).data;
+const plaetze = ['Hier steht, was einer Kundin vom Abend geblieben ist.', 'Hier ein Satz aus einem Firmenapéro.', 'Und hier einer von einem Geburtstag.'];
+const zeigeStimmen = stimmen.length > 0 || !istLive;
+const zeigeWand = firmen.length > 0 || !istLive;
+---
+
+<section class="stimmen blatt" id="stimmen" aria-labelledby="stimmen-titel">
+  <div class="innen">
+    <h2 id="stimmen-titel">{t.titel}</h2>
+    {
+      zeigeStimmen && (
+        <div class="dreier">
+          {stimmen.length > 0
+            ? stimmen.map((s) => (
+                <figure class="stimme">
+                  <figcaption class="etikett">{s.von}</figcaption>
+                  <blockquote>{s.text}</blockquote>
+                </figure>
+              ))
+            : plaetze.map((platz) => (
+                <div class="stimme">
+                  <p class="etikett">Platz für eine Stimme</p>
+                  <p>{platz}</p>
+                </div>
+              ))}
+        </div>
+      )
+    }
+    {
+      zeigeWand && (
+        <div class="wand">
+          <p class="etikett">{t.etikett}</p>
+          <ul>{firmen.length > 0 ? firmen.map((f) => <li>{f.name}</li>) : [1, 2, 3, 4, 5].map((n) => <li>Firmenlogo {n}</li>)}</ul>
+        </div>
+      )
+    }
+    <div class="insta">
+      <p class="gross">{t.satz}</p>
+      <a class="knopf" href={betrieb.instagram} rel="noopener noreferrer">{t.knopf}</a>
+    </div>
+  </div>
+</section>

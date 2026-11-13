@@ -1,4 +1,4 @@
-@layer schriften, grund, bausteine;
+@layer schriften, grund, bausteine, seite;
 
 @layer schriften {
   @font-face {
@@ -77,26 +77,21 @@
   html {
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
-    scroll-padding-block-start: var(--raum-4);
+    /* Der feste Kopf und der schwebende Knopf dürfen nie verdecken, was den Fokus hat. */
+    scroll-padding-block-start: calc(var(--kopf-h) + var(--band-h) + 1rem);
+    scroll-padding-block-end: 5rem;
   }
 
   body {
     margin: 0;
-    min-block-size: 100vh;
-    min-block-size: 100svh;
-    display: flex;
-    flex-direction: column;
     background: var(--az-paper);
     color: var(--az-ink);
     font-family: var(--az-font-body);
     font-size: var(--fs-text);
     line-height: var(--lh-text);
-    font-optical-sizing: auto;
     -webkit-font-smoothing: antialiased;
-  }
-
-  main {
-    flex: 1;
+    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   h1,
@@ -108,22 +103,11 @@
     line-height: var(--lh-titel);
     letter-spacing: var(--ls-titel);
     text-wrap: balance;
-  }
-  h1 {
-    font-size: var(--fs-h1);
-  }
-  h2 {
-    font-size: var(--fs-h2);
-  }
-  h3 {
-    font-size: var(--fs-h3);
-    line-height: 1.1;
+    overflow-wrap: break-word;
   }
 
   p {
     margin: 0;
-    max-inline-size: 36rem;
-    text-wrap: pretty;
   }
 
   img {
@@ -133,31 +117,17 @@
   }
 
   a {
-    color: var(--az-pine);
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.2em;
+    color: inherit;
   }
 
   :focus-visible {
-    outline: 2px solid var(--az-pine);
+    outline: 2px solid var(--az-fig);
     outline-offset: 3px;
-    border-radius: 2px;
   }
 
   ::selection {
     background: var(--az-pine);
     color: var(--az-paper);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0s !important;
-      scroll-behavior: auto !important;
-    }
   }
 
   @media print {
@@ -169,84 +139,90 @@
 }
 
 @layer bausteine {
-  .rahmen {
-    inline-size: 100%;
-    max-inline-size: calc(var(--az-content-width) + 2 * var(--rand));
+  .innen {
+    position: relative;
+    max-inline-size: var(--az-content-width);
     margin-inline: auto;
-    padding-inline: var(--rand);
+  }
+
+  picture.siegel {
+    display: contents;
+  }
+
+  .verborgen {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
 
   .sprung {
-    position: absolute;
-    inset-block-start: var(--raum-2);
-    inset-inline-start: var(--raum-2);
-    z-index: 10;
-    padding: var(--raum-1) var(--raum-2);
+    position: fixed;
+    inset-block-start: 0.75rem;
+    inset-inline-start: 0.75rem;
+    z-index: 50;
+    padding: 0.75rem 1rem;
     background: var(--az-pine);
     color: var(--az-paper);
     border-radius: var(--az-radius-small);
-    transform: translateY(-200%);
+    transform: translateY(-300%);
   }
   .sprung:focus-visible {
     transform: none;
-    outline-color: var(--az-ink);
-  }
-
-  .marke {
-    font-size: var(--fs-marke);
-    font-weight: 500;
-    letter-spacing: var(--ls-marke);
-    text-transform: uppercase;
-  }
-
-  .lead {
-    font-size: var(--fs-lead);
-    line-height: 1.4;
-    max-inline-size: 30rem;
-  }
-  .lead p {
-    text-wrap: balance;
+    outline-color: var(--az-paper);
+    outline-offset: -5px;
   }
 
   .hand {
     font-family: var(--az-font-hand);
-    font-size: var(--fs-hand);
-    line-height: 1.1;
-    color: var(--az-fig);
+    font-weight: 400;
+    line-height: 1;
+    font-size-adjust: 0.3;
+  }
+
+  .etikett {
+    font: 500 var(--fs-etikett) / 1.4 var(--az-font-body);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--az-pine);
   }
 
   .knopf {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--raum-2);
-    min-block-size: 3.25rem;
-    padding: var(--raum-2) var(--raum-4);
+    display: inline-block;
+    font: 500 var(--fs-klein) / 1 var(--az-font-body);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
     background: var(--az-pine);
     color: var(--az-paper);
+    padding: 0.9375rem 1.375rem;
+    border: 0;
     border-radius: var(--az-radius-small);
-    font-weight: 500;
-    line-height: 1.2;
-    text-decoration: none;
-    transition: background-color var(--dauer-kurz) var(--kurve);
+    cursor: pointer;
+    transition: background-color 0.2s var(--kurve);
   }
-  .knopf::after {
-    content: '';
-    inline-size: 1.25rem;
-    block-size: 1px;
-    background: currentColor;
-    transform-origin: left;
-    transition: transform var(--dauer-kurz) var(--kurve);
+  .knopf.hell {
+    background: var(--az-paper);
+    color: var(--az-pine);
   }
   @media (hover: hover) {
-    .knopf:hover {
+    .knopf:not(.hell):hover {
       background: var(--az-pine-tief);
     }
-    .knopf:hover::after {
-      transform: scaleX(1.6);
-    }
   }
-  .knopf:active {
-    background: var(--az-pine-tief);
+
+  /* Dunkle Flächen: heller Fokusrahmen, helle Etiketten. */
+  .dunkel {
+    background: var(--az-pine);
+    color: var(--az-paper);
+  }
+  .dunkel :focus-visible {
+    outline-color: var(--az-linen);
+  }
+  .dunkel .etikett {
+    color: inherit;
   }
 
   @media (forced-colors: active) {

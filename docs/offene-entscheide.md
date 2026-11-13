@@ -7,9 +7,11 @@
 - [ ] Depot: Die Info-Seite nennt CHF 50 für Platten und Kisten, die AGB erwähnen kein Depot. Gilt es weiter?
 - [ ] Geschenkboxen und Catering: Was gilt?
 - [ ] Liefergebiet, Vorlaufzeit und Höchstzahl Aufträge pro Tag.
-- [ ] Telefon: Die Nummer aus dem bisherigen Impressum ist noch nicht übernommen. Soll sie auf die Seite, oder wartet das auf die Geschäftsnummer?
-- [ ] Kreationen: Grössen, Personenzahl und Richtpreise sind von der bisherigen Seite übernommen (Stand 13.11.2026) und als Entwurf markiert. Zu bestätigen. Es fehlen je ein Satz in Sibylles Stimme und die Allergene, die bisherige Seite nennt keine.
+- [ ] Telefon: Im Fuss steht die Nummer aus dem bisherigen Impressum, wie im Prototyp. Bleibt sie, bis die Geschäftsnummer da ist?
+- [ ] Kreationen: Texte aus dem Prototyp, Grössen und Richtpreise von der bisherigen Seite (Stand 13.11.2026), alles als Entwurf markiert. Zu bestätigen. Es fehlen die Allergene je Kreation.
 - [ ] Bilder: Fotos für Waldmeister, Antipastizauber, Brot, Chutney und Feigensenf. Fotos mit Menschen am Tisch für den Auftakt.
+- [ ] Bilder in Originalgrösse: Die sieben Bilder stammen aus dem Prototyp und sind für grosse Bildschirme zu klein. Das Bild im Auftakt wird dort sichtbar weich.
+- [ ] Hosting der richtigen Seite: GitHub Pages kennt keine echten Weiterleitungen, keine eigenen Sicherheits-Kopfzeilen und keinen Formularversand. Bei Hostpoint bestehen nur Domain und Mail. Zu entscheiden mit Phase 3.
 - [ ] Firmenlogos und Kundenstimmen mit Einverständnis.
 - [ ] Rechtstexte: Impressum, AGB (13 Punkte) und Qualität & Hygiene im Wortlaut übernehmen (Phase 4).
 - [ ] Datenschutzerklärung: Die bisherige Seite hat keine eigene, die AGB verweisen aber auf eine. Sie muss neu geschrieben und geprüft werden.

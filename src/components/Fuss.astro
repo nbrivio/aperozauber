@@ -1,64 +1,70 @@
 ---
 import Siegel from './Siegel.astro';
+import { getCollection } from 'astro:content';
 import { betrieb } from '../inhalt/betrieb.js';
+import { pfad } from '../inhalt/pfad.js';
+
+const start = pfad('/');
+const recht = (await getCollection('recht')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
+const kurz = { agb: 'AGB' };
 ---
 
-<footer class="fuss">
-  <div class="rahmen fuss__raster">
-    <Siegel farbe="weiss" breiten={[144, 288]} class="fuss__siegel" />
-    <address class="fuss__anbieterin">
-      <span>{betrieb.name}</span>
-      <span>{betrieb.strasse}, {betrieb.plz} {betrieb.ort}</span>
-      <a href={`mailto:${betrieb.email}`}>{betrieb.email}</a>
-      <a href={betrieb.instagram} rel="noopener noreferrer">Apérozauber auf Instagram</a>
-    </address>
+<footer class="dunkel">
+  <div class="innen">
+    <Siegel farbe="weiss" breiten={[150, 300]} class="fuss__siegel" />
+    <div class="fuss__angaben">
+      <span class="hand" lang="it">More apéro, per favore.</span>
+      <span>{betrieb.name}, {betrieb.plz} {betrieb.ort}</span>
+      <span>
+        <a href={`mailto:${betrieb.email}`}>{betrieb.email}</a> · <a href={`tel:${betrieb.telefon.replaceAll(' ', '')}`}>{betrieb.telefon.replaceAll(' ', '\u00a0')}</a>
+      </span>
+      <a href={betrieb.instagram} rel="noopener noreferrer">Instagram @aperozauber</a>
+    </div>
+    <nav aria-label="Rechtliches">
+      {recht.map((r) => <a href={`${start}#${r.id}`}>{kurz[r.id] ?? r.data.titel}</a>)}
+    </nav>
   </div>
 </footer>
 
 <style>
-  .fuss {
-    margin-block-start: var(--raum-kapitel);
-    padding-block: var(--raum-8) var(--raum-6);
-    background: var(--az-pine);
-    color: var(--az-paper);
+  footer {
+    padding: 30px 20px 96px;
+    font-size: 14px;
+    border-top: 1px solid rgb(246 243 236 / 0.2);
   }
-  .fuss__raster {
+  .innen {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 28px;
+    justify-content: space-between;
+  }
+  footer :global(.fuss__siegel) {
+    width: 150px;
+    height: 150px;
+  }
+  .fuss__angaben {
     display: grid;
-    gap: var(--raum-4);
-    align-items: end;
+    gap: 2px;
+    align-content: center;
+    justify-items: start;
   }
-  .fuss :global(.fuss__siegel) {
-    inline-size: 9rem;
-    margin-inline-start: -0.5rem;
+  .hand {
+    font-size: 34px;
+    color: var(--az-linen);
+    margin-bottom: 6px;
   }
-  .fuss__anbieterin {
-    display: grid;
-    gap: var(--raum-1);
-    font-style: normal;
-    font-size: var(--fs-klein);
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 18px;
+    align-content: start;
   }
-  .fuss a {
-    color: inherit;
+  a {
     display: inline-flex;
     align-items: center;
-    min-block-size: 2.75rem;
-    justify-self: start;
-    text-decoration-color: color-mix(in oklch, var(--az-paper) 45%, transparent);
+    min-height: 28px;
   }
-  .fuss :global(:focus-visible) {
-    outline-color: var(--az-paper);
-  }
-  @media (min-width: 48rem) {
-    .fuss__raster {
-      grid-template-columns: 1fr auto;
-      gap: var(--raum-8);
-    }
-    .fuss__anbieterin {
-      justify-items: end;
-      text-align: end;
-    }
-    .fuss a {
-      justify-self: end;
-    }
+  nav a {
+    min-height: 44px;
   }
 </style>

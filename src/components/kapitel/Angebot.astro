@@ -1,0 +1,41 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import { Picture } from 'astro:assets';
+import { titelAlsHtml } from '../../inhalt/titel.js';
+import { preiszeile } from '../../inhalt/preis.js';
+
+const t = (await getEntry('texte', 'angebot')).data;
+const kreationen = (await getCollection('kreationen')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
+const karten = await Promise.all(kreationen.map(async (k) => ({ k: k.data, Content: (await render(k)).Content })));
+---
+
+<section class="angebot" id="angebot" aria-labelledby="angebot-titel">
+  <div class="kopfzeile">
+    <h2 id="angebot-titel" set:html={titelAlsHtml(t.titel)} />
+    <p class="etikett">{t.etikett}</p>
+  </div>
+  <div class="schiene" tabindex="0" role="group" aria-label="Kreationen und Beilagen, seitlich blättern">
+    {
+      karten.map(({ k, Content }) => (
+        <article class="karte">
+          <div class:list={['bild', k.bild ? null : `ton-${k.ton}`]}>
+            {k.bild ? (
+              <Picture src={k.bild} alt={k.bildAlt} formats={['avif', 'webp']} widths={[330, 660]} sizes="(max-width: 420px) 78vw, 330px" loading="lazy" />
+            ) : (
+              <span class="hand">Bild folgt</span>
+            )}
+          </div>
+          <div class="inhalt">
+            <h3>{k.name}</h3>
+            {k.notiz && <p class="notiz">{k.notiz}</p>}
+            <Content />
+            <div class="fuss">
+              <span class="preis">{preiszeile(k)}</span>
+              <a href="#anfrage" aria-label={`${k.name} anfragen`}>{t.knopf}</a>
+            </div>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>

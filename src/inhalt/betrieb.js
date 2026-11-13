@@ -10,6 +10,7 @@ const schema = z.object({
   ort: z.string().min(1),
   land: z.string().length(2),
   email: z.email(),
+  telefon: z.string().regex(/^\+41 \d{2} \d{3} \d{2} \d{2}$/),
   instagram: z.url(),
 });
 

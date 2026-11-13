@@ -6,19 +6,28 @@ const text = gueltigerHinweis();
 {
   text && (
     <aside class="band" aria-label="Aktueller Hinweis">
-      <p class="rahmen">{text}</p>
+      <p>{text}</p>
     </aside>
   )
 }
 
 <style>
   .band {
+    display: grid;
+    place-items: center;
+    block-size: var(--band-h);
+    padding-inline: 16px;
     background: var(--az-pine);
     color: var(--az-paper);
     font-size: var(--fs-klein);
-    padding-block: var(--raum-1);
+    line-height: 1.3;
+    text-align: center;
   }
   .band p {
-    max-inline-size: calc(var(--az-content-width) + 2 * var(--rand));
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
   }
 </style>

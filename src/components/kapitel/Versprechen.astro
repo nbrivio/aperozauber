@@ -1,0 +1,19 @@
+---
+import { getEntry, render } from 'astro:content';
+
+const text = await getEntry('texte', 'versprechen');
+const { Content } = await render(text);
+const t = text.data;
+---
+
+<section class="blatt satz" id="idee" data-satz aria-labelledby="idee-titel">
+  <div class="innen">
+    <h2 id="idee-titel">{t.titel}</h2>
+    <span class="hand">{t.hand}</span>
+    <div class="neben">
+      <p class="etikett">{t.etikett}</p>
+      <p class="gross">{t.satz}</p>
+      <Content />
+    </div>
+  </div>
+</section>

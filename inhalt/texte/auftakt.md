@@ -1,9 +1,11 @@
 ---
 kapitel: auftakt
-titel: "Das Beste am Apéro? *Die Menschen drumherum.*"
-knopf: "Apéro anfragen"
-abgang: "More apéro, per favore."
-quelle: "Brand Guidelines 1.0, Kapitel 1.2 und 4.3"
+etikett: "Apéro-Kreationen aus Villmergen"
+hand: "More apéro, per favore."
+zeig: "scrollen und aufmachen"
+titel: "Das Beste am Apéro? Die Menschen *drumherum.*"
+bild: ../../src/assets/bilder/fruechtezauber-von-oben.webp
+bildAlt: "Früchteplatte von oben: Blutorangen, Heidelbeeren, Erdbeeren und Trauben auf einem langen Holzbrett"
 freigegeben: false
 ---
-Ich kümmere mich um den Apéro. Du um die Menschen.
+Ich gestalte Apéro-Kreationen mit Liebe zum Detail, damit du mehr Zeit für deine Gäste hast.

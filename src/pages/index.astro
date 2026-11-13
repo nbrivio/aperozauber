@@ -1,73 +1,47 @@
 ---
-import { getEntry, getCollection, render } from 'astro:content';
+import { getCollection } from 'astro:content';
 import Seite from '../layouts/Seite.astro';
+import Auftakt from '../components/kapitel/Auftakt.astro';
+import Versprechen from '../components/kapitel/Versprechen.astro';
+import Stapel from '../components/kapitel/Stapel.astro';
+import Angebot from '../components/kapitel/Angebot.astro';
+import Ablauf from '../components/kapitel/Ablauf.astro';
+import Sibylle from '../components/kapitel/Sibylle.astro';
+import Stimmen from '../components/kapitel/Stimmen.astro';
+import FuerWen from '../components/kapitel/FuerWen.astro';
+import Anfrage from '../components/kapitel/Anfrage.astro';
+import Recht from '../components/kapitel/Recht.astro';
+import '../stile/startseite.css';
+import schalter from '../skripte/schalter.js?raw';
 import { betrieb } from '../inhalt/betrieb.js';
 import { verlangeFreigabe } from '../inhalt/stufe.js';
-import { titelAlsHtml } from '../inhalt/titel.js';
 
 verlangeFreigabe(await getCollection('texte'), 'freigegeben', 'Texte');
+verlangeFreigabe(await getCollection('recht'), 'freigegeben', 'Rechtstexte');
 verlangeFreigabe(await getCollection('kreationen'), 'bestaetigt', 'Kreationen');
-
-const auftakt = await getEntry('texte', 'auftakt');
-const { Content } = await render(auftakt);
 ---
 
 <Seite
-  auftakt
+  start
   titel={`Apéroplatten und Apéro-Kreationen in ${betrieb.ort} | ${betrieb.name}`}
   beschreibung={`Von Hand gestaltete Apéro-Kreationen aus ${betrieb.ort}, für private Anlässe und Firmen. Frag deinen Apéro direkt bei Sibylle an.`}
 >
-  <section class="auftakt rahmen" aria-labelledby="auftakt-titel">
-    <h1 id="auftakt-titel" set:html={titelAlsHtml(auftakt.data.titel)} />
-    <div class="auftakt__fuss">
-      <div class="lead"><Content /></div>
-      <a class="knopf" href={`mailto:${betrieb.email}?subject=${encodeURIComponent('Apéro-Anfrage')}`}>{auftakt.data.knopf}</a>
-    </div>
-    <p class="auftakt__abgang hand" lang="it">{auftakt.data.abgang}</p>
-  </section>
+  <script slot="kopf" is:inline set:html={schalter} />
+
+  <Auftakt />
+  <Versprechen />
+  <Stapel />
+  <Angebot />
+  <Ablauf />
+  <Sibylle />
+  <Stimmen />
+  <FuerWen />
+  <Anfrage />
+  <Recht />
+
+  <div class="schweb" data-schweb><a class="knopf" href="#anfrage">Apéro anfragen</a></div>
 </Seite>
 
-<style>
-  .auftakt {
-    display: grid;
-    gap: var(--raum-6);
-    padding-block-start: clamp(2.5rem, 1rem + 6vw, 6rem);
-  }
-  h1 {
-    max-inline-size: 11.5em;
-  }
-  h1 :global(em) {
-    display: block;
-    font-style: italic;
-  }
-  .auftakt__fuss {
-    display: grid;
-    gap: var(--raum-4);
-    justify-items: start;
-  }
-  .auftakt__abgang {
-    max-inline-size: none;
-    transform: rotate(-4deg);
-    transform-origin: left center;
-    margin-block-start: var(--raum-2);
-  }
-  @media (min-width: 60rem) {
-    .auftakt {
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-      column-gap: var(--raum-3);
-      row-gap: var(--raum-8);
-    }
-    h1 {
-      grid-column: 1 / span 10;
-    }
-    .auftakt__fuss {
-      grid-column: 1 / span 6;
-    }
-    .auftakt__abgang {
-      grid-column: 8 / span 5;
-      align-self: end;
-      justify-self: end;
-      margin: 0;
-    }
-  }
-</style>
+<script>
+  import '../skripte/startseite.js';
+</script>

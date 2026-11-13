@@ -3,22 +3,22 @@ import '../stile/tokens.css';
 import '../stile/grund.css';
 import Kopf from '../components/Kopf.astro';
 import Fuss from '../components/Fuss.astro';
-import Hinweisband from '../components/Hinweisband.astro';
 import { betrieb } from '../inhalt/betrieb.js';
 import { istLive } from '../inhalt/stufe.js';
 import { pfad } from '../inhalt/pfad.js';
 import schriftTitel from '../assets/schriften/instrument-serif-latin-400-normal.woff2?url';
 import schriftText from '../assets/schriften/dm-sans-latin-wght-normal.woff2?url';
+import schriftHand from '../assets/schriften/oooh-baby-latin-400-normal.woff2?url';
 
-const { titel, beschreibung, auftakt = false, intern = false, daten = [] } = Astro.props;
+const { titel, beschreibung, start = false, intern = false, daten = [] } = Astro.props;
 
 if (beschreibung.length > 160) {
   throw new Error(`Beschreibung zu lang (${beschreibung.length} Zeichen): ${Astro.url.pathname}`);
 }
 
-const seitentitel = auftakt ? titel : `${titel} | ${betrieb.name}`;
+const seitentitel = start ? titel : `${titel} | ${betrieb.name}`;
 const adresse = new URL(Astro.url.pathname, Astro.site).href;
-const start = new URL(pfad('/'), Astro.site).href;
+const anfang = new URL(pfad('/'), Astro.site).href;
 const vorschau = new URL(pfad('/vorschau.jpg'), Astro.site).href;
 const finden = istLive && !intern;
 
@@ -28,10 +28,11 @@ const graph = {
   '@graph': [
     {
       '@type': 'Organization',
-      '@id': `${start}#betrieb`,
+      '@id': `${anfang}#betrieb`,
       name: betrieb.name,
-      url: start,
+      url: anfang,
       email: betrieb.email,
+      telephone: betrieb.telefon.replaceAll(' ', ''),
       logo: new URL(pfad('/apple-touch-icon.png'), Astro.site).href,
       founder: { '@type': 'Person', name: betrieb.inhaberin },
       address: {
@@ -45,11 +46,11 @@ const graph = {
     },
     {
       '@type': 'WebSite',
-      '@id': `${start}#website`,
-      url: start,
+      '@id': `${anfang}#website`,
+      url: anfang,
       name: betrieb.name,
       inLanguage: 'de-CH',
-      publisher: { '@id': `${start}#betrieb` },
+      publisher: { '@id': `${anfang}#betrieb` },
     },
     {
       '@type': 'WebPage',
@@ -58,8 +59,8 @@ const graph = {
       name: seitentitel,
       description: beschreibung,
       inLanguage: 'de-CH',
-      isPartOf: { '@id': `${start}#website` },
-      about: { '@id': `${start}#betrieb` },
+      isPartOf: { '@id': `${anfang}#website` },
+      about: { '@id': `${anfang}#betrieb` },
     },
     ...daten,
   ],
@@ -81,6 +82,7 @@ const graph = {
     <link rel="apple-touch-icon" href={pfad('/apple-touch-icon.png')} />
     <link rel="preload" href={schriftTitel} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={schriftText} as="font" type="font/woff2" crossorigin />
+    {start && <link rel="preload" href={schriftHand} as="font" type="font/woff2" crossorigin />}
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={betrieb.name} />
     <meta property="og:locale" content="de_CH" />
@@ -96,11 +98,11 @@ const graph = {
     <meta name="twitter:description" content={beschreibung} />
     <meta name="twitter:image" content={vorschau} />
     <script type="application/ld+json" is:inline set:html={JSON.stringify(graph)} />
+    <slot name="kopf" />
   </head>
   <body>
     <a class="sprung" href="#inhalt">Zum Inhalt springen</a>
-    <Hinweisband />
-    <Kopf auftakt={auftakt} />
+    <Kopf />
     <main id="inhalt">
       <slot />
     </main>

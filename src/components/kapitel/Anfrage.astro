@@ -1,0 +1,71 @@
+---
+// Die Anfrage setzt aus den Angaben eine Nachricht zusammen und öffnet damit das Mailprogramm.
+// Der Versand direkt von der Seite folgt mit Phase 3.
+import { getCollection, getEntry, render } from 'astro:content';
+import { titelAlsHtml } from '../../inhalt/titel.js';
+import { mengenwort } from '../../inhalt/preis.js';
+import { betrieb } from '../../inhalt/betrieb.js';
+
+const text = await getEntry('texte', 'anfrage');
+const { Content } = await render(text);
+const t = text.data;
+const kreationen = (await getCollection('kreationen')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
+const groessen = (await getEntry('texte', 'angebot')).data.etikett;
+---
+
+<section class="anfrage dunkel" id="anfrage" aria-labelledby="anfrage-titel">
+  <div class="innen">
+    <p class="etikett">{t.etikett}</p>
+    <h2 id="anfrage-titel" set:html={titelAlsHtml(t.titel)} />
+    <form data-anfrage action={`mailto:${betrieb.email}`} method="post" enctype="text/plain" novalidate>
+      <div class="feld"><label for="name">Wer?</label><input type="text" id="name" name="name" autocomplete="name" placeholder="Dein Name" /></div>
+      <fieldset>
+        <legend>Für wen?</legend>
+        <div class="wahl">
+          <label><input type="radio" name="fuer" value="Privat" checked /><span>Privat</span></label>
+          <label><input type="radio" name="fuer" value="Firma" /><span>Firma</span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Was und wie viel?</legend>
+        <p class="hinweis">{groessen}</p>
+        <div class="liste">
+          {
+            kreationen.map(({ id, data: k }) => (
+              <div class="posten" role="group" aria-label={k.name}>
+                <span>{k.name}</span>
+                <div class="mengen">
+                  {k.art === 'kreation' ? (
+                    k.groessen.map((g) => (
+                      <label>
+                        {g.groesse}
+                        <input type="number" name={`${id}-${g.groesse}`} min="0" max="20" value="0" inputmode="numeric" data-p={k.name} data-g={g.groesse} />
+                      </label>
+                    ))
+                  ) : (
+                    <label>
+                      {mengenwort(k)}
+                      <input type="number" name={id} min="0" max="40" value="0" inputmode="numeric" data-p={k.name} data-g="" />
+                    </label>
+                  )}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </fieldset>
+      <div class="feld schmal"><label for="wieviele">Wie viele Gäste?</label><input type="number" id="wieviele" name="wieviele" min="1" max="500" inputmode="numeric" placeholder="ungefähr" /></div>
+      <div class="feld"><label for="wann">Wann?</label><input type="date" id="wann" name="wann" /></div>
+      <div class="feld"><label for="wo">Wo?</label><input type="text" id="wo" name="wo" placeholder="Abholung in Villmergen oder Lieferort" /></div>
+      <div class="feld"><label for="wuensche">Noch etwas?</label><input type="text" id="wuensche" name="wuensche" placeholder="Wünsche, Allergien" /></div>
+      <div class="ankunft" data-ankunft hidden>
+        <p class="etikett">{t.satz}</p>
+        <p class="vorschau" data-vorschau aria-live="polite"></p>
+      </div>
+      <div class="wege">
+        <button class="knopf hell" type="submit">{t.knopf}</button>
+      </div>
+      <div class="hinweis"><Content /></div>
+    </form>
+  </div>
+</section>

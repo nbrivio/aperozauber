@@ -1,50 +1,121 @@
 ---
-// Das Siegel steht fest im Kopf. Es bewegt sich nicht und kommt auf der Seite genau einmal schwarz vor.
+// Fester Kopf. Das Siegel steht fest links und bewegt sich nicht. Auf der Startseite
+// ist der Kopf am Anfang durchsichtig und blendet beim Scrollen ein.
 import Siegel from './Siegel.astro';
+import Hinweisband from './Hinweisband.astro';
 import { betrieb } from '../inhalt/betrieb.js';
 import { pfad } from '../inhalt/pfad.js';
 
-const { auftakt = false } = Astro.props;
+const start = pfad('/');
+const [vorname, marke] = betrieb.name.split(' ');
+const punkte = [
+  ['#idee', 'Die Idee'],
+  ['#angebot', 'Kreationen'],
+  ['#sibylle', 'Sibylle'],
+  ['#stimmen', 'Einblicke'],
+];
 ---
 
-<header class:list={['kopf', 'rahmen', { 'kopf--auftakt': auftakt }]}>
-  <a class="kopf__siegel" href={pfad('/')} aria-label={`${betrieb.name}, Startseite`} aria-current={auftakt ? 'page' : undefined}>
-    <Siegel breiten={[184, 368]} sizes="(min-width: 60rem) 184px, 112px" eilig />
-  </a>
-  <a class="kopf__kontakt" href={`mailto:${betrieb.email}`}>{betrieb.email}</a>
+<header class="kopf" data-kopf>
+  <Hinweisband />
+  <div class="kopf__leiste">
+    <a class="marke" href={`${start}#anfang`}>
+      <Siegel class="marke__siegel" breiten={[54, 108, 162]} sizes="54px" alt="" eilig />
+      <span class="marke__wort"><b>{vorname}</b> <i>{marke}</i><span class="verborgen">, zum Anfang</span></span>
+    </a>
+    <nav aria-label="Hauptnavigation">
+      {punkte.map(([ziel, name]) => <a href={`${start}${ziel}`}>{name}</a>)}
+      <a href={betrieb.instagram} rel="noopener noreferrer">Instagram</a>
+    </nav>
+    <a class="knopf" href={`${start}#anfrage`}>Apéro anfragen</a>
+  </div>
 </header>
 
 <style>
   .kopf {
+    --t: 1;
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 30;
+  }
+  /* Mit der Tastatur im Kopf ist er immer sichtbar. */
+  .kopf:focus-within {
+    --t: 1 !important;
+  }
+  .kopf__leiste {
     display: flex;
-    align-items: flex-start;
     justify-content: space-between;
-    gap: var(--raum-3);
-    padding-block-start: var(--raum-3);
-  }
-  .kopf__siegel {
-    display: block;
-    inline-size: 5.5rem;
-    margin-inline-start: -0.4rem;
-    border-radius: 50%;
-  }
-  .kopf--auftakt .kopf__siegel {
-    inline-size: clamp(7rem, 4.6rem + 9.5vw, 11.5rem);
-    margin-inline-start: -0.6rem;
-  }
-  .kopf__kontakt {
-    display: inline-flex;
     align-items: center;
-    min-block-size: 2.75rem;
-    margin-block-start: var(--raum-1);
-    color: var(--az-ink);
-    font-size: var(--fs-klein);
-    font-weight: 500;
-    text-decoration-color: var(--az-linie);
+    gap: 12px;
+    height: var(--kopf-h);
+    padding: 0 16px;
+    background-color: rgb(246 243 236 / var(--t));
+    border-bottom: 1px solid rgb(39 36 31 / calc(var(--t) * 0.18));
+  }
+  .marke {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    line-height: 1;
+    opacity: var(--t);
+    margin-left: -2px;
+  }
+  .marke :global(.marke__siegel) {
+    width: 54px;
+    height: 54px;
+  }
+  .marke b {
+    display: block;
+    font: 500 11px/1 var(--az-font-body);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .marke i {
+    display: block;
+    font: 400 22px/1 var(--az-font-display);
+    font-style: normal;
+    margin-top: 2px;
+  }
+  nav {
+    display: none;
+    gap: 26px;
+    font: 500 13px/1 var(--az-font-body);
+    letter-spacing: 0.06em;
+    opacity: var(--t);
+  }
+  nav a {
+    text-decoration: none;
+    padding: 8px 0;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.25s;
   }
   @media (hover: hover) {
-    .kopf__kontakt:hover {
-      text-decoration-color: currentColor;
+    nav a:hover {
+      border-color: currentColor;
+    }
+  }
+  .knopf {
+    padding: 12px 13px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  @media (min-width: 900px) {
+    .kopf__leiste {
+      padding: 0 32px;
+    }
+    nav {
+      display: flex;
+    }
+  }
+  /* Auf sehr schmalen Bildschirmen bleibt das Siegel, der Name bleibt für Vorleseprogramme. */
+  @media (max-width: 359px) {
+    .marke__wort {
+      position: absolute;
+      inline-size: 1px;
+      block-size: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
     }
   }
 </style>

@@ -1,0 +1,14 @@
+---
+import { getEntry } from 'astro:content';
+
+const t = (await getEntry('texte', 'ablauf')).data;
+---
+
+<section class="ablauf" aria-labelledby="ablauf-titel">
+  <div class="innen">
+    <h2 id="ablauf-titel">{t.titel}</h2>
+    <ol class="schritte">
+      {t.punkte.map((punkt) => <li><b>{punkt.titel}</b><span>{punkt.text}</span></li>)}
+    </ol>
+  </div>
+</section>

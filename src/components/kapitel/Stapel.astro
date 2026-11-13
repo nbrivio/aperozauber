@@ -1,0 +1,30 @@
+---
+import { getEntry } from 'astro:content';
+import { Picture } from 'astro:assets';
+
+const t = (await getEntry('texte', 'stapel')).data;
+---
+
+<section class="stapel dunkel" data-stapel aria-labelledby="stapel-titel">
+  <h2 class="verborgen" id="stapel-titel">{t.titel}</h2>
+  <div class="halt">
+    <p class="zeile" aria-hidden="true">{t.titel}</p>
+    <div class="karten">
+      {
+        t.punkte.map((punkt) => (
+          <Picture src={punkt.bild} alt={punkt.bildAlt} formats={['avif', 'webp']} widths={[380, 760]} sizes="(max-width: 560px) 64vw, 360px" loading="lazy" />
+        ))
+      }
+    </div>
+    <div class="legenden">
+      {
+        t.punkte.map((punkt, i) => (
+          <p class:list={{ an: i === 0 }}>
+            <b>{punkt.titel}</b>
+            <span>{punkt.text}</span>
+          </p>
+        ))
+      }
+    </div>
+  </div>
+</section>

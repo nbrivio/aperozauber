@@ -1,0 +1,30 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+
+const t = (await getEntry('texte', 'rechtliches')).data;
+const abschnitte = (await getCollection('recht')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
+---
+
+<section class="recht" id="rechtliches" aria-labelledby="recht-titel">
+  <div class="innen">
+    <h2 id="recht-titel">{t.titel}</h2>
+    {
+      abschnitte.map(({ id, data: a }) => (
+        <details id={id}>
+          <summary>{a.titel}</summary>
+          <div class="text">
+            {a.vermerk && <p class="vermerk">{a.vermerk}</p>}
+            <dl>
+              {a.punkte.map((punkt) => (
+                <>
+                  <dt>{punkt.begriff}</dt>
+                  <dd>{punkt.text}</dd>
+                </>
+              ))}
+            </dl>
+          </div>
+        </details>
+      ))
+    }
+  </div>
+</section>

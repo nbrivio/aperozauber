@@ -1,6 +1,6 @@
 // Durchlauf im echten Browser: jede Seite auf fünf Breiten, ohne Überlauf, ohne Fehler in der Konsole
 // (dort melden sich auch Verstösse gegen die Content Security Policy), dazu die Prüfung nach WCAG 2.2 AA
-// und ein Tastaturdurchlauf mit sichtbarem Fokus.
+// und ein Tastaturdurchlauf mit sichtbarem Fokus. Zum Schluss jede Seite ohne JavaScript.
 import { relative } from 'node:path';
 import { chromium } from 'playwright-core';
 import { AxeBuilder } from '@axe-core/playwright';
@@ -59,8 +59,12 @@ for (const seite of seiten) {
           gross: stil.display === 'inline' || (r.width >= 24 && r.height >= 24),
         };
       });
-      if (!fokus) b.melde(ort, `Tab ${i + 1} landet nirgends`);
-      else {
+      // Zurück am Seitenanfang: alle sichtbaren Ziele sind durchlaufen.
+      if (!fokus) {
+        if (i === 0) b.melde(ort, 'Tab erreicht kein Ziel');
+        break;
+      }
+      {
         if (!fokus.rahmen) b.melde(ort, `kein Fokusrahmen: ${fokus.name}`);
         if (!fokus.sichtbar) b.melde(ort, `Fokus ausserhalb des Bildes: ${fokus.name}`);
         if (!fokus.gross) b.melde(ort, `Ziel kleiner als 24 Pixel: ${fokus.name}`);
@@ -68,6 +72,26 @@ for (const seite of seiten) {
     }
     await kontext.close();
   }
+}
+
+// Ohne JavaScript: die ruhige Fassung zeigt jede Überschrift und läuft nicht über.
+for (const seite of seiten) {
+  const ort = `${seite} (ohne JavaScript)`;
+  const kontext = await browser.newContext({ viewport: { width: 390, height: 844 }, javaScriptEnabled: false });
+  const fenster = await kontext.newPage();
+  await fenster.goto(adresse + seite, { waitUntil: 'load' });
+  for (const titel of await fenster.locator('h1, h2:not(.verborgen), h3').all()) {
+    const sichtbar = await titel.evaluate((e) => {
+      const r = e.getBoundingClientRect();
+      let deckkraft = 1;
+      for (let k = e; k; k = k.parentElement) deckkraft *= Number(getComputedStyle(k).opacity);
+      return r.width > 0 && r.height > 0 && deckkraft > 0.9 && getComputedStyle(e).visibility === 'visible';
+    });
+    if (!sichtbar) b.melde(ort, `Überschrift nicht sichtbar: ${(await titel.textContent()).trim().slice(0, 40)}`);
+  }
+  const ueberlauf = await fenster.locator('html').evaluate((e) => e.scrollWidth - e.clientWidth);
+  if (ueberlauf > 0) b.melde(ort, `horizontaler Überlauf um ${ueberlauf} Pixel`);
+  await kontext.close();
 }
 
 await browser.close();

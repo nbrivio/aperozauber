@@ -20,11 +20,11 @@ Alles, was sich ändert, liegt unter `inhalt/`, getrennt vom Code. Eine Änderun
 
 | Datei | Inhalt |
 | --- | --- |
-| `inhalt/hinweis.json` | Band für Ferien und Fristen: `text`, `von`, `bis` (Datum als JJJJ-MM-TT). Ausserhalb des Zeitraums verschwindet es von selbst |
-| `inhalt/kreationen/` | Je Kreation und Beilage eine Datei: Name, Satz, Grössen, Preise, Allergene, Bild, Alt-Text |
-| `inhalt/texte/` | Texte der Startseite, je Kapitel eine Datei |
+| `inhalt/hinweis.json` | Band für Ferien und Fristen: `text`, `von`, `bis` (Datum als JJJJ-MM-TT). Ausserhalb des Zeitraums verschwindet es von selbst. Kurz halten: auf dem Handy haben zwei Zeilen Platz |
+| `inhalt/kreationen/` | Je Kreation und Beilage eine Datei: Name, Notiz, Grössen, Preise, Allergene, Bild, Alt-Text, darunter die Beschreibung. Karten und Anfrage lesen beide hier |
+| `inhalt/texte/` | Texte der Startseite, je Kapitel eine Datei. Ein Teil zwischen Sternen im Titel erscheint in Handschrift |
 | `inhalt/stimmen.json`, `inhalt/firmen.json` | Kundenstimmen und Firmenlogos, nur mit Einverständnis |
-| `inhalt/recht/` | Impressum, AGB, Qualität & Hygiene, Datenschutz |
+| `inhalt/recht/` | Impressum, AGB, Qualität & Hygiene, Datenschutz, je eine Datei mit Begriff und Text |
 | `inhalt/betrieb.json` | Name, Ort und Kontakt. Fuss und strukturierte Daten lesen hier |
 
 Beispiel für einen Ferienhinweis:
@@ -37,21 +37,28 @@ Der Bau prüft die Angaben. Er bricht ab, wenn ein Pflichtfeld fehlt, ein Bild k
 
 ### Entwurf und Freigabe
 
-Texte tragen `freigegeben`, Kreationen `bestaetigt`. Solange dort `false` steht, ist der Eintrag ein Entwurf. Auf der Testadresse wird er geduldet. Mit `SITE_STUFE=live` bricht der Bau ab, bis alles freigegeben ist.
+Texte und Rechtstexte tragen `freigegeben`, Kreationen `bestaetigt`. Solange dort `false` steht, ist der Eintrag ein Entwurf. Auf der Testadresse wird er geduldet. Mit `SITE_STUFE=live` bricht der Bau ab, bis alles freigegeben ist.
 
 ## Aufbau
 
 ```
-inhalt/        Inhalte (siehe oben)
-src/stile/     Marken-Token und Grundstile
-src/layouts/   Seitengerüst mit Kopfangaben und strukturierten Daten
-src/components Kopf, Fuss, Hinweisband, Siegel
-src/pages/     Seiten
-src/inhalt/    Einlesen und Prüfen der Inhalte
-pruefungen/    Prüfungen vor jeder Veröffentlichung
-werkzeuge/     Hilfen, die nur bei Bedarf laufen
-docs/          Entscheide und offene Punkte
+inhalt/                 Inhalte (siehe oben)
+src/assets/             Bilder, Schriften, Siegel
+src/stile/              Marken-Token, Grundstile, Kapitel der Startseite
+src/layouts/            Seitengerüst mit Kopfangaben und strukturierten Daten
+src/components/         Kopf, Fuss, Hinweisband, Siegel
+src/components/kapitel/ Je Kapitel der Startseite eine Datei
+src/skripte/            Bewegung und Anfrage-Vorschau
+src/pages/              Seiten
+src/inhalt/             Einlesen und Prüfen der Inhalte
+pruefungen/             Prüfungen vor jeder Veröffentlichung
+werkzeuge/              Hilfen, die nur bei Bedarf laufen
+docs/                   Entscheide und offene Punkte
 ```
+
+### Bewegung
+
+Drei Momente bewegen sich beim Scrollen: das Fenster im Auftakt, die Handschrift im Versprechen und der Bilderstapel. `src/skripte/schalter.js` schaltet die Bewegung im Kopf der Seite ein, `src/skripte/startseite.js` führt sie aus. Ohne Skript, bei einem Fehler und bei reduzierter Bewegung zeigt die Seite dieselben Inhalte ruhig untereinander.
 
 Die Seite `/grundlagen/` zeigt Farben, Schriften und Bausteine zur Abnahme. Sie ist nicht verlinkt und für Suchmaschinen gesperrt.
 
@@ -63,7 +70,7 @@ Die Seite `/grundlagen/` zeigt Farben, Schriften und Bausteine zur Abnahme. Sie 
 | `pruefen:gate` | Kopfangaben, eine `h1`, Überschriftenfolge, Alt-Texte, Bildmasse, tote Verweise, Schreibweise, strukturierte Daten, Sitemap |
 | `pruefen:kontrast` | Farbpaare aus `pruefungen/kontrast.json` gegen ihre Schwelle |
 | `pruefen:vermerke` | Dateien, gebaute Seite und Commit-Texte auf Werkzeug-Vermerke |
-| `pruefen:browser` | Fünf Bildschirmbreiten in Chrome: kein Überlauf, keine Fehler, keine Abrufe nach aussen, WCAG 2.2 AA, Tastatur und Fokus |
+| `pruefen:browser` | Fünf Bildschirmbreiten in Chrome: kein Überlauf, keine Fehler, keine Abrufe nach aussen, WCAG 2.2 AA, Tastatur und Fokus. Dazu jede Seite ohne JavaScript |
 | `pruefen:ladezeit` | Startseite wie auf einem mittleren Handy: grösstes Element unter 2,5 s, Layoutsprung unter 0,1, Gewicht unter 1 MB |
 
 ## Veröffentlichung
@@ -91,6 +98,7 @@ Hinweis: GitHub hält geplante Läufe in öffentlichen Repositorys an, wenn 60 T
 ## Sicherheit
 
 - Keine Tracker, keine fremden Skripte, keine fremden Schriften, keine Cookies.
+- Die Anfrage verlässt die Seite über das Mailprogramm der Besucherin. Die Seite überträgt und speichert keine Angaben aus dem Formular.
 - Content Security Policy als Meta-Angabe mit Prüfsummen, Grundregel `default-src 'none'`. GitHub Pages erlaubt keine eigenen Server-Kopfzeilen. Angaben wie `frame-ancestors` oder HSTS mit eigener Dauer brauchen später einen vorgeschalteten Dienst.
 - Abhängigkeiten mit festen Versionen und Sperrdatei, Einrichtung ohne Installationsskripte, wöchentliche Aktualisierungsvorschläge.
 - Workflow-Schritte sind auf Commit-Kennungen festgelegt, Rechte je Job auf das Nötige beschränkt.

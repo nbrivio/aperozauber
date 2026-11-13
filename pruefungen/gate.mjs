@@ -7,7 +7,11 @@ import { unterpfad } from './server.mjs';
 const b = bericht('Seiten-Gate');
 const seiten = await dateien('dist', '.html');
 
-const attribut = (tag, name) => tag.match(new RegExp(`\\s${name}="([^"]*)"`))?.[1];
+// Liefert den Wert eines Attributs, '' für ein leeres und undefined, wenn es fehlt.
+const attribut = (tag, name) => {
+  const treffer = tag.match(new RegExp(`\\s${name}(?:="([^"]*)")?(?=[\\s>])`));
+  return treffer ? (treffer[1] ?? '') : undefined;
+};
 const vorhanden = (pfad) => access(pfad).then(() => true, () => false);
 
 for (const datei of seiten) {

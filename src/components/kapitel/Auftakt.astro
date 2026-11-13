@@ -1,0 +1,45 @@
+---
+import { getEntry, render } from 'astro:content';
+import { Picture } from 'astro:assets';
+import Siegel from '../Siegel.astro';
+import { titelAlsHtml } from '../../inhalt/titel.js';
+
+const text = await getEntry('texte', 'auftakt');
+const { Content } = await render(text);
+const t = text.data;
+---
+
+<section class="buehne" id="anfang" data-buehne aria-labelledby="auftakt-titel">
+  <div class="halt">
+    <div class="rand"></div>
+    <div class="fenster">
+      <Picture
+        src={t.bild}
+        alt={t.bildAlt}
+        formats={['avif', 'webp']}
+        widths={[640, 960, 1280]}
+        sizes="100vw"
+        loading="eager"
+      />
+    </div>
+    <div class="auftakt">
+      <div class="oben">
+        <div class="logoplatz"><Siegel breiten={[220, 330, 440]} sizes="(max-width: 550px) 40vw, 220px" eilig wichtig /></div>
+        <p class="etikett">{t.etikett}</p>
+      </div>
+      <div class="unten">
+        <p class="hand" lang="it">{t.hand}</p>
+        <div class="zeig">
+          <span class="hand">{t.zeig}</span>
+          <svg viewBox="0 0 44 66" aria-hidden="true">
+            <path d="M23 3 C9 14 37 22 20 36 C13 43 19 52 22 61"></path><path d="M11 50 L22 62 L34 51"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="claim">
+      <h1 id="auftakt-titel" set:html={titelAlsHtml(t.titel, 'em')} />
+      <Content />
+    </div>
+  </div>
+</section>

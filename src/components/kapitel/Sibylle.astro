@@ -1,0 +1,22 @@
+---
+import { getEntry, render } from 'astro:content';
+import { Picture } from 'astro:assets';
+import { titelAlsHtml } from '../../inhalt/titel.js';
+
+const text = await getEntry('texte', 'sibylle');
+const { Content } = await render(text);
+const t = text.data;
+---
+
+<section class="sibylle" id="sibylle" aria-labelledby="sibylle-titel">
+  <div class="innen paar">
+    <div class="portraet">
+      <Picture src={t.bild} alt={t.bildAlt} formats={['avif', 'webp']} widths={[340, 680]} sizes="340px" loading="lazy" />
+    </div>
+    <div class="text">
+      <p class="etikett">{t.etikett}</p>
+      <h2 id="sibylle-titel" set:html={titelAlsHtml(t.titel)} />
+      <Content />
+    </div>
+  </div>
+</section>
