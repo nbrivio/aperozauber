@@ -1,5 +1,6 @@
 ---
 import { getEntry, render } from 'astro:content';
+import { Picture } from 'astro:assets';
 
 const text = await getEntry('texte', 'versprechen');
 const { Content } = await render(text);
@@ -10,6 +11,13 @@ const t = text.data;
   <div class="innen">
     <h2 id="idee-titel">{t.titel}</h2>
     <span class="hand">{t.hand}</span>
+    {
+      t.bild && (
+        <div class="gesicht">
+          <Picture src={t.bild} alt={t.bildAlt} formats={['avif', 'webp']} widths={[320, 640]} sizes="(max-width: 900px) 200px, 320px" loading="lazy" />
+        </div>
+      )
+    }
     <div class="neben">
       <p class="etikett">{t.etikett}</p>
       <p class="gross">{t.satz}</p>

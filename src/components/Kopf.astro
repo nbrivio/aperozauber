@@ -15,6 +15,9 @@ const punkte = [
   ['info/', 'Gut zu wissen'],
 ];
 const hier = Astro.url.pathname;
+
+// Liegt das offizielle Instagram-Zeichen als Datei im Projekt, wird es gezeigt. Sonst steht ein eigenes @-Zeichen.
+const zeichen = Object.values(import.meta.glob('../assets/marke/instagram.svg', { eager: true, query: '?url', import: 'default' }))[0];
 ---
 
 <header class="kopf" data-kopf>
@@ -26,7 +29,9 @@ const hier = Astro.url.pathname;
     </a>
     <nav aria-label="Hauptnavigation">
       {punkte.map(([ziel, name]) => <a href={`${start}${ziel}`} aria-current={hier.startsWith(`${start}${ziel}`) ? 'page' : undefined}>{name}</a>)}
-      <a href={betrieb.instagram} rel="noopener noreferrer">Instagram</a>
+      <a class="netz" href={betrieb.instagram} rel="noopener noreferrer" aria-label="Apérozauber auf Instagram">
+        {zeichen ? <img src={zeichen} alt="" width="22" height="22" /> : <span aria-hidden="true">@</span>}
+      </a>
     </nav>
     <a class="knopf" href={`${start}#anfrage`}>Apéro anfragen</a>
   </div>
@@ -90,6 +95,36 @@ const hier = Astro.url.pathname;
     padding: 8px 0;
     border-bottom: 1px solid transparent;
     transition: border-color 0.25s;
+  }
+  nav {
+    align-items: center;
+  }
+  nav .netz {
+    align-self: center;
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: 1px solid var(--az-ink);
+    border-radius: 50%;
+    transition:
+      background-color 0.25s,
+      color 0.25s;
+  }
+  nav .netz span {
+    font: 500 15px/1 var(--az-font-body);
+    letter-spacing: 0;
+    transform: translateY(-1px);
+  }
+  @media (hover: hover) {
+    nav .netz:hover {
+      background: var(--az-ink);
+      color: var(--az-paper);
+    }
+    nav .netz:hover img {
+      filter: invert(1);
+    }
   }
   nav a[aria-current] {
     border-color: currentColor;
