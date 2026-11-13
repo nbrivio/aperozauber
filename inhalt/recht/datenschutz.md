@@ -9,7 +9,7 @@ punkte:
     text: "Angaben aus deiner Anfrage: Name, Kontakt, Datum, Ort, gewünschte Platten, Personenzahl und Hinweise wie Allergien."
   - begriff: "Wozu"
     text: "Um deine Anfrage zu beantworten, die Bestellung auszuführen und abzurechnen."
-  - begriff: "E-Mail"
+  - begriff: "Anfrage"
     text: "Die Anfrage verlässt diese Seite über dein eigenes Mailprogramm. Die Seite selbst speichert und überträgt keine Angaben aus dem Formular."
   - begriff: "Website"
     text: "Keine Cookies, kein Tracking, keine fremden Schriften oder Skripte. Der Hosting-Anbieter verarbeitet technische Zugriffsdaten."

@@ -1,0 +1,31 @@
+---
+import { getCollection, render } from 'astro:content';
+import Seite from '../layouts/Seite.astro';
+import Titelblatt from '../components/Titelblatt.astro';
+import { istLive } from '../inhalt/stufe.js';
+
+const abschnitte = await Promise.all(
+  (await getCollection('recht')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge).map(async (a) => ({ id: a.id, a: a.data, Content: (await render(a)).Content })),
+);
+const krumen = [['Impressum und Rechtliches', '/impressum/']];
+---
+
+<Seite titel="Impressum, AGB und Datenschutz" beschreibung="Impressum, Allgemeine Geschäftsbedingungen, Qualität & Hygiene und Datenschutz von Sibylle’s Apérozauber in Villmergen." pfad={krumen}>
+  <Titelblatt krumen={krumen} etikett="Rechtliches" titel="Impressum und *Rechtliches*" />
+
+  {
+    abschnitte.map(({ id, a, Content }) => (
+      <section class="abschnitt" id={id} aria-labelledby={`${id}-titel`}>
+        <div class="innen">
+          <h2 id={`${id}-titel`}>{a.titel}</h2>
+          <div class="abschnitt__inhalt prosa">
+            {a.vermerk && <p class="quelle">{a.vermerk}</p>}
+            {a.punkte && <dl class="angaben">{a.punkte.map((p) => <div><dt>{p.begriff}</dt><dd>{p.text}</dd></div>)}</dl>}
+            <Content />
+            {!istLive && a.quelle && <p class="quelle">{a.quelle}</p>}
+          </div>
+        </div>
+      </section>
+    ))
+  }
+</Seite>

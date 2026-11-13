@@ -3,6 +3,7 @@ import { getCollection, getEntry, render } from 'astro:content';
 import { Picture } from 'astro:assets';
 import { titelAlsHtml } from '../../inhalt/titel.js';
 import { preiszeile } from '../../inhalt/preis.js';
+import { pfad } from '../../inhalt/pfad.js';
 
 const t = (await getEntry('texte', 'angebot')).data;
 const kreationen = (await getCollection('kreationen')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
@@ -26,7 +27,7 @@ const karten = await Promise.all(kreationen.map(async (k) => ({ id: k.id, k: k.d
             )}
           </div>
           <div class="inhalt">
-            <h3>{k.name}</h3>
+            <h3><a href={pfad(`/angebot/${id}/`)}>{k.name}</a></h3>
             {k.notiz && <p class="notiz">{k.notiz}</p>}
             <Content />
             <div class="fuss">

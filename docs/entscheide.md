@@ -14,6 +14,18 @@ Stand: 13. November 2026. Grundlage sind die Brand Guidelines 1.0 und der Umsetz
 - **Bestellfenster:** Jede Kreation mit rundem Bild, Notiz und Preis, Mengen mit Plus und Minus, darunter die Angaben zum Anlass und die Vorschau der Nachricht. Ohne Skript steht dasselbe Formular im Kapitel Anfrage.
 - **Versand:** Solange kein Empfänger gesetzt ist, öffnet «Anfrage senden» das Mailprogramm, und die Seite überträgt nichts. Mit der Variable `SITE_ANFRAGE_ZIEL` geht die Anfrage direkt an diese Adresse. Der Dank erscheint nur nach bestätigtem Versand, bei einem Fehler bleiben die Angaben stehen.
 
+## Unterseiten und alte Adressen
+
+- **Die vier alten Adressen bleiben bestehen.** `/angebot`, `/uebermich`, `/info` und `/impressum` sind auf der neuen Seite echte Seiten mit dem entsprechenden Inhalt. Es braucht dafür keine Weiterleitung, die indexierten Links führen direkt ans Ziel.
+- **Je Kreation eine Seite** unter `/angebot/<name>/`, mit Grössen, Preisen und strukturierten Produktdaten. Dazu `/firmenapero/`.
+- **Rechtstexte stehen einmal**, auf `/impressum/`: Impressum, AGB und Qualität & Hygiene im Wortlaut der bisherigen Seite, Datenschutz als Entwurf. Startseite und Fuss verweisen dorthin. Angepasst ist nur die Schreibweise: «Apérozauber» mit Akzent, typografischer Apostroph, Guillemets.
+- **Über mich:** Text und Bild der bisherigen Seite. Auf der Startseite steht ein Auszug ohne Altersangabe, die ganze Fassung auf `/uebermich/`.
+- **Gut zu wissen (`/info/`):** die Fragen der bisherigen Seite, durchgehend in der Du-Form. Der Satz «Barzahlung ist nicht möglich» fehlt, weil die AGB Barzahlung erlauben. Ergänzt sind Allergien und Absage nach AGB.
+- **Bestellfenster und Blase auf jeder Seite**, nicht nur auf der Startseite.
+- **Kopf:** Die Navigation führt zu den Unterseiten: Kreationen, Für Firmen, Sibylle, Gut zu wissen, Instagram.
+- **Strukturierte Daten:** lokales Unternehmen mit Adresse und Telefon, Produkt mit Preisspanne je Kreation, Pfad je Unterseite, Fragen und Antworten auf `/info/`. Eine Bewertung steht bewusst nicht drin: Eigene Sterne im Markup sind für lokale Unternehmen nicht zulässig.
+- **`llms.txt`:** wird aus denselben Inhaltsdateien gebaut wie die Seiten.
+
 ## Abweichungen vom Prototyp
 
 Jede ist begründet, keine ändert das Bild.
@@ -38,7 +50,6 @@ Jede ist begründet, keine ändert das Bild.
 - **Logo-Auslieferung:** Die Vektordatei bleibt die unveränderte Vorlage (430 KB). Für die Seite wird sie in passende Grössen gerechnet (4 bis 31 KB).
 - **Favicon und Vorschaubild:** aus dem Siegel gerechnet. Die Guidelines sehen für Kleinformate ein reduziertes Zeichen vor, das es noch nicht gibt.
 - **Telefonnummer im Fuss:** wie im Prototyp und im bisherigen Impressum.
-- **Strukturierte Daten:** vorerst Betrieb, Website und Seite. Produkte und Fragen folgen in Phase 5 mit bestätigten Angaben.
 
 ## Unterschiede zwischen den Vorlagen
 

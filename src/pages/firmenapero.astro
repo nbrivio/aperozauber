@@ -1,0 +1,59 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Seite from '../layouts/Seite.astro';
+import Titelblatt from '../components/Titelblatt.astro';
+import { pfad } from '../inhalt/pfad.js';
+import { preiszeile } from '../inhalt/preis.js';
+
+const s = (await getEntry('seiten', 'firmenapero')).data;
+const ablauf = (await getEntry('texte', 'ablauf')).data;
+const kreationen = (await getCollection('kreationen')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
+const krumen = [['Firmenapéro', '/firmenapero/']];
+---
+
+<Seite titel={s.seitentitel} beschreibung={s.beschreibung} pfad={krumen}>
+  <Titelblatt krumen={krumen} etikett={s.etikett} titel={s.titel}>
+    <p class="gross">{s.lead}</p>
+    <a class="knopf" href="#anfrage" data-fuer="Firma">Als Firma anfragen</a>
+  </Titelblatt>
+
+  <section class="abschnitt" aria-labelledby="firma-wissen">
+    <div class="innen">
+      <h2 id="firma-wissen">Für euren Anlass</h2>
+      <dl class="punkte abschnitt__inhalt">
+        {s.punkte.map((p) => <div><dt>{p.titel}</dt><dd>{p.text}</dd></div>)}
+      </dl>
+    </div>
+  </section>
+
+  <section class="abschnitt" aria-labelledby="firma-kreationen">
+    <div class="innen">
+      <h2 id="firma-kreationen">Die Kreationen</h2>
+      <ul class="verweise abschnitt__inhalt">
+        {kreationen.map(({ id, data: k }) => <li><a href={pfad(`/angebot/${id}/`)}><span>{k.name} <small>{preiszeile(k)}</small></span></a></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="abschnitt" aria-labelledby="firma-ablauf">
+    <div class="innen">
+      <h2 id="firma-ablauf">{ablauf.titel}</h2>
+      <ol class="schritte abschnitt__inhalt">
+        {ablauf.punkte.map((punkt) => <li><b>{punkt.titel}</b><span>{punkt.text}</span></li>)}
+      </ol>
+    </div>
+  </section>
+</Seite>
+
+<style>
+  .verweise small {
+    font: 500 12px/1 var(--az-font-body);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-left: 10px;
+    white-space: nowrap;
+  }
+  .schritte li {
+    grid-template-columns: 54px 1fr;
+  }
+</style>

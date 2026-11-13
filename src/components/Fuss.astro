@@ -6,7 +6,6 @@ import { pfad } from '../inhalt/pfad.js';
 
 const start = pfad('/');
 const recht = (await getCollection('recht')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
-const kurz = { agb: 'AGB' };
 ---
 
 <footer class="dunkel">
@@ -20,8 +19,12 @@ const kurz = { agb: 'AGB' };
       </span>
       <a href={betrieb.instagram} rel="noopener noreferrer">Instagram @aperozauber</a>
     </div>
-    <nav aria-label="Rechtliches">
-      {recht.map((r) => <a href={`${start}#${r.id}`}>{kurz[r.id] ?? r.data.titel}</a>)}
+    <nav aria-label="Seiten und Rechtliches">
+      <a href={`${start}angebot/`}>Kreationen</a>
+      <a href={`${start}firmenapero/`}>Firmenapéro</a>
+      <a href={`${start}uebermich/`}>Über mich</a>
+      <a href={`${start}info/`}>Gut zu wissen</a>
+      {recht.map((r) => <a href={`${start}impressum/#${r.id}`}>{r.data.kurz ?? r.data.titel}</a>)}
     </nav>
   </div>
 </footer>

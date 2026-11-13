@@ -1,14 +1,15 @@
 ---
 titel: "Qualität & Hygiene"
 reihenfolge: 3
-punkte:
-  - begriff: "Frisch"
-    text: "Jede Platte wird frisch auf Bestellung hergestellt."
-  - begriff: "Kühlkette"
-    text: "Kühlpflichtige Produkte bleiben bis zur Verarbeitung durchgehend gekühlt, in einem Kühlsystem nur für den Betrieb."
-  - begriff: "Selbstkontrolle"
-    text: "Lagerung, Verarbeitung und Transport nach Schweizer Lebensmittelrecht, mit Selbstkontrollkonzept nach den Vorgaben des Lebensmittelinspektorats Aargau."
-  - begriff: "Abholung"
-    text: "Übergabe in der Holzkiste mit Kühlelementen. Depot CHF 50 für Platten und Kiste, zurück bei Rückgabe."
+quelle: "Wortlaut der bisherigen Seite, Stand 13.11.2026"
 freigegeben: false
 ---
+Alle Apéroplatten werden frisch auf Bestellung hergestellt.
+
+Die verwendeten Lebensmittel werden gemäss den Vorgaben des Schweizer Lebensmittelrechts fachgerecht gelagert, verarbeitet und transportiert.
+
+Kühlpflichtige Produkte werden bis zur Aufarbeitung durchgehend gekühlt aufbewahrt.
+
+Die Zutaten werden in einem separaten, ausschliesslich für den Geschäftsbetrieb verwendeten Kühlsystem gelagert.
+
+Unser Betrieb arbeitet nach einem dokumentierten Selbstkontrollkonzept gemäss den Vorgaben des kantonalen Lebensmittelinspektorats Aargau.

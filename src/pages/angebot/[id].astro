@@ -1,0 +1,88 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import { Picture } from 'astro:assets';
+import Seite from '../../layouts/Seite.astro';
+import Titelblatt from '../../components/Titelblatt.astro';
+import { betrieb } from '../../inhalt/betrieb.js';
+import { pfad } from '../../inhalt/pfad.js';
+import { preiszeile } from '../../inhalt/preis.js';
+
+export async function getStaticPaths() {
+  const alle = (await getCollection('kreationen')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
+  return alle.map((kreation) => ({ params: { id: kreation.id }, props: { kreation, andere: alle.filter((k) => k.id !== kreation.id) } }));
+}
+
+const { kreation, andere } = Astro.props;
+const k = kreation.data;
+const { Content } = await render(kreation);
+const info = (await getEntry('seiten', 'info')).data;
+const allergien = info.fragen.find((f) => f.frage.includes('Allergien'));
+const krumen = [['Kreationen', '/angebot/'], [k.name, `/angebot/${kreation.id}/`]];
+const adresse = new URL(pfad(`/angebot/${kreation.id}/`), Astro.site).href;
+const anfang = new URL(pfad('/'), Astro.site).href;
+const preise = k.art === 'kreation' ? k.groessen.map((g) => g.preis) : [k.stueckpreis];
+const text = kreation.body.trim();
+const beschreibung = k.beschreibung ?? `${k.name} von ${betrieb.name} aus ${betrieb.ort}: ${text}`.slice(0, 157).replace(/[\s,.:]+\S*$/, '') + '.';
+
+const produkt = {
+  '@type': 'Product',
+  '@id': `${adresse}#produkt`,
+  name: k.name,
+  description: text,
+  category: k.art === 'kreation' ? 'Apéroplatte' : 'Beilage',
+  brand: { '@id': `${anfang}#betrieb` },
+  ...(k.bild && { image: new URL(k.bild.src, Astro.site).href }),
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'CHF',
+    lowPrice: Math.min(...preise),
+    highPrice: Math.max(...preise),
+    offerCount: preise.length,
+    seller: { '@id': `${anfang}#betrieb` },
+  },
+};
+---
+
+<Seite titel={k.art === 'kreation' ? `${k.name}: Apéroplatte für 4 bis 16 Personen` : `${k.name}, selbst gemacht`} beschreibung={beschreibung} pfad={krumen} daten={[produkt]}>
+  <Titelblatt krumen={krumen} etikett={k.art === 'kreation' ? 'Kreation' : 'Beilage'} titel={k.name} bild>
+    {k.notiz && <span class="notiz">{k.notiz}</span>}
+    <div class="gross"><Content /></div>
+    <a class="knopf" href="#anfrage" data-kreation={kreation.id}>{k.name} anfragen</a>
+    <div class:list={['bild', k.bild ? null : `ton-${k.ton}`]} slot="bild">
+      {k.bild ? <Picture src={k.bild} alt={k.bildAlt} formats={['avif', 'webp']} widths={[520, 760]} sizes="(max-width: 560px) 90vw, 520px" loading="eager" /> : <span class="hand">Bild folgt</span>}
+    </div>
+  </Titelblatt>
+
+  <section class="abschnitt" aria-labelledby="preise-titel">
+    <div class="innen">
+      <h2 id="preise-titel">{k.art === 'kreation' ? 'Grössen und Preise' : 'Preis'}</h2>
+      <div class="abschnitt__inhalt prosa">
+        {
+          k.art === 'kreation' ? (
+            <table class="groessen">
+              <caption class="verborgen">Grössen von {k.name}</caption>
+              <thead class="verborgen"><tr><th scope="col">Grösse</th><th scope="col">Personen</th><th scope="col">Preis</th></tr></thead>
+              <tbody>
+                {k.groessen.map((g) => <tr><th scope="row">{g.groesse}</th><td>für {g.personen} Personen</td><td>ab CHF&nbsp;{g.preis}</td></tr>)}
+              </tbody>
+            </table>
+          ) : (
+            <p class="gross">{preiszeile(k)}</p>
+          )
+        }
+        <p>Jede Platte stelle ich von Hand zusammen, deshalb gleicht keine der anderen. Der Preis ist ein Richtpreis, verbindlich wird er mit meiner Bestätigung.</p>
+        {allergien && <p>{allergien.antwort}</p>}
+        <p><a href={pfad('/info/')}>Abholung, Lieferung und Bezahlung</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt" aria-labelledby="andere-titel">
+    <div class="innen">
+      <h2 id="andere-titel">Passt dazu</h2>
+      <ul class="verweise abschnitt__inhalt">
+        {andere.map((a) => <li><a href={pfad(`/angebot/${a.id}/`)}>{a.data.name}</a></li>)}
+      </ul>
+    </div>
+  </section>
+</Seite>

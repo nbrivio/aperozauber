@@ -1,5 +1,7 @@
 ---
+// Auf der Startseite stehen nur die Verweise. Der Wortlaut steht einmal, auf der Seite Impressum.
 import { getCollection, getEntry } from 'astro:content';
+import { pfad } from '../../inhalt/pfad.js';
 
 const t = (await getEntry('texte', 'rechtliches')).data;
 const abschnitte = (await getCollection('recht')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
@@ -8,25 +10,9 @@ const abschnitte = (await getCollection('recht')).sort((a, b) => a.data.reihenfo
 <section class="recht" id="rechtliches" aria-labelledby="recht-titel">
   <div class="innen">
     <h2 id="recht-titel">{t.titel}</h2>
-    <div class="recht__liste">
-    {
-      abschnitte.map(({ id, data: a }) => (
-        <details id={id}>
-          <summary>{a.titel}</summary>
-          <div class="text">
-            {a.vermerk && <p class="vermerk">{a.vermerk}</p>}
-            <dl>
-              {a.punkte.map((punkt) => (
-                <>
-                  <dt>{punkt.begriff}</dt>
-                  <dd>{punkt.text}</dd>
-                </>
-              ))}
-            </dl>
-          </div>
-        </details>
-      ))
-    }
-    </div>
+    <ul class="verweise recht__liste">
+      <li><a href={pfad('/info/')}>Abholung, Lieferung und Bezahlung</a></li>
+      {abschnitte.map(({ id, data: a }) => <li><a href={pfad(`/impressum/#${id}`)}>{a.titel}</a></li>)}
+    </ul>
   </div>
 </section>

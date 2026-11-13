@@ -2,10 +2,11 @@
 kapitel: sibylle
 etikett: "Die Frau hinter dem Apérozauber"
 titel: "Ich bin Sibylle. Und ich liebe es, wenn Menschen *zusammenkommen.*"
-bild: ../../src/assets/bilder/sibylle.webp
-bildAlt: "Sibylle im Gegenlicht vor Bäumen, sie lächelt in die Kamera"
+bild: ../../src/assets/bilder/sibylle-terrasse.webp
+bildAlt: "Sibylle steht lachend mit einem Glas in der Hand auf einem Kiesplatz vor einem alten Haus"
+knopf: "Mehr über mich"
 freigegeben: false
 ---
-Ich mag diese besonderen Stunden, in denen aus einem Apéro ein langer Abend wird. Wenn alle am Tisch sind, geredet, gelacht und noch etwas nachgenommen wird. Genau für solche Momente mache ich Apérozauber.
+Ich lebe mit meiner Familie im Aargau. Schon mein ganzes Leben lang bin ich kreativ und neugierig. Ich habe eine Ausbildung als Malerin und in der Pflege abgeschlossen.
 
-Jede Kreation gestalte ich selbst, mit einem Auge für Details und ganz viel Freude am Gastgebersein.
+Ich liebe es, Geburtstage und Familienfeste zu feiern. Dabei kann ich meine Kreativität beim Dekorieren und Kochen voll ausleben. Lass dich von meinen kulinarischen Ideen überraschen.

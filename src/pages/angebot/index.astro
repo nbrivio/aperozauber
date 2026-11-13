@@ -1,0 +1,66 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import { Picture } from 'astro:assets';
+import Seite from '../../layouts/Seite.astro';
+import Titelblatt from '../../components/Titelblatt.astro';
+import { betrieb } from '../../inhalt/betrieb.js';
+import { pfad } from '../../inhalt/pfad.js';
+import { preiszeile } from '../../inhalt/preis.js';
+
+const t = (await getEntry('texte', 'angebot')).data;
+const kreationen = (await getCollection('kreationen')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
+const karten = await Promise.all(kreationen.map(async (k) => ({ id: k.id, k: k.data, Content: (await render(k)).Content })));
+const krumen = [['Kreationen', '/angebot/']];
+const liste = {
+  '@type': 'ItemList',
+  '@id': `${new URL(pfad('/angebot/'), Astro.site).href}#liste`,
+  itemListElement: kreationen.map((k, i) => ({ '@type': 'ListItem', position: i + 1, name: k.data.name, url: new URL(pfad(`/angebot/${k.id}/`), Astro.site).href })),
+};
+---
+
+<Seite
+  titel={`Apéroplatten und Apéro-Kreationen aus ${betrieb.ort}`}
+  beschreibung="Bergzauber, Waldmeister, Antipastizauber und Früchtezauber in drei Grössen, dazu selbstgebackenes Brot, Chutney und Feigensenf. Mit Preisen."
+  pfad={krumen}
+  daten={[liste]}
+>
+  <Titelblatt krumen={krumen} etikett="Kreationen und Beilagen" titel={t.titel}>
+    <p class="gross">{t.etikett}</p>
+  </Titelblatt>
+
+  <div class="gitter">
+    {
+      karten.map(({ id, k, Content }) => (
+        <article class="karte">
+          <div class:list={['bild', k.bild ? null : `ton-${k.ton}`]}>
+            {k.bild ? <Picture src={k.bild} alt={k.bildAlt} formats={['avif', 'webp']} widths={[330, 660]} sizes="(max-width: 640px) 90vw, 330px" loading="lazy" /> : <span class="hand">Bild folgt</span>}
+          </div>
+          <div class="inhalt">
+            <h2><a href={pfad(`/angebot/${id}/`)}>{k.name}</a></h2>
+            {k.notiz && <p class="notiz">{k.notiz}</p>}
+            <Content />
+            <div class="fuss">
+              <span class="preis">{preiszeile(k)}</span>
+              <a href="#anfrage" data-kreation={id} aria-label={`${k.name} anfragen`}>{t.knopf}</a>
+            </div>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</Seite>
+
+<style>
+  .karte h2 {
+    font-size: 32px;
+  }
+  .karte h2 a {
+    text-decoration: none;
+  }
+  .karte h2 a::after {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    aspect-ratio: 4 / 5;
+  }
+</style>

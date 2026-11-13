@@ -1,0 +1,37 @@
+---
+import { getEntry, render } from 'astro:content';
+import { Picture } from 'astro:assets';
+import Seite from '../layouts/Seite.astro';
+import Titelblatt from '../components/Titelblatt.astro';
+import { betrieb } from '../inhalt/betrieb.js';
+import { pfad } from '../inhalt/pfad.js';
+
+const seite = await getEntry('seiten', 'uebermich');
+const { Content } = await render(seite);
+const s = seite.data;
+const krumen = [['Über mich', '/uebermich/']];
+const person = {
+  '@type': 'Person',
+  '@id': `${new URL(pfad('/uebermich/'), Astro.site).href}#sibylle`,
+  name: betrieb.inhaberin,
+  jobTitle: 'Inhaberin',
+  worksFor: { '@id': `${new URL(pfad('/'), Astro.site).href}#betrieb` },
+};
+---
+
+<Seite titel={s.seitentitel} beschreibung={s.beschreibung} pfad={krumen} daten={[person]}>
+  <Titelblatt krumen={krumen} etikett={s.etikett} titel={s.titel} bild>
+    <div class="prosa ueber"><Content /></div>
+    <a class="knopf" href="#anfrage">Apéro anfragen</a>
+    <div class="bild" slot="bild">
+      <Picture src={s.bild} alt={s.bildAlt} formats={['avif', 'webp']} widths={[448, 896]} sizes="(max-width: 560px) 90vw, 520px" loading="eager" />
+    </div>
+  </Titelblatt>
+</Seite>
+
+<style>
+  .ueber {
+    margin-top: clamp(26px, 3.4vw, 48px);
+    max-width: 50ch;
+  }
+</style>

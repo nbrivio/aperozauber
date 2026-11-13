@@ -23,6 +23,8 @@ const kreationen = defineCollection({
         art: z.enum(['kreation', 'beilage']),
         reihenfolge: z.number().int(),
         notiz: z.string().min(1).optional(),
+        // Beschreibung für Suchmaschinen und geteilte Links.
+        beschreibung: z.string().min(50).max(160).optional(),
         groessen: z.array(groesse).default([]),
         stueckpreis: z.number().positive().optional(),
         einheit: z.enum(['Brot', 'Glas']).optional(),
@@ -86,16 +88,41 @@ const texte = defineCollection({
   },
 });
 
-// Impressum, AGB, Qualität & Hygiene, Datenschutz.
+// Impressum, AGB, Qualität & Hygiene, Datenschutz. Entweder als Begriffe mit Text
+// oder als Fliesstext im Wortlaut unter den Angaben.
 const recht = defineCollection({
   loader: glob({ pattern: '*.md', base: './inhalt/recht' }),
   schema: z.object({
     titel: z.string().min(1),
+    kurz: z.string().optional(),
     reihenfolge: z.number().int(),
     vermerk: z.string().optional(),
-    punkte: z.array(z.object({ begriff: z.string().min(1), text: z.string().min(1) })).min(1),
+    quelle: z.string().optional(),
+    punkte: z.array(z.object({ begriff: z.string().min(1), text: z.string().min(1) })).optional(),
     freigegeben: z.boolean(),
   }),
 });
 
-export const collections = { kreationen, texte, recht };
+// Unterseiten: Über mich, Info, Firmenapéro.
+const seiten = defineCollection({
+  loader: glob({ pattern: '*.md', base: './inhalt/seiten' }),
+  schema: ({ image }) =>
+    z
+      .object({
+        titel: z.string().min(1),
+        etikett: z.string().min(1),
+        // Titel und Beschreibung für Suchmaschinen und geteilte Links.
+        seitentitel: z.string().min(1),
+        beschreibung: z.string().min(50).max(160),
+        lead: z.string().optional(),
+        fragen: z.array(z.object({ frage: z.string().min(1), antwort: z.string().min(1) })).optional(),
+        punkte: z.array(z.object({ titel: z.string().min(1), text: z.string().min(1) })).optional(),
+        bild: image().optional(),
+        bildAlt: altText.optional(),
+        quelle: z.string().optional(),
+        freigegeben: z.boolean(),
+      })
+      .refine((o) => !o.bild || o.bildAlt, { path: ['bildAlt'], message: 'Jedes Bild braucht einen Alt-Text.' }),
+});
+
+export const collections = { kreationen, texte, recht, seiten };

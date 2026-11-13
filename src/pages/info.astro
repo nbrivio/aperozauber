@@ -1,0 +1,42 @@
+---
+import { getEntry, render } from 'astro:content';
+import Seite from '../layouts/Seite.astro';
+import Titelblatt from '../components/Titelblatt.astro';
+import { pfad } from '../inhalt/pfad.js';
+
+const seite = await getEntry('seiten', 'info');
+const { Content } = await render(seite);
+const s = seite.data;
+const krumen = [['Gut zu wissen', '/info/']];
+// Die Fragen stehen sichtbar auf der Seite, deshalb dürfen sie auch als strukturierte Daten erscheinen.
+const fragen = {
+  '@type': 'FAQPage',
+  '@id': `${new URL(pfad('/info/'), Astro.site).href}#fragen`,
+  mainEntity: s.fragen.map((f) => ({ '@type': 'Question', name: f.frage, acceptedAnswer: { '@type': 'Answer', text: f.antwort } })),
+};
+---
+
+<Seite titel={s.seitentitel} beschreibung={s.beschreibung} pfad={krumen} daten={[fragen]}>
+  <Titelblatt krumen={krumen} etikett={s.etikett} titel={s.titel}>
+    <p class="gross">{s.lead}</p>
+  </Titelblatt>
+
+  <section class="abschnitt" aria-labelledby="fragen-titel">
+    <div class="innen">
+      <h2 id="fragen-titel">Fragen und Antworten</h2>
+      <dl class="fragen abschnitt__inhalt">
+        {s.fragen.map((f) => <div><dt>{f.frage}</dt><dd>{f.antwort}</dd></div>)}
+      </dl>
+    </div>
+  </section>
+
+  <section class="abschnitt" aria-labelledby="eigenes-titel">
+    <div class="innen">
+      <h2 id="eigenes-titel">Etwas Eigenes?</h2>
+      <div class="abschnitt__inhalt prosa">
+        <div class="gross"><Content /></div>
+        <p><a href={pfad('/impressum/#agb')}>Allgemeine Geschäftsbedingungen</a> · <a href={pfad('/impressum/#hygiene')}>Qualität &amp; Hygiene</a></p>
+      </div>
+    </div>
+  </section>
+</Seite>

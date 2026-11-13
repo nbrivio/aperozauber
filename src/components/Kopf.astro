@@ -9,22 +9,23 @@ import { pfad } from '../inhalt/pfad.js';
 const start = pfad('/');
 const [vorname, marke] = betrieb.name.split(' ');
 const punkte = [
-  ['#idee', 'Die Idee'],
-  ['#angebot', 'Kreationen'],
-  ['#sibylle', 'Sibylle'],
-  ['#stimmen', 'Einblicke'],
+  ['angebot/', 'Kreationen'],
+  ['firmenapero/', 'Für Firmen'],
+  ['uebermich/', 'Sibylle'],
+  ['info/', 'Gut zu wissen'],
 ];
+const hier = Astro.url.pathname;
 ---
 
 <header class="kopf" data-kopf>
   <Hinweisband />
   <div class="kopf__leiste">
-    <a class="marke" href={`${start}#anfang`}>
+    <a class="marke" href={start}>
       <Siegel class="marke__siegel" breiten={[54, 108, 162]} sizes="54px" alt="" eilig />
-      <span class="marke__wort"><b>{vorname}</b> <i>{marke}</i><span class="verborgen">, zum Anfang</span></span>
+      <span class="marke__wort"><b>{vorname}</b> <i>{marke}</i><span class="verborgen">, Startseite</span></span>
     </a>
     <nav aria-label="Hauptnavigation">
-      {punkte.map(([ziel, name]) => <a href={`${start}${ziel}`}>{name}</a>)}
+      {punkte.map(([ziel, name]) => <a href={`${start}${ziel}`} aria-current={hier.startsWith(`${start}${ziel}`) ? 'page' : undefined}>{name}</a>)}
       <a href={betrieb.instagram} rel="noopener noreferrer">Instagram</a>
     </nav>
     <a class="knopf" href={`${start}#anfrage`}>Apéro anfragen</a>
@@ -89,6 +90,9 @@ const punkte = [
     padding: 8px 0;
     border-bottom: 1px solid transparent;
     transition: border-color 0.25s;
+  }
+  nav a[aria-current] {
+    border-color: currentColor;
   }
   @media (hover: hover) {
     nav a:hover {

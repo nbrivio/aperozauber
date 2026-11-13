@@ -1,5 +1,6 @@
 ---
 import { getEntry } from 'astro:content';
+import { pfad } from '../../inhalt/pfad.js';
 
 const t = (await getEntry('texte', 'fuer')).data;
 ---
@@ -14,6 +15,7 @@ const t = (await getEntry('texte', 'fuer')).data;
           <h3>{punkt.titel}</h3>
           <ul>{punkt.liste.map((zeile) => <li>{zeile}</li>)}</ul>
           <a class="knopf" href="#anfrage" data-fuer={punkt.wert}>{punkt.knopf}</a>
+          {punkt.wert === 'Firma' && <a class="weiter" href={pfad('/firmenapero/')}>Mehr zum Firmenapéro</a>}
         </div>
       ))
     }

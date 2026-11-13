@@ -2,6 +2,7 @@
 import { getEntry, render } from 'astro:content';
 import { Picture } from 'astro:assets';
 import { titelAlsHtml } from '../../inhalt/titel.js';
+import { pfad } from '../../inhalt/pfad.js';
 
 const text = await getEntry('texte', 'sibylle');
 const { Content } = await render(text);
@@ -17,6 +18,7 @@ const t = text.data;
       <p class="etikett">{t.etikett}</p>
       <h2 id="sibylle-titel" set:html={titelAlsHtml(t.titel)} />
       <Content />
+      <a class="weiter" href={pfad('/uebermich/')}>{t.knopf}</a>
     </div>
   </div>
 </section>

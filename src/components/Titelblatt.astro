@@ -1,0 +1,24 @@
+---
+// Kopf einer Unterseite: Pfad, Etikett, Titel, Vorspann. Mit Bild steht es rechts daneben.
+import { titelAlsHtml } from '../inhalt/titel.js';
+import { pfad } from '../inhalt/pfad.js';
+
+const { krumen = [], etikett, titel, bild = false } = Astro.props;
+---
+
+<section class:list={['titelblatt', { 'titelblatt--bild': bild }]}>
+  <div class="innen">
+    <div>
+      <nav aria-label="Pfad">
+        <ol class="pfad">
+          <li><a href={pfad('/')}>Start</a></li>
+          {krumen.map(([name, ziel], i) => <li>{i < krumen.length - 1 ? <a href={pfad(ziel)}>{name}</a> : <span aria-current="page">{name}</span>}</li>)}
+        </ol>
+      </nav>
+      {etikett && <p class="etikett">{etikett}</p>}
+      <h1 set:html={titelAlsHtml(titel)} />
+      <slot />
+    </div>
+    <slot name="bild" />
+  </div>
+</section>

@@ -1,5 +1,6 @@
 ---
 import { getEntry } from 'astro:content';
+import { pfad } from '../../inhalt/pfad.js';
 
 const t = (await getEntry('texte', 'ablauf')).data;
 ---
@@ -10,5 +11,6 @@ const t = (await getEntry('texte', 'ablauf')).data;
     <ol class="schritte">
       {t.punkte.map((punkt) => <li><b>{punkt.titel}</b><span>{punkt.text}</span></li>)}
     </ol>
+    <a class="weiter ablauf__weiter" href={pfad('/info/')}>Abholung, Lieferung und Bezahlung</a>
   </div>
 </section>

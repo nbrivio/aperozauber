@@ -13,7 +13,13 @@
 - [ ] Bilder in Originalgrösse: Die sieben Bilder stammen aus dem Prototyp und sind für grosse Bildschirme zu klein. Das Bild im Auftakt wird dort sichtbar weich.
 - [ ] Hosting der richtigen Seite: GitHub Pages kennt keine echten Weiterleitungen, keine eigenen Sicherheits-Kopfzeilen und keinen Formularversand. Bei Hostpoint bestehen nur Domain und Mail. Zu entscheiden mit Phase 3.
 - [ ] Firmenlogos und Kundenstimmen mit Einverständnis.
-- [ ] Rechtstexte: Impressum, AGB (13 Punkte) und Qualität & Hygiene im Wortlaut übernehmen (Phase 4).
+- [x] Rechtstexte: Impressum, AGB und Qualität & Hygiene stehen im Wortlaut auf `/impressum/`.
+- [ ] AGB Punkt 2 nennt Geschenkboxen und Catering, die Seite bietet beides nicht an. Anpassen oder Angebot ergänzen?
+- [ ] Über mich: Der Text nennt das Alter («33 Jahre»). Das veraltet. Streichen oder jährlich nachführen?
+- [ ] Über mich: Das Bild der bisherigen Seite ist eine Aufnahme vom Bildschirm (896 Pixel breit). Die Originaldatei wäre schärfer. Die «Bisherigen Aufträge» der alten Seite sind noch nicht übernommen, auch dafür braucht es die Dateien.
+- [ ] Firmenapéro: Der Text ist neu geschrieben und noch nicht von Sibylle gelesen. Was gehört dazu (Getränke, Geschirr, Service), was nicht?
+- [ ] Google-Unternehmensprofil: Es besteht (Kategorie Delikatessengeschäft, 4 Rezensionen). Website-Adresse, Telefon und Öffnungszeiten dort mit der Seite abgleichen, sobald sie live ist. Die Öffnungszeiten fehlen auf der Seite noch.
+- [ ] Google-Rezensionen: Die vier Rezensionen wären echte Stimmen für die Startseite. Dafür braucht es das Einverständnis der Verfasserinnen und Verfasser.
 - [ ] Datenschutzerklärung: Die bisherige Seite hat keine eigene, die AGB verweisen aber auf eine. Sie muss neu geschrieben und geprüft werden.
 - [ ] Stornierung laut AGB: bis 7 Tage kostenlos, 6 bis 3 Tage 50 Prozent, unter 72 Stunden 100 Prozent. Gilt das unverändert?
 - [ ] Texte: Freigabe durch Sibylle, Kapitel für Kapitel.

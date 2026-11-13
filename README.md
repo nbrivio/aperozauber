@@ -24,7 +24,8 @@ Alles, was sich ändert, liegt unter `inhalt/`, getrennt vom Code. Eine Änderun
 | `inhalt/kreationen/` | Je Kreation und Beilage eine Datei: Name, Notiz, Grössen, Preise, Allergene, Bild, Alt-Text, darunter die Beschreibung. Karten und Anfrage lesen beide hier |
 | `inhalt/texte/` | Texte der Startseite, je Kapitel eine Datei. Ein Teil zwischen Sternen im Titel erscheint in Handschrift |
 | `inhalt/stimmen.json`, `inhalt/firmen.json` | Kundenstimmen und Firmenlogos, nur mit Einverständnis |
-| `inhalt/recht/` | Impressum, AGB, Qualität & Hygiene, Datenschutz, je eine Datei mit Begriff und Text |
+| `inhalt/recht/` | Impressum, AGB, Qualität & Hygiene, Datenschutz, je eine Datei, im Wortlaut |
+| `inhalt/seiten/` | Unterseiten Über mich, Gut zu wissen und Firmenapéro, mit Titel und Beschreibung für Suchmaschinen |
 | `inhalt/betrieb.json` | Name, Ort und Kontakt. Fuss und strukturierte Daten lesen hier |
 
 Beispiel für einen Ferienhinweis:
@@ -48,7 +49,7 @@ src/stile/              Marken-Token, Grundstile, Kapitel der Startseite
 src/layouts/            Seitengerüst mit Kopfangaben und strukturierten Daten
 src/components/         Kopf, Fuss, Hinweisband, Siegel
 src/components/kapitel/ Je Kapitel der Startseite eine Datei
-src/skripte/            Bewegung und Bestellfenster
+src/skripte/            Schalter, Bewegung der Startseite, Bestellfenster
 src/pages/              Seiten
 src/inhalt/             Einlesen und Prüfen der Inhalte
 pruefungen/             Prüfungen vor jeder Veröffentlichung
@@ -58,9 +59,24 @@ docs/                   Entscheide und offene Punkte
 
 ### Bewegung
 
-Drei Momente bewegen sich beim Scrollen: das Fenster im Auftakt, die Handschrift im Versprechen und der Bilderstapel. `src/skripte/schalter.js` schaltet die Bewegung im Kopf der Seite ein, `src/skripte/startseite.js` führt sie aus. Ohne Skript, bei einem Fehler und bei reduzierter Bewegung zeigt die Seite dieselben Inhalte ruhig untereinander.
+Drei Momente bewegen sich beim Scrollen: das Fenster im Auftakt, die Handschrift im Versprechen und der Bilderstapel. `src/skripte/schalter.js` schaltet die Bewegung im Kopf der Seite ein, `src/skripte/bewegung.js` führt sie aus. `src/skripte/anfrage.js` ist das Bestellfenster auf jeder Seite. Ohne Skript, bei einem Fehler und bei reduzierter Bewegung zeigt die Seite dieselben Inhalte ruhig untereinander.
 
 Die Seite `/grundlagen/` zeigt Farben, Schriften und Bausteine zur Abnahme. Sie ist nicht verlinkt und für Suchmaschinen gesperrt.
+
+## Seiten
+
+| Adresse | Inhalt |
+| --- | --- |
+| `/` | Startseite |
+| `/angebot/` | Alle Kreationen und Beilagen |
+| `/angebot/<name>/` | Eine Kreation mit Grössen und Preisen |
+| `/firmenapero/` | Für Firmen |
+| `/uebermich/` | Sibylle |
+| `/info/` | Abholung, Lieferung, Depot, Bezahlung |
+| `/impressum/` | Impressum, AGB, Qualität & Hygiene, Datenschutz |
+| `/llms.txt` | Sachliche Kurzfassung für Assistenten |
+
+`/angebot`, `/uebermich`, `/info` und `/impressum` sind dieselben Adressen wie auf der bisherigen Seite.
 
 ## Prüfungen
 
