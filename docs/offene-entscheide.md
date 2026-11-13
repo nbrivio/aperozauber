@@ -27,3 +27,11 @@
 - [ ] Reduziertes Zeichen für Favicon und Kleinformate.
 - [ ] Themenseiten unter `/apero/`: Die Texte sind neu geschrieben und noch nicht von Sibylle gelesen. Es gibt erst fünf Bilder, Familienfest und Kundenevent zeigen dasselbe. Je Themenseite ein eigenes Foto zum Anlass wäre stärker.
 - [ ] Sitemap: Sie wird bei jedem Bau erzeugt (`/sitemap-index.xml`). In der Search Console einreichen, sobald die Seite auf aperozauber.ch läuft. Auf der Testadresse ist sie für Suchmaschinen gesperrt.
+- [ ] Rechtstexte, Durchsicht 14.11.2026 (keine Rechtsberatung, vor dem Livegang prüfen lassen):
+  - Datenschutz: Hosting-Anbieter mit Namen und Land nennen, sobald das Hosting feststeht. Liegt es im Ausland, gehört das Land in die Erklärung. Der Absatz «Anfrage» stimmt nur, solange das Formular das Mailprogramm öffnet. Mit dem direkten Versand muss er neu geschrieben werden (Empfänger, Speicherort, Frist).
+  - AGB: Depot von CHF 50 fehlt. «Catering- und Apérodienstleistungen» in Punkt 2 klären. Website-Angabe in Punkt 3 («Kontaktformular») stimmt.
+  - Preise: Auf der Seite stehen Richtpreise mit «ab». Für Privatkundschaft verlangt die Preisbekanntgabe den tatsächlich zu zahlenden Preis. Klären, ob die Preise fix sind oder wovon ein Aufpreis abhängt, und ob Mehrwertsteuer anfällt.
+  - Lebensmittelrecht: Bei offen abgegebenem Fleisch ist die Herkunft schriftlich anzugeben, und über Allergene muss Auskunft möglich sein. Mit dem Lebensmittelinspektorat klären, wie das bei Bestellung über die Website zu lösen ist. Die Allergene je Kreation fehlen noch.
+  - Impressum: Telefonnummer steht im Fuss, nicht im Impressum.
+- [ ] Themenseiten: Abschiedsapéro und Weihnachtsapéro für Firmen sind neu. Alle acht Texte sind auf die organisierende Person geschrieben und noch nicht von Sibylle gelesen.
+

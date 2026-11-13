@@ -7,6 +7,7 @@ import { Picture } from 'astro:assets';
 import { titelAlsHtml } from '../../inhalt/titel.js';
 import { mengenwort, preiszeile, preisJeGroesse } from '../../inhalt/preis.js';
 import { betrieb } from '../../inhalt/betrieb.js';
+import { pfad } from '../../inhalt/pfad.js';
 
 const text = await getEntry('texte', 'anfrage');
 const { Content } = await render(text);
@@ -105,7 +106,10 @@ const telefon = betrieb.telefon.replaceAll(' ', ' ');
           <button class="knopf hell" type="submit">{t.knopf}</button>
         </div>
         <p class="meldung" data-meldung role="status"></p>
-        <div class="hinweis"><Content /></div>
+        <div class="hinweis">
+          <Content />
+          <p>Es gelten die <a href={pfad('/impressum/#agb')}>AGB</a>. Wie ich mit deinen Angaben umgehe, steht im <a href={pfad('/impressum/#datenschutz')}>Datenschutz</a>.</p>
+        </div>
       </form>
     </div>
   </div>

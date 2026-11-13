@@ -140,6 +140,12 @@ const anlaesse = defineCollection({
     reihenfolge: z.number().int(),
     // Kurzname für den Pfad, etwa «Geburtstag».
     kurz: z.string().min(1),
+    // Beschriftung des Knopfs, auf den Anlass bezogen.
+    knopf: z.string().min(1),
+    // Drei Dinge, die Sibylle der Person abnimmt, die den Apéro organisiert.
+    abnehmen: z.array(z.object({ titel: z.string().min(1), text: z.string().min(1) })).length(3),
+    // Ruf zur Anfrage mitten auf der Seite.
+    ruf: z.object({ titel: z.string().min(1), text: z.string().min(1) }),
     bild: image(),
     bildAlt: altText,
     // Dateinamen der passenden Kreationen, in der Reihenfolge der Empfehlung.

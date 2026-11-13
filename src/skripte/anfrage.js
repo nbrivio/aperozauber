@@ -24,6 +24,8 @@ function anfrage() {
       name: feld('name'),
       kontakt: feld('kontakt'),
       fuer: formular.querySelector('[name=fuer]:checked').value,
+      // Auf einer Themenseite steht der Anlass schon fest.
+      anlass: document.body.dataset.anlass ?? '',
       posten,
       gaeste: feld('wieviele'),
       datum: feld('wann').split('-').reverse().join('.'),
@@ -37,6 +39,7 @@ function anfrage() {
     if (a.name) zeilen.push(`Name: ${a.name}`);
     if (a.kontakt) zeilen.push(`Antwort an: ${a.kontakt}`);
     zeilen.push(`Für: ${a.fuer}`);
+    if (a.anlass) zeilen.push(`Anlass: ${a.anlass}`);
     const liste = a.posten.map((p) => `${p.anzahl} × ${p.kreation}${p.groesse ? ` ${p.groesse}` : ''}`);
     zeilen.push(`Bestellung: ${liste.length ? `\n- ${liste.join('\n- ')}` : 'noch offen'}`);
     zeilen.push(`Gäste: ${a.gaeste || 'noch offen'}`);
@@ -71,7 +74,7 @@ function anfrage() {
 
     // Ohne Empfänger auf dem Server geht die Anfrage über das eigene Mailprogramm.
     if (!ziel) {
-      location.href = `${adresse}?subject=${encodeURIComponent(`Apéro-Anfrage (${a.fuer})`)}&body=${encodeURIComponent(text)}`;
+      location.href = `${adresse}?subject=${encodeURIComponent(`Apéro-Anfrage (${a.anlass || a.fuer})`)}&body=${encodeURIComponent(text)}`;
       melde(texte.mailprogramm);
       return;
     }

@@ -5,22 +5,33 @@ seitentitel: "Apéro für Kundenevent, Eröffnung und Jubiläum"
 beschreibung: "Apéroplatten für Kundenevent, Eröffnung und Firmenjubiläum. Von Hand gestaltet in Villmergen, geliefert an die Event-Location, auf Rechnung."
 lead: "Wenn Kundinnen und Kunden kommen, zählt der erste Eindruck. Ich gestalte Platten, die man gern anschaut und noch lieber leer isst."
 kurz: "Kundenevent"
+knopf: "Apéro für unseren Anlass anfragen"
 bild: ../../src/assets/bilder/bergzauber-von-oben.webp
 bildAlt: "Bergzauber von oben: Käse, Trockenfleisch, Trauben, Nüsse und Grissini auf einem Holzbrett, daneben Rosmarin"
 art: firma
 reihenfolge: 6
 kreationen: [bergzauber, antipastizauber, fruechtezauber]
+abnehmen:
+  - titel: "Ein Auftritt, der passt"
+    text: "Statt austauschbarer Standardplatten bekommt ihr Kreationen, denen man die Handarbeit ansieht."
+  - titel: "Schriftlich bestätigt"
+    text: "Datum, Menge und Preis stehen in meiner Bestätigung. Du kannst sie intern weitergeben."
+  - titel: "An die Location geliefert"
+    text: "Gegen Aufpreis liefere ich an den Ort des Anlasses. Gib ihn mir bei der Anfrage an."
+ruf:
+  titel: "Wann empfangt ihr eure Gäste?"
+  text: "Schreib mir Datum, Ort und die ungefähre Anzahl Gäste. Ich melde mich mit einem Vorschlag."
 fragen:
-  - frage: "Liefert ihr an die Event-Location?"
-    antwort: "Ja, gegen Aufpreis. Gebt mir bei der Anfrage den Ort an, damit ich die Lieferung offerieren kann."
-  - frage: "Was passiert, wenn der Anlass verschoben wird?"
-    antwort: "Bis 7 Tage vor dem Anlass ist die Absage kostenlos. 6 bis 3 Tage vorher verrechne ich 50 %, bei weniger als 72 Stunden 100 % des Auftragswerts."
+  - frage: "Lieferst du an die Event-Location?"
+    antwort: "Ja, gegen Aufpreis. Gib mir bei der Anfrage den Ort an, damit ich die Lieferung offerieren kann."
+  - frage: "Wie viele Platten braucht es für 40 Gäste?"
+    antwort: "Eine Platte in Grösse L reicht für 10 bis 16 Personen. Für 40 Gäste kombiniere ich mehrere Platten. Schreib mir die Anzahl, dann schlage ich eine Zusammenstellung vor."
   - frage: "Können wir auf Rechnung bezahlen?"
     antwort: "Ja. Firmen bezahlen nach Vereinbarung auf Rechnung, zahlbar innert 20 Tagen netto."
-  - frage: "Wie viele Platten braucht es für 40 Gäste?"
-    antwort: "Eine Platte in Grösse L reicht für 10 bis 16 Personen. Für 40 Gäste kombiniere ich mehrere Platten. Schreibt mir die Anzahl, dann schlage ich eine Zusammenstellung vor."
+  - frage: "Was passiert, wenn der Anlass verschoben wird?"
+    antwort: "Bis 7 Tage vor dem Anlass ist die Absage kostenlos. 6 bis 3 Tage vorher verrechne ich 50 %, bei weniger als 72 Stunden 100 % des Auftragswerts. Bereits eingekaufte Spezialprodukte kann ich zusätzlich verrechnen."
 freigegeben: false
 ---
-Eröffnung, Jubiläum oder ein Abend für eure Kundschaft: Jede Platte ist ein Einzelstück, von Hand zusammengestellt und mit einem Auge für Farben und Details angerichtet.
+Du verantwortest den Anlass, und der Apéro soll dabei nicht das sein, was dir Sorgen macht. Jede Platte ist ein Einzelstück, von Hand zusammengestellt und mit einem Auge für Farben und Details angerichtet. Das sehen eure Gäste, bevor sie zugreifen.
 
-Verbindlich wird die Bestellung mit meiner schriftlichen Bestätigung. Bis dahin stimmen wir Menge, Zusammenstellung und Lieferung in Ruhe ab.
+Eröffnung, Jubiläum oder ein Abend für eure Kundschaft: Menge, Zusammenstellung und Lieferung stimmen wir in Ruhe ab. Verbindlich wird die Bestellung mit meiner schriftlichen Bestätigung, damit du weisst, woran du bist.

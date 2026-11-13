@@ -63,10 +63,10 @@ const fragen = {
 };
 ---
 
-<Seite titel={a.seitentitel} beschreibung={a.beschreibung} pfad={krumen} daten={[angebot, fragen]}>
+<Seite titel={a.seitentitel} beschreibung={a.beschreibung} pfad={krumen} daten={[angebot, fragen]} anlass={a.kurz}>
   <Titelblatt krumen={krumen} etikett={a.etikett} titel={a.titel} bild>
     <p class="gross">{a.lead}</p>
-    <a class="knopf" href="#anfrage" data-fuer={a.art === 'firma' ? 'Firma' : 'Privat'}>Apéro anfragen</a>
+    <a class="knopf" href="#anfrage" data-fuer={a.art === 'firma' ? 'Firma' : 'Privat'}>{a.knopf}</a>
     <div class="bild" slot="bild">
       <Picture src={a.bild} alt={a.bildAlt} formats={['avif', 'webp']} widths={[520, 760]} sizes="(max-width: 560px) 90vw, 520px" loading="eager" fetchpriority="high" />
     </div>
@@ -74,8 +74,17 @@ const fragen = {
 
   <section class="abschnitt" aria-labelledby="anlass-text">
     <div class="innen">
-      <h2 id="anlass-text">So wird es euer Apéro</h2>
+      <h2 id="anlass-text">{a.art === 'firma' ? 'Ein Apéro, um den du dich nicht kümmern musst' : 'So wird es euer Apéro'}</h2>
       <div class="abschnitt__inhalt prosa"><Content /></div>
+    </div>
+  </section>
+
+  <section class="abschnitt" aria-labelledby="anlass-abnehmen">
+    <div class="innen">
+      <h2 id="anlass-abnehmen">Das nehme ich dir ab</h2>
+      <dl class="punkte abschnitt__inhalt">
+        {a.abnehmen.map((p) => <div><dt>{p.titel}</dt><dd>{p.text}</dd></div>)}
+      </dl>
     </div>
   </section>
 
@@ -102,6 +111,16 @@ const fragen = {
           </article>
         ))
       }
+    </div>
+  </section>
+
+  <section class="abschnitt" aria-labelledby="anlass-ruf">
+    <div class="innen">
+      <h2 id="anlass-ruf">{a.ruf.titel}</h2>
+      <div class="abschnitt__inhalt prosa">
+        <p class="gross">{a.ruf.text}</p>
+        <p><a class="knopf" href="#anfrage" data-fuer={a.art === 'firma' ? 'Firma' : 'Privat'}>{a.knopf}</a></p>
+      </div>
     </div>
   </section>
 

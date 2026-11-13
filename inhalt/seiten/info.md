@@ -19,9 +19,9 @@ fragen:
   - frage: "Muss ich die Platten kühlen?"
     antwort: "Ja. Ich statte die Transportboxen mit Kühlelementen aus und packe die Platten in Klarsichtfolie ein. Nach der Abholung bist du dafür verantwortlich, dass sie möglichst gut gekühlt bleiben."
   - frage: "Was ist bei Allergien?"
-    antwort: "Teil mir Allergien und Unverträglichkeiten bei der Anfrage mit. Trotz grösster Sorgfalt kann ich eine Kreuzkontamination nicht vollständig ausschliessen."
+    antwort: "Teil mir Allergien und Unverträglichkeiten bei der Anfrage mit. Welche Allergene eine Kreation enthält, sage ich dir gerne auf Anfrage. Trotz grösster Sorgfalt kann ich eine Kreuzkontamination nicht vollständig ausschliessen."
   - frage: "Kann ich wieder absagen?"
-    antwort: "Bis 7 Tage vor dem Anlass ist die Absage kostenlos. 6 bis 3 Tage vorher verrechne ich 50 %, bei weniger als 72 Stunden 100 % des Auftragswerts."
+    antwort: "Bis 7 Tage vor dem Anlass ist die Absage kostenlos. 6 bis 3 Tage vorher verrechne ich 50 %, bei weniger als 72 Stunden 100 % des Auftragswerts. Bereits eingekaufte Spezialprodukte kann ich zusätzlich verrechnen."
 freigegeben: false
 ---
 Keines der Angebote passt zu deinem Anlass? Kein Problem, dann schreib mir, und wir finden eine individuelle Lösung. Ich freue mich, von dir zu hören.

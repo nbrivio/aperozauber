@@ -66,3 +66,23 @@ Jede ist begründet, keine ändert das Bild.
 - **Titel ohne Schlusspunkt:** Titel der ersten und zweiten Ebene enden nicht mit einem Punkt. Das Seiten-Gate prüft es.
 - **Grössen ausgeschrieben:** «Jede Platte gibt es in drei Grössen: S für 4 bis 6 Personen, M für 6 bis 10 Personen und L für 10 bis 16 Personen».
 - **Preise je Grösse auf jeder Karte:** Jede Kreation zeigt S, M und L mit Personenzahl und Preis, wie auf der bisherigen Seite. Im Bestellfenster stehen die drei Preise unter dem Namen.
+
+## Themenseiten nach Persona (14.11.2026)
+
+Jede Themenseite spricht die eine Person an, die den Apéro organisiert, in der Du-Form. Aufbau: Titel und Knopf zum Anlass, ihre Lage in eigenen Worten, «Das nehme ich dir ab» mit drei Punkten, passende Kreationen mit Preisen, Ruf zur Anfrage mitten auf der Seite, Menge, Fragen, Abholung und Bezahlung, Ablauf, Anfrage. Die Anfrage trägt den Anlass im Betreff und im Text.
+
+| Seite | Wer organisiert | Was diese Person beschäftigt |
+| --- | --- | --- |
+| `/apero/geburtstag/` | Gastgeberin oder Gastgeber | Am eigenen Fest in der Küche stehen, Menge, Überraschung |
+| `/apero/familienfest/` | Wer in der Familie an alles denkt | Für Gross und Klein, Allergien, bei den Gästen sein |
+| `/apero/freunde/` | Wer einlädt | Aufwand nach der Arbeit, sich dazusetzen können |
+| `/apero/weihnachten/` | Wer an den Festtagen kocht | Einen Punkt abgeben, Fristen, Abholtermin |
+| `/apero/teamanlass/` | Wer den Auftrag bekommen hat | Wenig Aufwand, ein Vorschlag zum Weitergeben, Rechnung |
+| `/apero/kundenevent/` | Wer den Anlass verantwortet | Erster Eindruck, Verbindlichkeit, Lieferung an den Ort |
+| `/apero/abschiedsapero/` | Kollegin, Kollege oder Assistenz | Würdiger Abschied, persönliche Note, Firma zahlt oder Team sammelt |
+| `/apero/weihnachtsapero-firma/` | Wer im Dezember den Teamapéro organisiert | Klarer Vorschlag mit Preis, alle im Team, Rechnung |
+
+- **Fuss:** Die Zeile mit Kreationen, Firmenapéro, Über mich und Gut zu wissen entfällt, sie stand schon im Kopf. Es bleiben die Rechtstexte.
+- **Anfrage:** Unter dem Formular stehen Verweise auf AGB und Datenschutz.
+- **Abgleich mit den AGB:** Absage nennt überall auch die Spezialprodukte (AGB Punkt 9). Die Info-Seite sagt, dass es Auskunft zu Allergenen gibt. Datenschutz ergänzt um Weitergabe, freiwillige Angaben zu Allergien und Herausgabe.
+
