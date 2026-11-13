@@ -103,7 +103,7 @@
     line-height: var(--lh-titel);
     letter-spacing: var(--ls-titel);
     text-wrap: balance;
-    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
   }
 
   p {
