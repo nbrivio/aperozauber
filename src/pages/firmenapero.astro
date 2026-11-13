@@ -9,6 +9,7 @@ const s = (await getEntry('seiten', 'firmenapero')).data;
 const ablauf = (await getEntry('texte', 'ablauf')).data;
 const kreationen = (await getCollection('kreationen')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
 const krumen = [['Firmenapéro', '/firmenapero/']];
+const anlaesse = (await getCollection('anlaesse')).filter((a) => a.data.art === 'firma').sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
 ---
 
 <Seite titel={s.seitentitel} beschreibung={s.beschreibung} pfad={krumen}>
@@ -23,6 +24,15 @@ const krumen = [['Firmenapéro', '/firmenapero/']];
       <dl class="punkte abschnitt__inhalt">
         {s.punkte.map((p) => <div><dt>{p.titel}</dt><dd>{p.text}</dd></div>)}
       </dl>
+    </div>
+  </section>
+
+  <section class="abschnitt" aria-labelledby="firma-anlaesse">
+    <div class="innen">
+      <h2 id="firma-anlaesse">Nach Anlass</h2>
+      <ul class="verweise abschnitt__inhalt">
+        {anlaesse.map((a) => <li><a href={pfad(`/apero/${a.id}/`)}>{a.data.seitentitel}</a></li>)}
+      </ul>
     </div>
   </section>
 

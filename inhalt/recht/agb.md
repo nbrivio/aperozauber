@@ -2,7 +2,7 @@
 titel: "Allgemeine Geschäftsbedingungen"
 kurz: "AGB"
 reihenfolge: 2
-quelle: "Wortlaut der bisherigen Seite, Stand 13.11.2026"
+quelle: "Wortlaut der bisherigen Seite, Stand 13.11.2026. In Punkt 2 sind die Geschenkboxen gestrichen (Entscheid 13.11.2026)."
 freigegeben: false
 ---
 <h3 id="agb-1">1. Geltungsbereich</h3>
@@ -13,7 +13,7 @@ Mit der Bestellung akzeptiert die Kundin oder der Kunde diese AGB.
 
 <h3 id="agb-2">2. Angebot</h3>
 
-Sibylle’s Apérozauber bietet individuell zusammengestellte Apéroplatten, Geschenkboxen, Früchteplatten sowie Catering- und Apérodienstleistungen für private und geschäftliche Anlässe an.
+Sibylle’s Apérozauber bietet individuell zusammengestellte Apéroplatten, Früchteplatten sowie Catering- und Apérodienstleistungen für private und geschäftliche Anlässe an.
 
 Abbildungen auf der Website dienen als Beispiele. Saisonale Verfügbarkeit, Frischeprodukte und Dekorationen können zu geringfügigen Abweichungen führen.
 

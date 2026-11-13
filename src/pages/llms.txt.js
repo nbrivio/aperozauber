@@ -10,6 +10,7 @@ export async function GET({ site }) {
   const info = (await getEntry('seiten', 'info')).data;
   const ablauf = (await getEntry('texte', 'ablauf')).data;
   const klar = (text) => text.replaceAll(' ', ' ');
+  const anlaesse = (await getCollection('anlaesse')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
 
   const zeilen = [
     `# ${betrieb.name}`,
@@ -47,6 +48,10 @@ export async function GET({ site }) {
     `- [Über mich](${voll('/uebermich/')})`,
     `- [Abholung, Lieferung und Bezahlung](${voll('/info/')})`,
     `- [Impressum, AGB und Datenschutz](${voll('/impressum/')})`,
+    '',
+    '## Nach Anlass',
+    '',
+    ...anlaesse.map((a) => `- [${a.data.seitentitel}](${voll(`/apero/${a.id}/`)}): ${a.data.lead}`),
     '',
   ];
   return new Response(zeilen.join('\n'), { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });

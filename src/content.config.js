@@ -125,4 +125,23 @@ const seiten = defineCollection({
       .refine((o) => !o.bild || o.bildAlt, { path: ['bildAlt'], message: 'Jedes Bild braucht einen Alt-Text.' }),
 });
 
-export const collections = { kreationen, texte, recht, seiten };
+// Themenseiten je Anlass unter /apero/. Sie stehen nicht in der Navigation,
+// sind aber verlinkt und in der Sitemap, damit man sie über die Suche findet.
+const anlaesse = defineCollection({
+  loader: glob({ pattern: '*.md', base: './inhalt/anlaesse' }),
+  schema: z.object({
+    titel: z.string().min(1),
+    etikett: z.string().min(1),
+    seitentitel: z.string().min(1),
+    beschreibung: z.string().min(50).max(160),
+    lead: z.string().min(1),
+    art: z.enum(['privat', 'firma']),
+    reihenfolge: z.number().int(),
+    // Dateinamen der passenden Kreationen, in der Reihenfolge der Empfehlung.
+    kreationen: z.array(z.string()).min(1),
+    fragen: z.array(z.object({ frage: z.string().min(1), antwort: z.string().min(1) })).min(1),
+    freigegeben: z.boolean(),
+  }),
+});
+
+export const collections = { kreationen, texte, recht, seiten, anlaesse };

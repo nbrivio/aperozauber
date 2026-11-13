@@ -22,6 +22,7 @@ const recht = (await getCollection('recht')).sort((a, b) => a.data.reihenfolge -
     <nav aria-label="Seiten und Rechtliches">
       <a href={`${start}angebot/`}>Kreationen</a>
       <a href={`${start}firmenapero/`}>Firmenapéro</a>
+      <a href={`${start}apero/`}>Anlässe</a>
       <a href={`${start}uebermich/`}>Über mich</a>
       <a href={`${start}info/`}>Gut zu wissen</a>
       {recht.map((r) => <a href={`${start}impressum/#${r.id}`}>{r.data.kurz ?? r.data.titel}</a>)}

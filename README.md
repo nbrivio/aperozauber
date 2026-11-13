@@ -26,6 +26,7 @@ Alles, was sich ändert, liegt unter `inhalt/`, getrennt vom Code. Eine Änderun
 | `inhalt/stimmen.json`, `inhalt/firmen.json` | Kundenstimmen und Firmenlogos, nur mit Einverständnis |
 | `inhalt/recht/` | Impressum, AGB, Qualität & Hygiene, Datenschutz, je eine Datei, im Wortlaut |
 | `inhalt/seiten/` | Unterseiten Über mich, Gut zu wissen und Firmenapéro, mit Titel und Beschreibung für Suchmaschinen |
+| `inhalt/anlaesse/` | Je Anlass eine Datei: Titel, Beschreibung für Suchmaschinen, passende Kreationen, Fragen, darunter der Text. Eine neue Datei ergibt eine neue Seite |
 | `inhalt/betrieb.json` | Name, Ort und Kontakt. Fuss und strukturierte Daten lesen hier |
 
 Beispiel für einen Ferienhinweis:
@@ -71,6 +72,7 @@ Die Seite `/grundlagen/` zeigt Farben, Schriften und Bausteine zur Abnahme. Sie 
 | `/angebot/` | Alle Kreationen und Beilagen |
 | `/angebot/<name>/` | Eine Kreation mit Grössen und Preisen |
 | `/firmenapero/` | Für Firmen |
+| `/apero/` und `/apero/<anlass>/` | Themenseiten je Anlass. Nicht in der Navigation, aber im Fuss, auf der Startseite und in der Sitemap verlinkt |
 | `/uebermich/` | Sibylle |
 | `/info/` | Abholung, Lieferung, Depot, Bezahlung |
 | `/impressum/` | Impressum, AGB, Qualität & Hygiene, Datenschutz |

@@ -7,7 +7,7 @@ punkte:
     liste:
       - "Geburtstag, Familienfest, Taufe, Apéro mit Freunden"
       - "Abholung in Villmergen oder Lieferung gegen Aufpreis"
-      - "Bezahlung per Twint oder Überweisung"
+      - "Bezahlung per Twint, bar oder Überweisung"
     knopf: "Privat anfragen"
     wert: "Privat"
   - etikett: "Für Firmen"

@@ -1,0 +1,34 @@
+---
+import { getCollection } from 'astro:content';
+import Seite from '../../layouts/Seite.astro';
+import Titelblatt from '../../components/Titelblatt.astro';
+import { betrieb } from '../../inhalt/betrieb.js';
+import { pfad } from '../../inhalt/pfad.js';
+
+const anlaesse = (await getCollection('anlaesse')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
+const gruppen = [
+  ['Privat', anlaesse.filter((a) => a.data.art === 'privat')],
+  ['Für Firmen', anlaesse.filter((a) => a.data.art === 'firma')],
+];
+const krumen = [['Anlässe', '/apero/']];
+---
+
+<Seite titel={`Apéro für jeden Anlass aus ${betrieb.ort}`} beschreibung="Apéroplatten für Geburtstag, Familienfest, den Abend mit Freunden, Weihnachten, Teamanlass und Kundenevent. Von Hand gestaltet in Villmergen." pfad={krumen}>
+  <Titelblatt krumen={krumen} etikett="Anlässe" titel="Dein Anlass. *Mein Apérozauber.*">
+    <p class="gross">Ob im kleinen Kreis oder mit dem ganzen Team: Ich freue mich auf deine Idee.</p>
+  </Titelblatt>
+
+  {
+    gruppen.map(([name, liste], i) => (
+      <section class="abschnitt" aria-labelledby={`gruppe-${i}`}>
+        <div class="innen">
+          <h2 id={`gruppe-${i}`}>{name}</h2>
+          <ul class="verweise abschnitt__inhalt">
+            {liste.map((a) => <li><a href={pfad(`/apero/${a.id}/`)}>{a.data.seitentitel}</a></li>)}
+            {name === 'Für Firmen' && <li><a href={pfad('/firmenapero/')}>Firmenapéro im Überblick</a></li>}
+          </ul>
+        </div>
+      </section>
+    ))
+  }
+</Seite>

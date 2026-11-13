@@ -25,6 +25,8 @@ Stand: 13. November 2026. Grundlage sind die Brand Guidelines 1.0 und der Umsetz
 - **Kopf:** Die Navigation führt zu den Unterseiten: Kreationen, Für Firmen, Sibylle, Gut zu wissen, Instagram.
 - **Strukturierte Daten:** lokales Unternehmen mit Adresse und Telefon, Produkt mit Preisspanne je Kreation, Pfad je Unterseite, Fragen und Antworten auf `/info/`. Eine Bewertung steht bewusst nicht drin: Eigene Sterne im Markup sind für lokale Unternehmen nicht zulässig.
 - **`llms.txt`:** wird aus denselben Inhaltsdateien gebaut wie die Seiten.
+- **Themenseiten je Anlass** unter `/apero/`: Geburtstag, Familienfest und Taufe, Abend mit Freunden, Weihnachten, Teamanlass, Kundenevent. Sie stehen nicht in der Navigation, sind aber im Fuss, auf der Startseite, auf der Firmenseite und untereinander verlinkt und stehen in der Sitemap. Jede hat eigenen Text, eigene Fragen und eine eigene Auswahl an Kreationen, damit sie nicht als blosse Kopie gilt.
+- **Entscheide vom 13.11.2026:** Barzahlung ist möglich. Geschenkboxen gibt es nicht, sie sind aus den AGB gestrichen. Die Altersangabe auf «Über mich» ist entfernt. Das Terrassenbild bleibt.
 
 ## Abweichungen vom Prototyp
 

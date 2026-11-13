@@ -3,9 +3,10 @@
 - [ ] Versand der Anfrage: Die Seite ist bereit und sendet an die Adresse in `SITE_ANFRAGE_ZIEL`. Offen ist, wer dort empfängt und die E-Mail an Sibylle auslöst: ein Hostpoint-Webhosting mit eigenem Skript, eine eigene kleine Funktion bei einem Anbieter wie Cloudflare, oder ein Formulardienst. Zu prüfen sind Datenstandort, Auftragsbearbeitung, Speicherfrist. Der Empfänger prüft Pflichtangaben und Spam-Schutz selbst noch einmal.
 - [ ] Repository öffentlich oder privat. GitHub Pages aus einem privaten Repository braucht ein bezahltes Konto.
 - [ ] Domain: DNS bei Hostpoint umstellen (Phase 6).
-- [ ] Zahlung: Die Info-Seite nennt TWINT bei Abholung oder Vorabüberweisung und schliesst Barzahlung aus. Die AGB erlauben Barzahlung, TWINT, Überweisung und für Firmen Rechnung (20 Tage netto). Was gilt?
+- [x] Zahlung: Twint, bar, Überweisung, Firmen auf Rechnung. Barzahlung ist möglich (Entscheid 13.11.2026).
 - [ ] Depot: Die Info-Seite nennt CHF 50 für Platten und Kisten, die AGB erwähnen kein Depot. Gilt es weiter?
-- [ ] Geschenkboxen und Catering: Was gilt?
+- [x] Geschenkboxen gibt es nicht. Sie sind aus den AGB gestrichen (Entscheid 13.11.2026).
+- [ ] Catering steht weiter in AGB Punkt 2. Gilt das?
 - [ ] Liefergebiet, Vorlaufzeit und Höchstzahl Aufträge pro Tag.
 - [ ] Telefon: Im Fuss steht die Nummer aus dem bisherigen Impressum, wie im Prototyp. Bleibt sie, bis die Geschäftsnummer da ist?
 - [ ] Kreationen: Texte aus dem Prototyp, Grössen und Richtpreise von der bisherigen Seite (Stand 13.11.2026), alles als Entwurf markiert. Zu bestätigen. Es fehlen die Allergene je Kreation.
@@ -14,9 +15,9 @@
 - [ ] Hosting der richtigen Seite: GitHub Pages kennt keine echten Weiterleitungen, keine eigenen Sicherheits-Kopfzeilen und keinen Formularversand. Bei Hostpoint bestehen nur Domain und Mail. Zu entscheiden mit Phase 3.
 - [ ] Firmenlogos und Kundenstimmen mit Einverständnis.
 - [x] Rechtstexte: Impressum, AGB und Qualität & Hygiene stehen im Wortlaut auf `/impressum/`.
-- [ ] AGB Punkt 2 nennt Geschenkboxen und Catering, die Seite bietet beides nicht an. Anpassen oder Angebot ergänzen?
-- [ ] Über mich: Der Text nennt das Alter («33 Jahre»). Das veraltet. Streichen oder jährlich nachführen?
-- [ ] Über mich: Das Bild der bisherigen Seite ist eine Aufnahme vom Bildschirm (896 Pixel breit). Die Originaldatei wäre schärfer. Die «Bisherigen Aufträge» der alten Seite sind noch nicht übernommen, auch dafür braucht es die Dateien.
+- [x] AGB Punkt 2: Geschenkboxen gestrichen.
+- [x] Über mich: Altersangabe entfernt (Entscheid 13.11.2026).
+- [ ] Über mich: Das Terrassenbild bleibt (Entscheid 13.11.2026). Es ist eine Aufnahme vom Bildschirm mit 896 Pixeln Breite, die Originaldatei wäre schärfer. Die «Bisherigen Aufträge» der alten Seite sind noch nicht übernommen.
 - [ ] Firmenapéro: Der Text ist neu geschrieben und noch nicht von Sibylle gelesen. Was gehört dazu (Getränke, Geschirr, Service), was nicht?
 - [ ] Google-Unternehmensprofil: Es besteht (Kategorie Delikatessengeschäft, 4 Rezensionen). Website-Adresse, Telefon und Öffnungszeiten dort mit der Seite abgleichen, sobald sie live ist. Die Öffnungszeiten fehlen auf der Seite noch.
 - [ ] Google-Rezensionen: Die vier Rezensionen wären echte Stimmen für die Startseite. Dafür braucht es das Einverständnis der Verfasserinnen und Verfasser.
@@ -24,3 +25,5 @@
 - [ ] Stornierung laut AGB: bis 7 Tage kostenlos, 6 bis 3 Tage 50 Prozent, unter 72 Stunden 100 Prozent. Gilt das unverändert?
 - [ ] Texte: Freigabe durch Sibylle, Kapitel für Kapitel.
 - [ ] Reduziertes Zeichen für Favicon und Kleinformate.
+- [ ] Themenseiten unter `/apero/`: Die Texte sind neu geschrieben und noch nicht von Sibylle gelesen.
+- [ ] Sitemap: Sie wird bei jedem Bau erzeugt (`/sitemap-index.xml`). In der Search Console einreichen, sobald die Seite auf aperozauber.ch läuft. Auf der Testadresse ist sie für Suchmaschinen gesperrt.
