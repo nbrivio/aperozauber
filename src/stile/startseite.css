@@ -141,6 +141,7 @@
     right: var(--rand);
     bottom: clamp(30px, 6vh, 64px);
     color: var(--az-paper);
+    text-shadow: 0 1px 2px rgb(20 28 23 / 0.35), 0 4px 34px rgb(20 28 23 / 0.75);
     opacity: 0;
     z-index: 3;
   }
