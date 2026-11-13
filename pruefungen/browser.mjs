@@ -74,7 +74,35 @@ for (const seite of seiten) {
   }
 }
 
-// Ohne JavaScript: die ruhige Fassung zeigt jede Überschrift und läuft nicht über.
+// Bestellfenster: öffnet über die Blase, besteht die Prüfung, rechnet die Vorschau und schliesst mit Escape.
+for (const [name, width, height] of [breiten[0], breiten[3]]) {
+  const ort = `Bestellfenster (${name})`;
+  const kontext = await browser.newContext({ viewport: { width, height } });
+  const fenster = await kontext.newPage();
+  fenster.on('console', (meldung) => meldung.type() === 'error' && b.melde(ort, `Konsole: ${meldung.text()}`));
+  fenster.on('pageerror', (fehler) => b.melde(ort, `Skriptfehler: ${fehler.message}`));
+  await fenster.goto(`${adresse}/`, { waitUntil: 'networkidle' });
+  await fenster.mouse.wheel(0, height * 2);
+  await fenster.locator('.blase.an').click();
+  const dialog = fenster.locator('dialog[open]');
+  if ((await dialog.count()) !== 1) {
+    b.melde(ort, 'die Blase öffnet das Fenster nicht');
+  } else {
+    await dialog.locator('[data-schritt="1"]').first().click();
+    await dialog.locator('#name').fill('Probe');
+    const vorschau = await dialog.locator('[data-vorschau]').textContent();
+    if (!/1 × /.test(vorschau) || !/Name: Probe/.test(vorschau)) b.melde(ort, 'die Vorschau zeigt die Angaben nicht');
+    const breiter = await dialog.evaluate((e) => e.scrollWidth - e.clientWidth);
+    if (breiter > 0) b.melde(ort, `Fenster läuft um ${breiter} Pixel über`);
+    const { violations } = await new AxeBuilder({ page: fenster }).include('dialog').withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa']).analyze();
+    for (const v of violations) b.melde(ort, `${v.id}: ${v.help} (${v.nodes.length}x, ${v.nodes[0].target.join(' ')})`);
+    await fenster.keyboard.press('Escape');
+    if ((await fenster.locator('dialog[open]').count()) !== 0) b.melde(ort, 'Escape schliesst das Fenster nicht');
+  }
+  await kontext.close();
+}
+
+// Ohne JavaScript: die ruhige Fassung zeigt jede Überschrift und das Formular und läuft nicht über.
 for (const seite of seiten) {
   const ort = `${seite} (ohne JavaScript)`;
   const kontext = await browser.newContext({ viewport: { width: 390, height: 844 }, javaScriptEnabled: false });
@@ -82,6 +110,8 @@ for (const seite of seiten) {
   await fenster.goto(adresse + seite, { waitUntil: 'load' });
   for (const titel of await fenster.locator('h1, h2:not(.verborgen), h3').all()) {
     const sichtbar = await titel.evaluate((e) => {
+      // Das Bestellfenster ist ohne Skript geschlossen, das Formular steht dann im Kapitel.
+      if (e.closest('dialog:not([open])')) return true;
       const r = e.getBoundingClientRect();
       let deckkraft = 1;
       for (let k = e; k; k = k.parentElement) deckkraft *= Number(getComputedStyle(k).opacity);
@@ -89,6 +119,8 @@ for (const seite of seiten) {
     });
     if (!sichtbar) b.melde(ort, `Überschrift nicht sichtbar: ${(await titel.textContent()).trim().slice(0, 40)}`);
   }
+  const formular = fenster.locator('form[data-anfrage]');
+  if ((await formular.count()) === 1 && !(await formular.isVisible())) b.melde(ort, 'das Formular ist nicht sichtbar');
   const ueberlauf = await fenster.locator('html').evaluate((e) => e.scrollWidth - e.clientWidth);
   if (ueberlauf > 0) b.melde(ort, `horizontaler Überlauf um ${ueberlauf} Pixel`);
   await kontext.close();

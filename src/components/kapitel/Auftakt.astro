@@ -7,6 +7,7 @@ import { titelAlsHtml } from '../../inhalt/titel.js';
 const text = await getEntry('texte', 'auftakt');
 const { Content } = await render(text);
 const t = text.data;
+// Am Anfang ist vom Bild nur ein kleiner Ausschnitt zu sehen. Siegel und Schrift gehen deshalb vor.
 ---
 
 <section class="buehne" id="anfang" data-buehne aria-labelledby="auftakt-titel">
@@ -20,6 +21,7 @@ const t = text.data;
         widths={[640, 960, 1280]}
         sizes="100vw"
         loading="eager"
+        fetchpriority="low"
       />
     </div>
     <div class="auftakt">

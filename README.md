@@ -48,7 +48,7 @@ src/stile/              Marken-Token, Grundstile, Kapitel der Startseite
 src/layouts/            Seitengerüst mit Kopfangaben und strukturierten Daten
 src/components/         Kopf, Fuss, Hinweisband, Siegel
 src/components/kapitel/ Je Kapitel der Startseite eine Datei
-src/skripte/            Bewegung und Anfrage-Vorschau
+src/skripte/            Bewegung und Bestellfenster
 src/pages/              Seiten
 src/inhalt/             Einlesen und Prüfen der Inhalte
 pruefungen/             Prüfungen vor jeder Veröffentlichung
@@ -70,7 +70,7 @@ Die Seite `/grundlagen/` zeigt Farben, Schriften und Bausteine zur Abnahme. Sie 
 | `pruefen:gate` | Kopfangaben, eine `h1`, Überschriftenfolge, Alt-Texte, Bildmasse, tote Verweise, Schreibweise, strukturierte Daten, Sitemap |
 | `pruefen:kontrast` | Farbpaare aus `pruefungen/kontrast.json` gegen ihre Schwelle |
 | `pruefen:vermerke` | Dateien, gebaute Seite und Commit-Texte auf Werkzeug-Vermerke |
-| `pruefen:browser` | Fünf Bildschirmbreiten in Chrome: kein Überlauf, keine Fehler, keine Abrufe nach aussen, WCAG 2.2 AA, Tastatur und Fokus. Dazu jede Seite ohne JavaScript |
+| `pruefen:browser` | Fünf Bildschirmbreiten in Chrome: kein Überlauf, keine Fehler, keine Abrufe nach aussen, WCAG 2.2 AA, Tastatur und Fokus. Dazu das Bestellfenster und jede Seite ohne JavaScript |
 | `pruefen:ladezeit` | Startseite wie auf einem mittleren Handy: grösstes Element unter 2,5 s, Layoutsprung unter 0,1, Gewicht unter 1 MB |
 
 ## Veröffentlichung
@@ -83,13 +83,14 @@ Einmalig in den Einstellungen des Repositorys:
 2. **Branches**: `main` schützen, Änderungen nur über Pull Request mit bestandener Prüfung «Bauen und prüfen».
 3. **Security**: Dependabot-Meldungen und Sicherheitsupdates einschalten.
 
-Drei Variablen (Settings, Variables, Actions) steuern die Adresse. Ohne sie läuft die Testadresse.
+Vier Variablen (Settings, Variables, Actions) steuern Adresse und Versand. Ohne sie läuft die Testadresse.
 
 | Variable | Testadresse (Voreinstellung) | Nach dem Umzug |
 | --- | --- | --- |
 | `SITE_ADRESSE` | `https://<konto>.github.io` | `https://aperozauber.ch` |
 | `SITE_PFAD` | `/aperozauber` | `/` |
 | `SITE_STUFE` | `test` | `live` |
+| `SITE_ANFRAGE_ZIEL` | leer: die Anfrage öffnet das Mailprogramm | Adresse, die Anfragen entgegennimmt |
 
 In der Stufe `test` sperren `robots.txt` und die Seiten selbst alle Suchmaschinen, damit die Testadresse nicht neben der bestehenden Seite in der Suche erscheint.
 
@@ -98,7 +99,7 @@ Hinweis: GitHub hält geplante Läufe in öffentlichen Repositorys an, wenn 60 T
 ## Sicherheit
 
 - Keine Tracker, keine fremden Skripte, keine fremden Schriften, keine Cookies.
-- Die Anfrage verlässt die Seite über das Mailprogramm der Besucherin. Die Seite überträgt und speichert keine Angaben aus dem Formular.
+- Ohne gesetzten Empfänger verlässt die Anfrage die Seite über das Mailprogramm der Besucherin, und die Seite überträgt nichts. Mit Empfänger geht sie verschlüsselt nur an diese eine Adresse, die Content Security Policy lässt keine andere zu.
 - Content Security Policy als Meta-Angabe mit Prüfsummen, Grundregel `default-src 'none'`. GitHub Pages erlaubt keine eigenen Server-Kopfzeilen. Angaben wie `frame-ancestors` oder HSTS mit eigener Dauer brauchen später einen vorgeschalteten Dienst.
 - Abhängigkeiten mit festen Versionen und Sperrdatei, Einrichtung ohne Installationsskripte, wöchentliche Aktualisierungsvorschläge.
 - Workflow-Schritte sind auf Commit-Kennungen festgelegt, Rechte je Job auf das Nötige beschränkt.

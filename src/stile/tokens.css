@@ -21,7 +21,8 @@
   --az-font-body: 'DM Sans', Arial, sans-serif;
   --az-font-hand: 'Oooh Baby', 'Bradley Hand', 'Segoe Print', cursive;
 
-  --fs-text: 1rem;
+  --fs-text: clamp(1rem, 0.94rem + 0.28vw, 1.125rem);
+  --fs-gross: clamp(1.625rem, 1.3rem + 1.3vw, 2.375rem);
   --fs-klein: 0.8125rem;
   --fs-etikett: 0.75rem;
   --lh-titel: 0.98;
@@ -29,8 +30,10 @@
   --ls-titel: -0.01em;
 
   --az-space-unit: 0.5rem;
-  --rand: 1.25rem;
-  --az-content-width: 70rem; /* 1120 Pixel */
+  /* Ein Rand und eine Breite für alles: Kopf, Titel und Text teilen dieselbe linke Kante. */
+  --rand: clamp(1.25rem, 0.2rem + 4.6vw, 4.5rem);
+  --az-content-width: 82.5rem; /* 1320 Pixel */
+  --spalte: calc((min(100vw, var(--az-content-width) + 2 * var(--rand)) - 2 * var(--rand) - 11 * 1.5rem) / 12);
   --az-radius-small: 4px;
   --az-radius-medium: 10px;
 

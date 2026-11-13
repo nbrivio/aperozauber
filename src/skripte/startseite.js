@@ -1,5 +1,5 @@
-// Bewegung der Startseite und die Vorschau der Anfrage. Ohne dieses Skript bleibt die Seite
-// vollständig lesbar: Die Bewegung ist Zugabe, die Anfrage geht auch direkt per E-Mail.
+// Bewegung der Startseite und das Bestellfenster. Ohne dieses Skript bleibt die Seite
+// vollständig lesbar: Die Bewegung ist Zugabe, das Formular steht dann im Kapitel Anfrage.
 
 const wurzel = document.documentElement;
 const begrenzt = (x) => (x < 0 ? 0 : x > 1 ? 1 : x);
@@ -9,7 +9,7 @@ function bewegung() {
   const buehne = document.querySelector('[data-buehne]');
   const stapel = document.querySelector('[data-stapel]');
   const kopf = document.querySelector('[data-kopf]');
-  const schweb = document.querySelector('[data-schweb]');
+  const blase = document.querySelector('[data-blase]');
   const claim = buehne.querySelector('.claim');
   const fenster = buehne.querySelector('.fenster');
   const rand = buehne.querySelector('.rand');
@@ -55,7 +55,7 @@ function bewegung() {
     buehne.style.setProperty('--nah', weich(begrenzt((p - 0.35) / 0.65)).toFixed(4));
     claim.style.opacity = begrenzt((p - 0.5) / 0.12).toFixed(3);
     kopf.style.setProperty('--t', weich(begrenzt(p / 0.16)).toFixed(3));
-    schweb.classList.toggle('an', p > 0.08);
+    blase.classList.toggle('an', p > 0.08);
     const radius = 0.17 * Math.min(vw, vh) + auf * 1.5 * Math.max(vw, vh);
     fenster.style.clipPath = schnitt(vw * 0.5, vh * 0.53, radius, auf * 0.5, 0);
     rand.style.clipPath = schnitt(vw * 0.5, vh * 0.53, radius, auf * 0.5, 7);
@@ -94,44 +94,156 @@ function bewegung() {
 
 function anfrage() {
   const formular = document.querySelector('[data-anfrage]');
+  const fenster = document.querySelector('[data-fenster]');
+  const platz = fenster.querySelector('[data-fensterplatz]');
   const vorschau = formular.querySelector('[data-vorschau]');
+  const meldung = formular.querySelector('[data-meldung]');
+  const texte = JSON.parse(formular.dataset.meldungen);
+  const ziel = formular.dataset.ziel;
   const adresse = formular.getAttribute('action');
-  let ziel = adresse;
+  const geladen = Date.now();
   const feld = (name) => formular.elements[name].value.trim();
+  const mengen = () => [...formular.querySelectorAll('[data-p]')];
 
-  function nachricht() {
-    const fuer = formular.querySelector('[name=fuer]:checked').value;
-    const posten = [...formular.querySelectorAll('[data-p]')]
+  function angaben() {
+    const posten = mengen()
       .filter((eingabe) => Number(eingabe.value) > 0)
-      .map((eingabe) => `${eingabe.value} × ${eingabe.dataset.p}${eingabe.dataset.g ? ` ${eingabe.dataset.g}` : ''}`);
-    const datum = feld('wann').split('-').reverse().join('.');
-    const zeilen = ['Hallo Sibylle, ich möchte einen Apéro anfragen.'];
-    if (feld('name')) zeilen.push(`Name: ${feld('name')}`);
-    zeilen.push(`Für: ${fuer}`);
-    zeilen.push(`Bestellung: ${posten.length ? `\n- ${posten.join('\n- ')}` : 'noch offen'}`);
-    zeilen.push(`Gäste: ${feld('wieviele') || 'noch offen'}`);
-    zeilen.push(`Datum: ${datum || 'noch offen'}`);
-    zeilen.push(`Ort: ${feld('wo') || 'noch offen'}`);
-    if (feld('wuensche')) zeilen.push(`Wünsche und Allergien: ${feld('wuensche')}`);
-    const text = zeilen.join('\n');
-    vorschau.textContent = text;
-    ziel = `${adresse}?subject=${encodeURIComponent(`Apéro-Anfrage (${fuer})`)}&body=${encodeURIComponent(text)}`;
+      .map((eingabe) => ({ anzahl: Number(eingabe.value), kreation: eingabe.dataset.p, groesse: eingabe.dataset.g }));
+    return {
+      name: feld('name'),
+      kontakt: feld('kontakt'),
+      fuer: formular.querySelector('[name=fuer]:checked').value,
+      posten,
+      gaeste: feld('wieviele'),
+      datum: feld('wann').split('-').reverse().join('.'),
+      ort: feld('wo'),
+      wuensche: feld('wuensche'),
+    };
   }
 
-  formular.addEventListener('input', nachricht);
-  formular.addEventListener('change', nachricht);
+  function nachricht(a) {
+    const zeilen = ['Hallo Sibylle, ich möchte einen Apéro anfragen.'];
+    if (a.name) zeilen.push(`Name: ${a.name}`);
+    if (a.kontakt) zeilen.push(`Antwort an: ${a.kontakt}`);
+    zeilen.push(`Für: ${a.fuer}`);
+    const liste = a.posten.map((p) => `${p.anzahl} × ${p.kreation}${p.groesse ? ` ${p.groesse}` : ''}`);
+    zeilen.push(`Bestellung: ${liste.length ? `\n- ${liste.join('\n- ')}` : 'noch offen'}`);
+    zeilen.push(`Gäste: ${a.gaeste || 'noch offen'}`);
+    zeilen.push(`Datum: ${a.datum || 'noch offen'}`);
+    zeilen.push(`Ort: ${a.ort || 'noch offen'}`);
+    if (a.wuensche) zeilen.push(`Wünsche und Allergien: ${a.wuensche}`);
+    return zeilen.join('\n');
+  }
+
+  function auffrischen() {
+    for (const eingabe of mengen()) eingabe.closest('.menge').classList.toggle('gewaehlt', Number(eingabe.value) > 0);
+    vorschau.textContent = nachricht(angaben());
+  }
+
+  function melde(text, fehler = false) {
+    meldung.textContent = text;
+    meldung.classList.toggle('fehler', fehler);
+  }
+
+  function danke(text) {
+    const dank = fenster.querySelector('[data-dank]').content.cloneNode(true);
+    dank.querySelector('[data-danktext]').textContent = text;
+    formular.hidden = true;
+    platz.append(dank);
+    platz.querySelector('.dank button').focus();
+  }
+
+  async function senden() {
+    const a = angaben();
+    const text = nachricht(a);
+    melde('');
+
+    // Ohne Empfänger auf dem Server geht die Anfrage über das eigene Mailprogramm.
+    if (!ziel) {
+      location.href = `${adresse}?subject=${encodeURIComponent(`Apéro-Anfrage (${a.fuer})`)}&body=${encodeURIComponent(text)}`;
+      melde(texte.mailprogramm);
+      return;
+    }
+
+    if (!a.name || !a.kontakt) {
+      melde(texte.kontaktFehlt, true);
+      formular.elements[a.name ? 'kontakt' : 'name'].focus();
+      return;
+    }
+    // Spam-Schutz ohne Captcha: das versteckte Feld bleibt bei Menschen leer, und niemand sendet nach zwei Sekunden.
+    // Der Empfänger prüft beides noch einmal selbst.
+    if (feld('website') || Date.now() - geladen < 2000) return;
+
+    const knopf = formular.querySelector('[type=submit]');
+    knopf.disabled = true;
+    melde(texte.unterwegs);
+    try {
+      const antwort = await fetch(ziel, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ ...a, nachricht: text, website: feld('website'), dauer: Date.now() - geladen }),
+      });
+      if (!antwort.ok) throw new Error(`Antwort ${antwort.status}`);
+      // Der Dank erscheint erst hier, wenn der Versand wirklich geklappt hat.
+      danke(texte.gesendet);
+    } catch {
+      melde(texte.fehler, true);
+    } finally {
+      knopf.disabled = false;
+    }
+  }
+
+  // Plus und Minus an den Mengen.
+  formular.addEventListener('click', (ereignis) => {
+    const knopf = ereignis.target.closest('[data-schritt]');
+    if (!knopf) return;
+    const eingabe = knopf.parentElement.querySelector('input');
+    const wert = Math.min(Number(eingabe.max), Math.max(0, Number(eingabe.value) + Number(knopf.dataset.schritt)));
+    eingabe.value = String(wert);
+    auffrischen();
+  });
+  formular.addEventListener('input', auffrischen);
+  formular.addEventListener('change', auffrischen);
   formular.addEventListener('submit', (ereignis) => {
     ereignis.preventDefault();
-    location.href = ziel;
+    senden();
   });
-  for (const knopf of document.querySelectorAll('[data-fuer]')) {
-    knopf.addEventListener('click', () => {
-      formular.querySelector(`[name=fuer][value="${knopf.dataset.fuer}"]`).checked = true;
-      nachricht();
-    });
-  }
+
+  // Das Formular zieht ins Bestellfenster um, im Kapitel bleibt der Ruf dazu.
+  platz.append(formular);
+  document.querySelector('[data-formularplatz]').remove();
+  document.querySelector('[data-ruf]').hidden = false;
   formular.querySelector('[data-ankunft]').hidden = false;
-  nachricht();
+
+  function oeffnen(verweis) {
+    if (verweis.dataset.fuer) formular.querySelector(`[name=fuer][value="${verweis.dataset.fuer}"]`).checked = true;
+    if (formular.hidden) {
+      platz.querySelector('.dank')?.remove();
+      formular.reset();
+      formular.hidden = false;
+      melde('');
+    }
+    auffrischen();
+    fenster.showModal();
+    const posten = verweis.dataset.kreation && formular.querySelector(`[data-posten="${verweis.dataset.kreation}"]`);
+    if (posten) {
+      posten.scrollIntoView({ block: 'center' });
+      posten.querySelector('input').focus();
+    } else {
+      fenster.scrollTop = 0;
+    }
+  }
+
+  // Jeder Verweis auf die Anfrage öffnet das Fenster.
+  document.addEventListener('click', (ereignis) => {
+    const verweis = ereignis.target.closest('a[href$="#anfrage"]');
+    if (verweis) {
+      ereignis.preventDefault();
+      oeffnen(verweis);
+    }
+    if (ereignis.target.closest('[data-zu]') || ereignis.target === fenster) fenster.close();
+  });
+  auffrischen();
 }
 
 // Ein Verweis auf einen Abschnitt im Rechtlichen klappt ihn auf.
@@ -143,16 +255,18 @@ function aufklappen() {
   }
 }
 
-if (wurzel.classList.contains('bewegt')) {
+// Die beiden Teile sind unabhängig: Fällt einer aus, läuft der andere weiter,
+// und die Seite zeigt für den ausgefallenen ihre Fassung ohne Skript.
+function versuche(teil, klasse) {
   try {
-    bewegung();
-    wurzel.dataset.laeuft = '1';
+    teil();
   } catch (fehler) {
-    // Die ruhige Fassung übernimmt, die Anfrage läuft trotzdem.
-    wurzel.classList.remove('bewegt');
+    wurzel.classList.remove(klasse);
     console.error(fehler);
   }
 }
-anfrage();
+if (wurzel.classList.contains('bewegt')) versuche(bewegung, 'bewegt');
+versuche(anfrage, 'js');
+wurzel.dataset.laeuft = '1';
 addEventListener('hashchange', aufklappen);
 aufklappen();

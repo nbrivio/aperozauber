@@ -8,6 +8,7 @@ const abschnitte = (await getCollection('recht')).sort((a, b) => a.data.reihenfo
 <section class="recht" id="rechtliches" aria-labelledby="recht-titel">
   <div class="innen">
     <h2 id="recht-titel">{t.titel}</h2>
+    <div class="recht__liste">
     {
       abschnitte.map(({ id, data: a }) => (
         <details id={id}>
@@ -26,5 +27,6 @@ const abschnitte = (await getCollection('recht')).sort((a, b) => a.data.reihenfo
         </details>
       ))
     }
+    </div>
   </div>
 </section>

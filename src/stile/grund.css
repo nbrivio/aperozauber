@@ -110,6 +110,10 @@
     margin: 0;
   }
 
+  [hidden] {
+    display: none !important;
+  }
+
   img {
     display: block;
     max-inline-size: 100%;

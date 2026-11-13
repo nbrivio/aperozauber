@@ -1,6 +1,6 @@
 # Offene Entscheide
 
-- [ ] Versand der Anfrage: Formulardienst oder eigene kleine Funktion (Phase 3). Zu prüfen sind Datenstandort, Auftragsbearbeitung, Speicherfrist.
+- [ ] Versand der Anfrage: Die Seite ist bereit und sendet an die Adresse in `SITE_ANFRAGE_ZIEL`. Offen ist, wer dort empfängt und die E-Mail an Sibylle auslöst: ein Hostpoint-Webhosting mit eigenem Skript, eine eigene kleine Funktion bei einem Anbieter wie Cloudflare, oder ein Formulardienst. Zu prüfen sind Datenstandort, Auftragsbearbeitung, Speicherfrist. Der Empfänger prüft Pflichtangaben und Spam-Schutz selbst noch einmal.
 - [ ] Repository öffentlich oder privat. GitHub Pages aus einem privaten Repository braucht ein bezahltes Konto.
 - [ ] Domain: DNS bei Hostpoint umstellen (Phase 6).
 - [ ] Zahlung: Die Info-Seite nennt TWINT bei Abholung oder Vorabüberweisung und schliesst Barzahlung aus. Die AGB erlauben Barzahlung, TWINT, Überweisung und für Firmen Rechnung (20 Tage netto). Was gilt?

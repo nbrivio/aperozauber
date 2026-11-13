@@ -48,7 +48,7 @@ const punkte = [
     align-items: center;
     gap: 12px;
     height: var(--kopf-h);
-    padding: 0 16px;
+    padding: 0 max(16px, var(--rand) - 6px) 0 var(--rand);
     background-color: rgb(246 243 236 / var(--t));
     border-bottom: 1px solid rgb(39 36 31 / calc(var(--t) * 0.18));
   }
@@ -59,7 +59,7 @@ const punkte = [
     text-decoration: none;
     line-height: 1;
     opacity: var(--t);
-    margin-left: -2px;
+    margin-left: -6px;
   }
   .marke :global(.marke__siegel) {
     width: 54px;
@@ -102,7 +102,7 @@ const punkte = [
   }
   @media (min-width: 900px) {
     .kopf__leiste {
-      padding: 0 32px;
+      padding-inline: var(--rand);
     }
     nav {
       display: flex;

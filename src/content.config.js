@@ -76,6 +76,8 @@ const texte = defineCollection({
         satz: z.string().optional(),
         knopf: z.string().optional(),
         punkte: z.array(punkt).optional(),
+        // Kurze Texte der Bedienung, etwa Meldungen der Anfrage.
+        meldungen: z.record(z.string(), z.string().min(1)).optional(),
         bild: image().optional(),
         bildAlt: altText.optional(),
         freigegeben: z.boolean(),

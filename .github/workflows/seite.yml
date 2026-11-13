@@ -20,6 +20,7 @@ env:
   SITE_ADRESSE: ${{ vars.SITE_ADRESSE || format('https://{0}.github.io', github.repository_owner) }}
   SITE_PFAD: ${{ vars.SITE_PFAD || format('/{0}', github.event.repository.name) }}
   SITE_STUFE: ${{ vars.SITE_STUFE || 'test' }}
+  SITE_ANFRAGE_ZIEL: ${{ vars.SITE_ANFRAGE_ZIEL }}
 
 jobs:
   pruefen:

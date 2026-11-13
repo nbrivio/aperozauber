@@ -9,7 +9,10 @@ Stand: 13. November 2026. Grundlage sind die Brand Guidelines 1.0 und der Umsetz
 - **Siegel:** fliegt und rollt nicht. Im Auftakt steht es gross über dem Fenster und blendet mit der Einladung aus. Gleichzeitig blendet der Kopf ein, in dem es klein und fest links steht. Es ist nie zweimal gleichzeitig zu sehen. Im Fuss steht es weiss auf Deep Pine.
 - **Farben und Schriften:** nach Brand Guidelines 1.0. Instrument Serif für Titel, DM Sans für Text, Oooh Baby als Handschrift. Alle selbst ausgeliefert.
 - **Kein dunkles Farbschema:** Die Marke definiert eines, das helle.
-- **Anfrage bis Phase 3:** Das Formular setzt die Nachricht zusammen, zeigt sie als Vorschau und öffnet das Mailprogramm. Die Seite selbst überträgt und speichert nichts.
+- **Ein Raster für alles:** Kopf, Titel und Text teilen dieselbe linke Kante und dieselbe Breite (1320 Pixel, zwölf Spalten). Titel sind auf grossen Bildschirmen grösser gesetzt, Textblöcke hängen an einer Linie statt frei im Raum.
+- **Blase:** Ein runder, von Hand geschnittener Knopf «Apéro anfragen» läuft unten rechts mit und öffnet das Bestellfenster. Dasselbe tut jeder andere Knopf zur Anfrage.
+- **Bestellfenster:** Jede Kreation mit rundem Bild, Notiz und Preis, Mengen mit Plus und Minus, darunter die Angaben zum Anlass und die Vorschau der Nachricht. Ohne Skript steht dasselbe Formular im Kapitel Anfrage.
+- **Versand:** Solange kein Empfänger gesetzt ist, öffnet «Anfrage senden» das Mailprogramm, und die Seite überträgt nichts. Mit der Variable `SITE_ANFRAGE_ZIEL` geht die Anfrage direkt an diese Adresse. Der Dank erscheint nur nach bestätigtem Versand, bei einem Fehler bleiben die Angaben stehen.
 
 ## Abweichungen vom Prototyp
 
@@ -18,7 +21,9 @@ Jede ist begründet, keine ändert das Bild.
 - **Ruhige Fassung als Grundzustand:** Die Bewegung wird vom Skript eingeschaltet. Ohne Skript, bei einem Skriptfehler und bei reduzierter Bewegung steht dieselbe Seite ohne Scroll-Effekte da, mit allen Inhalten. Im Prototyp blieb der Titel ohne Skript unsichtbar.
 - **Bilder:** AVIF und WebP in mehreren Grössen statt einer Datei. Die Vorlagen sind die Dateien aus dem Prototyp (760 und 1280 Pixel breit). Für grosse Bildschirme braucht es die Originale.
 - **Schriften:** selbst ausgeliefert statt von Google geladen.
-- **Feld «Noch etwas?»:** zusätzlich in der Anfrage, für Wünsche und Allergien.
+- **Felder «Noch etwas?» und «Antwort an?»:** zusätzlich in der Anfrage, für Wünsche und Allergien und für die Rückmeldung.
+- **Komposition:** Versprechen, Ablauf, Sibylle, Anfrage, Rechtliches und Fuss sind auf grossen Bildschirmen neu gesetzt (Entscheid 13.11.2026). Der Ablauf steht als Liste neben dem Titel statt in vier schmalen Spalten.
+- **Blase statt Knopf:** Der schwebende rechteckige Knopf ist durch die runde Blase ersetzt.
 - **«Anfrage senden»:** ist ein echter Knopf des Formulars statt eines Verweises. Aussehen gleich.
 - **Sibylle, mittlere Breiten:** Bild und Abstand werden zwischen 800 und 1060 Pixel schmaler, weil das Wort «zusammenkommen.» sonst über den Rand lief.
 - **Fokus und Tastatur:** heller Fokusrahmen auf dunklen Flächen, grössere Klickflächen bei «Anfragen» und im Fuss, Kopf wird sichtbar, sobald die Tastatur ihn erreicht.
