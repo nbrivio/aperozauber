@@ -16,7 +16,6 @@ const t = (await getEntry('texte', 'fuer')).data;
           <ul>{punkt.liste.map((zeile) => <li>{zeile}</li>)}</ul>
           <a class="knopf" href="#anfrage" data-fuer={punkt.wert}>{punkt.knopf}</a>
           {punkt.wert === 'Firma' && <a class="weiter" href={pfad('/firmenapero/')}>Mehr zum Firmenapéro</a>}
-          {punkt.wert === 'Privat' && <a class="weiter" href={pfad('/apero/')}>Ideen für deinen Anlass</a>}
         </div>
       ))
     }

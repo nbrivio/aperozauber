@@ -25,5 +25,5 @@
 - [ ] Stornierung laut AGB: bis 7 Tage kostenlos, 6 bis 3 Tage 50 Prozent, unter 72 Stunden 100 Prozent. Gilt das unverändert?
 - [ ] Texte: Freigabe durch Sibylle, Kapitel für Kapitel.
 - [ ] Reduziertes Zeichen für Favicon und Kleinformate.
-- [ ] Themenseiten unter `/apero/`: Die Texte sind neu geschrieben und noch nicht von Sibylle gelesen.
+- [ ] Themenseiten unter `/apero/`: Die Texte sind neu geschrieben und noch nicht von Sibylle gelesen. Es gibt erst fünf Bilder, Familienfest und Kundenevent zeigen dasselbe. Je Themenseite ein eigenes Foto zum Anlass wäre stärker.
 - [ ] Sitemap: Sie wird bei jedem Bau erzeugt (`/sitemap-index.xml`). In der Search Console einreichen, sobald die Seite auf aperozauber.ch läuft. Auf der Testadresse ist sie für Suchmaschinen gesperrt.

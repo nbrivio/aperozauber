@@ -107,6 +107,19 @@ const sitemap = await readFile('dist/sitemap-0.xml', 'utf8').catch(() => '');
 if (!sitemap) b.melde('sitemap', 'fehlt');
 if (/<priority>|<changefreq>/.test(sitemap)) b.melde('sitemap', 'priority oder changefreq enthalten');
 if (/grundlagen|404/.test(sitemap)) b.melde('sitemap', 'interne Seite enthalten');
+
+// Themenseiten stehen für sich: Keine Seite verweist im Inhalt auf eine Themenseite,
+// auch keine andere Themenseite. Jede steht in der Sitemap, sonst findet sie niemand.
+const themen = seiten.map((datei) => relative('dist', datei)).filter((ort) => /^apero\/[^/]+\/index\.html$/.test(ort));
+if (themen.length === 0) b.melde('apero', 'keine Themenseite gebaut');
+for (const datei of seiten) {
+  const html = await readFile(datei, 'utf8');
+  const rumpf = html.slice(html.indexOf('<body'));
+  if (/<a\s[^>]*href="[^"#]*\/apero\//.test(rumpf)) b.melde(relative('dist', datei), 'Verweis auf eine Themenseite');
+}
+for (const ort of themen) {
+  if (!sitemap.includes(`/${ort.replace('index.html', '')}</loc>`)) b.melde(ort, 'fehlt in der Sitemap');
+}
 if (!(await vorhanden('dist/robots.txt'))) b.melde('robots.txt', 'fehlt');
 
 b.schliesse(`${seiten.length} Seiten`);

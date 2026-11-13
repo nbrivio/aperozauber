@@ -125,11 +125,12 @@ const seiten = defineCollection({
       .refine((o) => !o.bild || o.bildAlt, { path: ['bildAlt'], message: 'Jedes Bild braucht einen Alt-Text.' }),
 });
 
-// Themenseiten je Anlass unter /apero/. Sie stehen nicht in der Navigation,
-// sind aber verlinkt und in der Sitemap, damit man sie über die Suche findet.
+// Themenseiten je Anlass unter /apero/. Jede steht für sich: Keine andere Seite
+// verweist auf sie, und sie verweisen nicht aufeinander. Gefunden werden sie über
+// die Suche, deshalb stehen sie in der Sitemap und in llms.txt.
 const anlaesse = defineCollection({
   loader: glob({ pattern: '*.md', base: './inhalt/anlaesse' }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     titel: z.string().min(1),
     etikett: z.string().min(1),
     seitentitel: z.string().min(1),
@@ -137,9 +138,13 @@ const anlaesse = defineCollection({
     lead: z.string().min(1),
     art: z.enum(['privat', 'firma']),
     reihenfolge: z.number().int(),
+    // Kurzname für den Pfad, etwa «Geburtstag».
+    kurz: z.string().min(1),
+    bild: image(),
+    bildAlt: altText,
     // Dateinamen der passenden Kreationen, in der Reihenfolge der Empfehlung.
     kreationen: z.array(z.string()).min(1),
-    fragen: z.array(z.object({ frage: z.string().min(1), antwort: z.string().min(1) })).min(1),
+    fragen: z.array(z.object({ frage: z.string().min(1), antwort: z.string().min(1) })).min(3),
     freigegeben: z.boolean(),
   }),
 });

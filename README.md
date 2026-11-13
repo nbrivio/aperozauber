@@ -72,7 +72,7 @@ Die Seite `/grundlagen/` zeigt Farben, Schriften und Bausteine zur Abnahme. Sie 
 | `/angebot/` | Alle Kreationen und Beilagen |
 | `/angebot/<name>/` | Eine Kreation mit Grössen und Preisen |
 | `/firmenapero/` | Für Firmen |
-| `/apero/` und `/apero/<anlass>/` | Themenseiten je Anlass. Nicht in der Navigation, aber im Fuss, auf der Startseite und in der Sitemap verlinkt |
+| `/apero/<anlass>/` | Themenseiten je Anlass. Jede steht für sich: nirgends verlinkt, auch nicht untereinander. Gefunden werden sie über die Suche (Sitemap, `llms.txt`) |
 | `/uebermich/` | Sibylle |
 | `/info/` | Abholung, Lieferung, Depot, Bezahlung |
 | `/impressum/` | Impressum, AGB, Qualität & Hygiene, Datenschutz |
@@ -85,7 +85,7 @@ Die Seite `/grundlagen/` zeigt Farben, Schriften und Bausteine zur Abnahme. Sie 
 | Befehl | Prüft |
 | --- | --- |
 | `pruefen:html` | Gültiges HTML |
-| `pruefen:gate` | Kopfangaben, eine `h1`, Überschriftenfolge, Alt-Texte, Bildmasse, tote Verweise, Schreibweise, strukturierte Daten, Sitemap |
+| `pruefen:gate` | Kopfangaben, eine `h1`, Überschriftenfolge, Alt-Texte, Bildmasse, tote Verweise, Schreibweise, strukturierte Daten, Sitemap, Themenseiten ohne Verweise von aussen |
 | `pruefen:kontrast` | Farbpaare aus `pruefungen/kontrast.json` gegen ihre Schwelle |
 | `pruefen:vermerke` | Dateien, gebaute Seite und Commit-Texte auf Werkzeug-Vermerke |
 | `pruefen:browser` | Fünf Bildschirmbreiten in Chrome: kein Überlauf, keine Fehler, keine Abrufe nach aussen, WCAG 2.2 AA, Tastatur und Fokus. Dazu das Bestellfenster und jede Seite ohne JavaScript |
