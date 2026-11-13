@@ -1,5 +1,5 @@
 ---
-titel: "Apéro zu Weihnachten. *Ohne Küchenstress.*"
+titel: "Apéro zu Weihnachten. *Ohne Küchenstress*"
 etikett: "Für die Festtage"
 seitentitel: "Weihnachtsapéro: Apéroplatten für die Festtage"
 beschreibung: "Apéroplatten für Weihnachten und die Festtage, für die Familie oder das Team. Von Hand gestaltet in Villmergen. Bestellfristen stehen oben auf der Seite."

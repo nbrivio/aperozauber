@@ -1,5 +1,5 @@
 ---
-titel: "Apéro mit Freunden. *Einfach hinsetzen.*"
+titel: "Apéro mit Freunden. *Einfach hinsetzen*"
 etikett: "Für den Abend mit Freunden"
 seitentitel: "Apéro mit Freunden: Platten für 4 bis 16 Personen"
 beschreibung: "Apéroplatten für den Abend mit Freunden. Eine Platte reicht für 4 bis 16 Personen, von Hand gestaltet in Villmergen, zur Abholung oder geliefert."

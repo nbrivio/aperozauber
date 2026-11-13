@@ -102,6 +102,15 @@ for (const datei of seiten) {
   }
 }
 
+// Titel der ersten und zweiten Ebene enden nicht mit einem Punkt.
+for (const datei of seiten) {
+  const html = await readFile(datei, 'utf8');
+  for (const [, , inhalt] of html.matchAll(/<h([12])\b[^>]*>([\s\S]*?)<\/h\1>/g)) {
+    const text = inhalt.replace(/<[^>]+>/g, '').trim();
+    if (/\.$/.test(text)) b.melde(relative('dist', datei), `Titel endet mit Punkt: «${text}»`);
+  }
+}
+
 // Sitemap und robots.txt
 const sitemap = await readFile('dist/sitemap-0.xml', 'utf8').catch(() => '');
 if (!sitemap) b.melde('sitemap', 'fehlt');

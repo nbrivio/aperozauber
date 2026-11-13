@@ -1,5 +1,5 @@
 ---
-titel: "Euer Firmenapéro. *Mein Apérozauber.*"
+titel: "Euer Firmenapéro. *Mein Apérozauber*"
 etikett: "Für Firmen"
 seitentitel: "Firmenapéro im Freiamt"
 beschreibung: "Apéro-Kreationen für Teamanlass, Kundenevent, Eröffnung und Jubiläum. Von Hand gestaltet in Villmergen, geliefert an den Firmensitz, auf Rechnung."

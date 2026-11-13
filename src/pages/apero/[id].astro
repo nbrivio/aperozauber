@@ -7,7 +7,7 @@ import { Picture } from 'astro:assets';
 import Seite from '../../layouts/Seite.astro';
 import Titelblatt from '../../components/Titelblatt.astro';
 import { pfad } from '../../inhalt/pfad.js';
-import { preiszeile } from '../../inhalt/preis.js';
+import Preise from '../../components/Preise.astro';
 
 export async function getStaticPaths() {
   const alle = await getCollection('anlaesse');
@@ -94,8 +94,8 @@ const fragen = {
               <h3><a href={pfad(`/angebot/${id}/`)}>{k.name}</a></h3>
               {k.notiz && <p class="notiz">{k.notiz}</p>}
               <Text />
+              <Preise kreation={k} />
               <div class="fuss">
-                <span class="preis">{preiszeile(k)}</span>
                 <a href="#anfrage" data-kreation={id} aria-label={`${k.name} anfragen`}>Anfragen</a>
               </div>
             </div>
@@ -111,12 +111,12 @@ const fragen = {
       <div class="abschnitt__inhalt prosa">
         <table class="groessen">
           <caption class="verborgen">Grössen der Kreationen</caption>
-          <thead class="verborgen"><tr><th scope="col">Grösse</th><th scope="col">Personen</th><th scope="col">Preis</th></tr></thead>
+          <thead class="verborgen"><tr><th scope="col">Grösse</th><th scope="col">Personen</th></tr></thead>
           <tbody>
-            {groessen.map((g) => <tr><th scope="row">{g.groesse}</th><td>für {g.personen} Personen</td><td>ab CHF&nbsp;{g.preis}</td></tr>)}
+            {groessen.map((g) => <tr><th scope="row">{g.groesse}</th><td>für {g.personen} Personen</td></tr>)}
           </tbody>
         </table>
-        <p>Für eine grössere Runde kombiniere ich mehrere Platten. Die Preise sind Richtpreise, verbindlich werden sie mit meiner Bestätigung.</p>
+        <p>Für eine grössere Runde kombiniere ich mehrere Platten. Die Preise je Grösse stehen oben bei jeder Kreation. Es sind Richtpreise, verbindlich werden sie mit meiner Bestätigung.</p>
       </div>
     </div>
   </section>

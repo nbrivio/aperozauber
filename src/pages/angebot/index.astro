@@ -5,7 +5,7 @@ import Seite from '../../layouts/Seite.astro';
 import Titelblatt from '../../components/Titelblatt.astro';
 import { betrieb } from '../../inhalt/betrieb.js';
 import { pfad } from '../../inhalt/pfad.js';
-import { preiszeile } from '../../inhalt/preis.js';
+import Preise from '../../components/Preise.astro';
 
 const t = (await getEntry('texte', 'angebot')).data;
 const kreationen = (await getCollection('kreationen')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
@@ -39,8 +39,8 @@ const liste = {
             <h2><a href={pfad(`/angebot/${id}/`)}>{k.name}</a></h2>
             {k.notiz && <p class="notiz">{k.notiz}</p>}
             <Content />
+            <Preise kreation={k} />
             <div class="fuss">
-              <span class="preis">{preiszeile(k)}</span>
               <a href="#anfrage" data-kreation={id} aria-label={`${k.name} anfragen`}>{t.knopf}</a>
             </div>
           </div>

@@ -1,5 +1,5 @@
 ---
-titel: "Apéro für Kundenevent und Eröffnung. *Ein Empfang, der bleibt.*"
+titel: "Apéro für Kundenevent und Eröffnung. *Ein Empfang, der bleibt*"
 etikett: "Für Kundenanlässe"
 seitentitel: "Apéro für Kundenevent, Eröffnung und Jubiläum"
 beschreibung: "Apéroplatten für Kundenevent, Eröffnung und Firmenjubiläum. Von Hand gestaltet in Villmergen, geliefert an die Event-Location, auf Rechnung."

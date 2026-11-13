@@ -1,7 +1,7 @@
 ---
 kapitel: versprechen
-titel: "Ich bin nicht irgendein Catering."
-hand: "Ich bin Sibylle."
+titel: "Ich bin nicht irgendein Catering"
+hand: "Ich bin Sibylle"
 etikett: "Mein Versprechen"
 satz: "Ich kümmere mich um den Apéro. Du um die Menschen."
 bild: ../../src/assets/bilder/sibylle.webp

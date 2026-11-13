@@ -60,3 +60,9 @@ Jede ist begründet, keine ändert das Bild.
 - **Schriften:** Die Guidelines führen die Schriftwahl als Vorschlag, der Umsetzungsauftrag als entschieden. Gebaut ist die Wahl aus dem Umsetzungsauftrag.
 - **Oooh Baby:** steht im Umsetzungsauftrag, nicht in den Guidelines.
 - **Häufige Fragen als strukturierte Daten:** bringen in der Google-Suche keine eigene Darstellung mehr. Sinnvoll bleiben sie für Assistenten, sofern die Fragen sichtbar auf der Seite stehen.
+
+## Sprache und Preise (14.11.2026)
+
+- **Titel ohne Schlusspunkt:** Titel der ersten und zweiten Ebene enden nicht mit einem Punkt. Das Seiten-Gate prüft es.
+- **Grössen ausgeschrieben:** «Jede Platte gibt es in drei Grössen: S für 4 bis 6 Personen, M für 6 bis 10 Personen und L für 10 bis 16 Personen».
+- **Preise je Grösse auf jeder Karte:** Jede Kreation zeigt S, M und L mit Personenzahl und Preis, wie auf der bisherigen Seite. Im Bestellfenster stehen die drei Preise unter dem Namen.

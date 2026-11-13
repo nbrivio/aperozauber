@@ -5,7 +5,7 @@
 import { getCollection, getEntry, render } from 'astro:content';
 import { Picture } from 'astro:assets';
 import { titelAlsHtml } from '../../inhalt/titel.js';
-import { mengenwort, preiszeile } from '../../inhalt/preis.js';
+import { mengenwort, preiszeile, preisJeGroesse } from '../../inhalt/preis.js';
 import { betrieb } from '../../inhalt/betrieb.js';
 
 const text = await getEntry('texte', 'anfrage');
@@ -53,7 +53,7 @@ const telefon = betrieb.telefon.replaceAll(' ', ' ');
                   </div>
                   <div class="name">
                     <b>{k.name}</b>
-                    <span>{[k.notiz, preiszeile(k)].filter(Boolean).join(' · ')}</span>
+                    <span>{k.art === 'kreation' ? preisJeGroesse(k) : [k.notiz, preiszeile(k)].filter(Boolean).join(' · ')}</span>
                   </div>
                   <div class="mengen">
                     {(k.art === 'kreation' ? k.groessen.map((g) => g.groesse) : ['']).map((g) => {

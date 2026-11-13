@@ -1,5 +1,5 @@
 ---
-titel: "Apéro fürs Familienfest. *Alle am Tisch.*"
+titel: "Apéro fürs Familienfest. *Alle am Tisch*"
 etikett: "Für Familienfeste und Taufen"
 seitentitel: "Apéro für Familienfest und Taufe"
 beschreibung: "Apéroplatten für Familienfest, Taufe und andere Feiern im Kreis der Familie. Von Hand gestaltet in Villmergen, in drei Grössen."

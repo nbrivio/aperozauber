@@ -1,7 +1,7 @@
 ---
 kapitel: anfrage
 etikett: "Dein Anlass. Mein Apérozauber."
-titel: "Erzähl mir von *deinem Anlass.*"
+titel: "Erzähl mir von *deinem Anlass*"
 knopf: "Anfrage senden"
 satz: "So kommt deine Anfrage an"
 meldungen:

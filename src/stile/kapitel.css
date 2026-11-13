@@ -447,7 +447,7 @@
   }
   .karte .fuss {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     gap: 10px;
     border-top: 1px solid var(--az-linie);
@@ -459,6 +459,39 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     font-variant-numeric: tabular-nums;
+  }
+  .preise {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    font-variant-numeric: tabular-nums;
+    margin-top: 4px;
+  }
+  .preise th,
+  .preise td {
+    padding: 7px 0;
+    border-top: 1px solid var(--az-linie);
+    text-align: left;
+    font-weight: 400;
+  }
+  .preise th {
+    font: 400 26px/1 var(--az-font-hand);
+    color: var(--az-fig);
+    width: 2.2rem;
+  }
+  .preise td:last-child {
+    text-align: right;
+    white-space: nowrap;
+    font: 500 13px/1 var(--az-font-body);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .preise--stueck {
+    font: 500 13px/1 var(--az-font-body);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding-top: 12px;
+    border-top: 1px solid var(--az-linie);
   }
   .karte .fuss a {
     display: inline-flex;

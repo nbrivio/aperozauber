@@ -1,5 +1,5 @@
 ---
-titel: "Ich bin nicht irgendein Catering. *Ich bin Sibylle.*"
+titel: "Ich bin nicht irgendein Catering. *Ich bin Sibylle*"
 etikett: "Über mich"
 seitentitel: "Über mich: Sibylle Brivio"
 beschreibung: "Sibylle Brivio aus Villmergen gestaltet Apéro-Kreationen von Hand. Wer hinter dem Apérozauber steht."

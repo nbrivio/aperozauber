@@ -1,0 +1,21 @@
+---
+// Preise einer Kreation: je Grösse eine Zeile mit Personenzahl und Preis.
+// Beilagen haben einen Stückpreis und stehen in einer Zeile.
+import { preiszeile } from '../inhalt/preis.js';
+
+const { kreation: k } = Astro.props;
+---
+
+{
+  k.art === 'kreation' ? (
+    <table class="preise">
+      <caption class="verborgen">Grössen und Preise von {k.name}</caption>
+      <thead class="verborgen"><tr><th scope="col">Grösse</th><th scope="col">Personen</th><th scope="col">Preis</th></tr></thead>
+      <tbody>
+        {k.groessen.map((g) => <tr><th scope="row">{g.groesse}</th><td>{g.personen} Personen</td><td>ab CHF&nbsp;{g.preis}</td></tr>)}
+      </tbody>
+    </table>
+  ) : (
+    <p class="preise preise--stueck">{preiszeile(k)}</p>
+  )
+}

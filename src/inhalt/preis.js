@@ -6,5 +6,8 @@ export function preiszeile(kreation) {
   return `ab CHF\u00a0${betrag(Math.min(...kreation.groessen.map((g) => g.preis)))}`;
 }
 
+/** Preise je Grösse in einer Zeile: «S ab CHF 100, M ab CHF 120, L ab CHF 140». */
+export const preisJeGroesse = (kreation) => kreation.groessen.map((g) => `${g.groesse} ab CHF\u00a0${betrag(g.preis)}`).join(', ');
+
 /** Beschriftung des Mengenfelds einer Beilage in der Anfrage. */
 export const mengenwort = (kreation) => (kreation.einheit === 'Brot' ? 'Stück' : kreation.einheit);

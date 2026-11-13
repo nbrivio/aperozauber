@@ -1,5 +1,5 @@
 ---
-titel: "Apéro für den Teamanlass. *Alle bleiben länger.*"
+titel: "Apéro für den Teamanlass. *Alle bleiben länger*"
 etikett: "Für Teams"
 seitentitel: "Apéro für Teamanlass und Teamevent"
 beschreibung: "Apéroplatten für Teamanlass, Sitzung oder Feierabend im Büro. Geliefert an den Firmensitz, auf Rechnung nach Vereinbarung. Aus Villmergen."

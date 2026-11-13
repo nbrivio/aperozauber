@@ -2,7 +2,7 @@
 import { getCollection, getEntry, render } from 'astro:content';
 import { Picture } from 'astro:assets';
 import { titelAlsHtml } from '../../inhalt/titel.js';
-import { preiszeile } from '../../inhalt/preis.js';
+import Preise from '../Preise.astro';
 import { pfad } from '../../inhalt/pfad.js';
 
 const t = (await getEntry('texte', 'angebot')).data;
@@ -30,8 +30,8 @@ const karten = await Promise.all(kreationen.map(async (k) => ({ id: k.id, k: k.d
             <h3><a href={pfad(`/angebot/${id}/`)}>{k.name}</a></h3>
             {k.notiz && <p class="notiz">{k.notiz}</p>}
             <Content />
+            <Preise kreation={k} />
             <div class="fuss">
-              <span class="preis">{preiszeile(k)}</span>
               <a href="#anfrage" data-kreation={id} aria-label={`${k.name} anfragen`}>{t.knopf}</a>
             </div>
           </div>

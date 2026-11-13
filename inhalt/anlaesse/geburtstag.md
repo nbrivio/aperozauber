@@ -1,5 +1,5 @@
 ---
-titel: "Apéro zum Geburtstag. *Du feierst mit.*"
+titel: "Apéro zum Geburtstag. *Du feierst mit*"
 etikett: "Für deinen Geburtstag"
 seitentitel: "Apéro zum Geburtstag: Apéroplatten aus Villmergen"
 beschreibung: "Apéroplatten für die Geburtstagsfeier, von Hand gestaltet in Villmergen. Für 4 bis 16 Gäste pro Platte, zur Abholung oder geliefert."
@@ -18,7 +18,7 @@ fragen:
   - frage: "Wie früh soll ich anfragen?"
     antwort: "So früh wie möglich, sobald dein Datum steht. Ich melde mich mit einem Vorschlag, verbindlich wird die Bestellung mit meiner schriftlichen Bestätigung."
   - frage: "Was kostet ein Apéro zum Geburtstag?"
-    antwort: "Eine Platte gibt es ab CHF 100 in Grösse S, ab CHF 120 in M und ab CHF 140 in L. Das sind Richtpreise, den genauen Preis nenne ich dir mit meinem Vorschlag."
+    antwort: "Das hängt von Kreation und Grösse ab. Den Bergzauber gibt es ab CHF 100 in Grösse S, ab CHF 120 in M und ab CHF 140 in L, den Früchtezauber ab CHF 70, CHF 90 und CHF 110. Das sind Richtpreise, den genauen Preis nenne ich dir mit meinem Vorschlag."
 freigegeben: false
 ---
 Ob runder Geburtstag oder ein Abend im kleinen Kreis: Jede Platte stelle ich von Hand zusammen, mit dem, was gerade Saison hat. Deshalb gleicht keine der anderen.
