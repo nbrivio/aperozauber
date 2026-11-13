@@ -2,6 +2,7 @@
 import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { extname, join, normalize, resolve } from 'node:path';
+import { gzipSync } from 'node:zlib';
 
 const arten = {
   '.html': 'text/html; charset=utf-8',
@@ -29,8 +30,16 @@ export async function starteServer(ordner = 'dist') {
     try {
       if (!datei || !datei.startsWith(wurzel)) throw new Error('ausserhalb');
       if ((await stat(datei)).isDirectory()) datei = join(datei, 'index.html');
-      antwort.writeHead(200, { 'Content-Type': arten[extname(datei)] ?? 'application/octet-stream' });
-      antwort.end(await readFile(datei));
+      const art = arten[extname(datei)] ?? 'application/octet-stream';
+      const inhalt = await readFile(datei);
+      // Text geht komprimiert hinaus, wie beim Hosting. Sonst misst die Ladezeit ein Gewicht, das es dort nicht gibt.
+      if (/text|json|xml|svg/.test(art) && /\bgzip\b/.test(anfrage.headers['accept-encoding'] ?? '')) {
+        antwort.writeHead(200, { 'Content-Type': art, 'Content-Encoding': 'gzip' });
+        antwort.end(gzipSync(inhalt));
+      } else {
+        antwort.writeHead(200, { 'Content-Type': art });
+        antwort.end(inhalt);
+      }
     } catch {
       antwort.writeHead(404, { 'Content-Type': arten['.html'] });
       antwort.end(await readFile(join(wurzel, '404.html')));

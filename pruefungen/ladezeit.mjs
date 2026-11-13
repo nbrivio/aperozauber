@@ -1,4 +1,4 @@
-// Misst die Startseite wie auf einem mittleren Handy mit gedrosseltem Netz.
+// Misst die Startseite wie auf einem mittleren Handy mit gedrosseltem Netz, dreimal.
 import { mkdir, writeFile } from 'node:fs/promises';
 import lighthouse from 'lighthouse';
 import { launch } from 'chrome-launcher';
@@ -16,7 +16,14 @@ const b = bericht('Ladezeit');
 const { adresse, schliessen } = await starteServer();
 const chrome = await launch({ chromeFlags: ['--headless=new', '--no-sandbox'] });
 
-const { lhr } = await lighthouse(`${adresse}/`, { port: chrome.port, output: 'json', logLevel: 'error', onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'] });
+// Eine einzelne Messung schwankt mit der Maschine. Gewertet wird der mittlere von drei Läufen.
+const laeufe = [];
+for (let i = 0; i < 3; i += 1) {
+  const { lhr: lauf } = await lighthouse(`${adresse}/`, { port: chrome.port, output: 'json', logLevel: 'error', onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'] });
+  laeufe.push(lauf);
+}
+const lcp = (lauf) => lauf.audits['largest-contentful-paint'].numericValue;
+const lhr = laeufe.sort((a, b) => lcp(a) - lcp(b))[1];
 await chrome.kill();
 await schliessen();
 
