@@ -1,5 +1,5 @@
 ---
-// Themenseite für einen Anlass. Sie steht für sich: Text, Kreationen mit Preisen, Mengen,
+// Themenseite für einen Anlass. Sie steht für sich: Text, Kreationen mit Preisen,
 // Abholung und Bezahlung, Fragen, Ablauf und Anfrage stehen alle auf dieser einen Seite.
 // Keine andere Seite verweist hierher, und die Themenseiten verweisen nicht aufeinander.
 import { getCollection, getEntry, render } from 'astro:content';
@@ -26,8 +26,6 @@ const kreationen = a.kreationen.map((id) => {
   return treffer;
 });
 const karten = await Promise.all(kreationen.map(async (k) => ({ id: k.id, k: k.data, Content: (await render(k)).Content })));
-const platten = kreationen.filter((k) => k.data.art === 'kreation');
-const groessen = (platten[0] ?? alleKreationen.find((k) => k.data.art === 'kreation')).data.groessen;
 const ablauf = (await getEntry('texte', 'ablauf')).data;
 const info = (await getEntry('seiten', 'info')).data;
 // Abholung, Lieferung, Bezahlung und Kühlung stehen im Wortlaut der Info-Seite auch hier.
@@ -126,19 +124,10 @@ const fragen = {
     </div>
   </section>
 
-  <section class="abschnitt" aria-labelledby="anlass-menge">
+  <section class="abschnitt" aria-labelledby="anlass-ablauf">
     <div class="innen">
-      <h2 id="anlass-menge">Wie viel braucht es?</h2>
-      <div class="abschnitt__inhalt prosa">
-        <table class="groessen">
-          <caption class="verborgen">Grössen der Kreationen</caption>
-          <thead class="verborgen"><tr><th scope="col">Grösse</th><th scope="col">Personen</th></tr></thead>
-          <tbody>
-            {groessen.map((g) => <tr><th scope="row">{g.groesse}</th><td>für {g.personen} Personen</td></tr>)}
-          </tbody>
-        </table>
-        <p>Für eine grössere Runde kombiniere ich mehrere Platten. Die Preise je Grösse stehen oben bei jeder Kreation. Es sind Richtpreise, verbindlich werden sie mit meiner Bestätigung.</p>
-      </div>
+      <h2 id="anlass-ablauf">{ablauf.titel}</h2>
+      <div class="abschnitt__inhalt"><Schritte punkte={ablauf.punkte} /></div>
     </div>
   </section>
 
@@ -160,12 +149,6 @@ const fragen = {
     </div>
   </section>
 
-  <section class="abschnitt" aria-labelledby="anlass-ablauf">
-    <div class="innen">
-      <h2 id="anlass-ablauf">{ablauf.titel}</h2>
-      <div class="abschnitt__inhalt"><Schritte punkte={ablauf.punkte} /></div>
-    </div>
-  </section>
 </Seite>
 
 <style>

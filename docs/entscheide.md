@@ -69,7 +69,7 @@ Jede ist begründet, keine ändert das Bild.
 
 ## Themenseiten nach Persona (14.11.2026)
 
-Jede Themenseite spricht die eine Person an, die den Apéro organisiert, in der Du-Form. Aufbau: Titel und Knopf zum Anlass, ihre Lage in eigenen Worten, «Das nehme ich dir ab» mit drei Punkten, passende Kreationen mit Preisen, Ruf zur Anfrage mitten auf der Seite, Menge, Fragen, Abholung und Bezahlung, Ablauf, Anfrage. Die Anfrage trägt den Anlass im Betreff und im Text.
+Jede Themenseite spricht die eine Person an, die den Apéro organisiert, in der Du-Form. Aufbau: Titel und Knopf zum Anlass, ihre Lage in eigenen Worten, «Das nehme ich dir ab» mit drei Punkten, passende Kreationen mit Preisen, Ruf zur Anfrage mitten auf der Seite, Ablauf, Fragen, Abholung und Bezahlung, Anfrage. Die Tabelle «Wie viel braucht es?» entfällt, die Grössen stehen bei jeder Kreation. Die Anfrage trägt den Anlass im Betreff und im Text.
 
 | Seite | Wer organisiert | Was diese Person beschäftigt |
 | --- | --- | --- |
