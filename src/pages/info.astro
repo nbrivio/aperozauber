@@ -2,6 +2,7 @@
 import { getEntry, render } from 'astro:content';
 import Seite from '../layouts/Seite.astro';
 import Titelblatt from '../components/Titelblatt.astro';
+import Klappfragen from '../components/Klappfragen.astro';
 import { pfad } from '../inhalt/pfad.js';
 
 const seite = await getEntry('seiten', 'info');
@@ -24,9 +25,7 @@ const fragen = {
   <section class="abschnitt" aria-labelledby="fragen-titel">
     <div class="innen">
       <h2 id="fragen-titel">Fragen und Antworten</h2>
-      <dl class="fragen abschnitt__inhalt">
-        {s.fragen.map((f) => <div><dt>{f.frage}</dt><dd>{f.antwort}</dd></div>)}
-      </dl>
+      <div class="abschnitt__inhalt"><Klappfragen fragen={s.fragen} /></div>
     </div>
   </section>
 
