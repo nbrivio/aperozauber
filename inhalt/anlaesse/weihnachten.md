@@ -17,7 +17,7 @@ abnehmen:
   - titel: "Frisch auf den Tag"
     text: "Ich bereite die Platten frisch vor. Den Abholtermin legen wir zusammen fest."
   - titel: "Festlich angerichtet"
-    text: "Jede Platte ist ein Einzelstück, mit einem Auge für Farben und Details."
+    text: "Jedes Schälchen hat seinen Platz, nichts liegt zufällig. Das sieht man, sobald die Platte auf dem Tisch steht."
 ruf:
   titel: "Wann feiert ihr?"
   text: "Schreib mir Datum und Anzahl Gäste. Vor den Festtagen lohnt es sich, früh anzufragen."

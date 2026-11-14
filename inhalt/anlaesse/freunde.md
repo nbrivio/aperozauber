@@ -15,7 +15,7 @@ abnehmen:
   - titel: "Gastgeben ohne Aufwand"
     text: "Kein Einkauf nach der Arbeit, kein Anrichten in letzter Minute. Die Platte kommt fertig auf den Tisch."
   - titel: "Von Hand gemacht"
-    text: "Jede Platte ist ein Einzelstück. Man sieht ihr an, dass sie mit einem Auge für Farben und Details angerichtet ist."
+    text: "Was reif ist, kommt drauf. Deshalb gleicht keine Platte der anderen."
   - titel: "Passend zur Runde"
     text: "Vier Personen oder sechzehn: Du sagst mir, wie viele ihr seid, ich schlage dir die Grösse vor."
 ruf:

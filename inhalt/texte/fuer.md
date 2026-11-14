@@ -13,7 +13,7 @@ punkte:
   - etikett: "Für Firmen"
     titel: "Euer Firmenapéro"
     liste:
-      - "Teamanlass, Kundenevent, Eröffnung, Jubiläum"
+      - "Teamanlass, Kundenevent, Abschied, Jubiläum"
       - "Lieferung an den Firmensitz oder die Event-Location"
       - "Auf Rechnung nach Vereinbarung, 20 Tage netto"
     knopf: "Als Firma anfragen"

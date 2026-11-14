@@ -13,7 +13,7 @@ reihenfolge: 7
 kreationen: [bergzauber, antipastizauber, fruechtezauber]
 abnehmen:
   - titel: "Ein würdiger Rahmen"
-    text: "Jede Platte ist ein Einzelstück, von Hand angerichtet. Man sieht, dass sich jemand etwas überlegt hat."
+    text: "Von Hand angerichtet, mit Sorgfalt bis ins Detail. Man sieht, dass sich jemand etwas überlegt hat."
   - titel: "Persönlich abgestimmt"
     text: "Lieber Käse, lieber süss, kein Fleisch: Sag mir, was die Person mag, und ich stimme die Zusammenstellung darauf ab."
   - titel: "Einfach bezahlt"

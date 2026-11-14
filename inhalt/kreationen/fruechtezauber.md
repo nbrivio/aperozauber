@@ -11,4 +11,4 @@ bild: ../../src/assets/bilder/fruechtezauber.webp
 bildAlt: "Früchtezauber-Platte mit Blutorangen, Erdbeeren, Trauben und Heidelbeeren"
 bestaetigt: false
 ---
-Saisonale Früchte mit Dessertvariationen. Als Auftakt oder als Finale.
+Saisonale Früchte mit süssen Kleinigkeiten. Als Auftakt oder als Finale.

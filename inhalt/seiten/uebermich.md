@@ -12,4 +12,4 @@ Ich lebe mit meiner Familie im Aargau. Schon mein ganzes Leben lang bin ich krea
 
 In meiner Freizeit geniesse ich jeden Moment mit meiner Familie und Freunden. Ich liebe es, Geburtstage und Familienfeste zu feiern. Dabei kann ich meine Kreativität beim Dekorieren und Kochen voll ausleben. Lass dich von meinen kulinarischen Ideen überraschen.
 
-Melde dich bei Fragen gerne bei mir, ich freue mich von dir zu lesen.
+Melde dich bei Fragen gerne bei mir, ich freue mich, von dir zu lesen.

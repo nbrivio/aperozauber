@@ -36,4 +36,4 @@ freigegeben: false
 ---
 Im Dezember landet der Weihnachtsapéro oft bei jemandem, der daneben noch alles andere erledigt. Wenn das bei dir so ist, mache ich es dir einfach: Du schreibst mir Datum und Anzahl Personen, ich melde mich mit einem Vorschlag und dem Preis.
 
-Ein Apéro zum Jahresende ist ein Danke ans Team. Deshalb stelle ich jede Platte von Hand zusammen und richte sie so an, dass man sieht, dass sich jemand Mühe gegeben hat.
+Ein Apéro zum Jahresende ist ein Danke ans Team. Deshalb stelle ich jede Platte von Hand zusammen und richte sie mit Sorgfalt an. Das sieht man.

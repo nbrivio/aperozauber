@@ -10,4 +10,4 @@ notiz: "der Bunte"
 ton: gruen
 bestaetigt: false
 ---
-Gemüse der Saison mit verschiedenen Hummus und Kräuterdips.
+Gemüse der Saison mit verschiedenen Hummus-Sorten und Kräuterdips.
