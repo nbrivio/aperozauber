@@ -4,6 +4,7 @@ import Seite from '../layouts/Seite.astro';
 import Titelblatt from '../components/Titelblatt.astro';
 import { pfad } from '../inhalt/pfad.js';
 import { preiszeile } from '../inhalt/preis.js';
+import Schritte from '../components/Schritte.astro';
 
 const s = (await getEntry('seiten', 'firmenapero')).data;
 const ablauf = (await getEntry('texte', 'ablauf')).data;
@@ -38,9 +39,7 @@ const krumen = [['Firmenapéro', '/firmenapero/']];
   <section class="abschnitt" aria-labelledby="firma-ablauf">
     <div class="innen">
       <h2 id="firma-ablauf">{ablauf.titel}</h2>
-      <ol class="schritte abschnitt__inhalt">
-        {ablauf.punkte.map((punkt) => <li><b>{punkt.titel}</b><span>{punkt.text}</span></li>)}
-      </ol>
+      <div class="abschnitt__inhalt"><Schritte punkte={ablauf.punkte} /></div>
     </div>
   </section>
 </Seite>
@@ -52,8 +51,5 @@ const krumen = [['Firmenapéro', '/firmenapero/']];
     text-transform: uppercase;
     margin-left: 10px;
     white-space: nowrap;
-  }
-  .schritte li {
-    grid-template-columns: 54px 1fr;
   }
 </style>

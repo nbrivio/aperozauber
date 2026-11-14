@@ -1,0 +1,16 @@
+---
+// Fragen zum Aufklappen: Die Frage steht da, die Antwort öffnet sich auf Wunsch.
+// Ohne Skript, mit Tastatur bedienbar. Die Antworten stehen im HTML und bleiben auffindbar.
+const { fragen } = Astro.props;
+---
+
+<div class="klappen">
+  {
+    fragen.map((f) => (
+      <details>
+        <summary>{f.frage}</summary>
+        <p>{f.antwort}</p>
+      </details>
+    ))
+  }
+</div>

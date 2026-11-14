@@ -85,4 +85,5 @@ Jede Themenseite spricht die eine Person an, die den Apéro organisiert, in der 
 - **Fuss:** Die Zeile mit Kreationen, Firmenapéro, Über mich und Gut zu wissen entfällt, sie stand schon im Kopf. Es bleiben die Rechtstexte.
 - **Anfrage:** Unter dem Formular stehen Verweise auf AGB und Datenschutz.
 - **Abgleich mit den AGB:** Absage nennt überall auch die Spezialprodukte (AGB Punkt 9). Die Info-Seite sagt, dass es Auskunft zu Allergenen gibt. Datenschutz ergänzt um Weitergabe, freiwillige Angaben zu Allergien und Herausgabe.
-
+- **Fragen zum Aufklappen (14.11.2026):** Auf den Themenseiten stehen «Fragen dazu» und «Abholung, Lieferung und Bezahlung» als Fragen, die Antwort öffnet sich auf Wunsch. Ohne Skript, mit Tastatur bedienbar, die Antworten bleiben im HTML.
+- **Ablauf mit Zeichnungen (14.11.2026):** Die vier Schritte tragen je eine kleine Zeichnung von Hand (Kalender, Zettel, Brett, Gläser), auf Startseite, Firmenseite und Themenseiten. Sie liegen in `src/components/Schritte.astro`.

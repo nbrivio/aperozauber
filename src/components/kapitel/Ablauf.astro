@@ -1,6 +1,7 @@
 ---
 import { getEntry } from 'astro:content';
 import { pfad } from '../../inhalt/pfad.js';
+import Schritte from '../Schritte.astro';
 
 const t = (await getEntry('texte', 'ablauf')).data;
 ---
@@ -8,9 +9,7 @@ const t = (await getEntry('texte', 'ablauf')).data;
 <section class="ablauf" aria-labelledby="ablauf-titel">
   <div class="innen">
     <h2 id="ablauf-titel">{t.titel}</h2>
-    <ol class="schritte">
-      {t.punkte.map((punkt) => <li><b>{punkt.titel}</b><span>{punkt.text}</span></li>)}
-    </ol>
+    <Schritte punkte={t.punkte} />
     <a class="weiter ablauf__weiter" href={pfad('/info/')}>Abholung, Lieferung und Bezahlung</a>
   </div>
 </section>

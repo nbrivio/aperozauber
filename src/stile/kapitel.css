@@ -538,6 +538,94 @@
   .schritte span {
     grid-column: 2;
   }
+  /* Mit Zeichnung: Sie steht links, die Ziffer klein an ihrer Ecke. */
+  .schritte.schritte--bild li {
+    grid-template-columns: 72px 1fr;
+    align-items: start;
+  }
+  .schritte.schritte--bild li::before {
+    grid-area: 1 / 1 / span 2;
+    font-size: 26px;
+    z-index: 1;
+    margin: -4px 0 0 -2px;
+  }
+  .schritte__bild {
+    grid-area: 1 / 1 / span 2;
+    width: 72px;
+    height: 72px;
+    fill: none;
+    stroke: var(--az-ink);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform: translate(8px, 2px) rotate(-3deg);
+  }
+  .schritte.schritte--bild li:nth-child(even) .schritte__bild {
+    transform: translate(8px, 2px) rotate(2deg);
+  }
+  .schritte__bild .farbe {
+    stroke: var(--az-fig);
+  }
+  .schritte.schritte--bild b {
+    grid-column: 2;
+    align-self: end;
+  }
+
+  @media (min-width: 900px) {
+    .schritte.schritte--bild li {
+      grid-template-columns: 128px 1fr;
+    }
+    .schritte.schritte--bild li::before {
+      font-size: 34px;
+      line-height: 1;
+    }
+    .schritte__bild {
+      width: 108px;
+      height: 108px;
+    }
+  }
+
+  /* Fragen zum Aufklappen */
+  .klappen details {
+    border-top: 1px solid var(--az-linie);
+  }
+  .klappen details:last-child {
+    border-bottom: 1px solid var(--az-linie);
+  }
+  .klappen summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 18px;
+    padding: 16px 0;
+    min-height: 44px;
+    font: 400 24px/1.2 var(--az-font-display);
+  }
+  .klappen summary::-webkit-details-marker {
+    display: none;
+  }
+  .klappen summary::after {
+    content: '+';
+    flex: none;
+    font: 300 28px/1 var(--az-font-body);
+    color: var(--az-fig);
+    transition: transform 0.25s var(--kurve);
+  }
+  .klappen details[open] summary::after {
+    transform: rotate(45deg);
+  }
+  .klappen p {
+    margin: 0;
+    padding: 0 44px 20px 0;
+    max-width: 60ch;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .klappen summary::after {
+      transition: none;
+    }
+  }
 
   @media (min-width: 900px) {
     .ablauf .innen {

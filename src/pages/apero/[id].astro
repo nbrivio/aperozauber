@@ -8,6 +8,8 @@ import Seite from '../../layouts/Seite.astro';
 import Titelblatt from '../../components/Titelblatt.astro';
 import { pfad } from '../../inhalt/pfad.js';
 import Preise from '../../components/Preise.astro';
+import Schritte from '../../components/Schritte.astro';
+import Klappfragen from '../../components/Klappfragen.astro';
 
 export async function getStaticPaths() {
   const alle = await getCollection('anlaesse');
@@ -144,9 +146,7 @@ const fragen = {
     <div class="innen">
       <h2 id="anlass-fragen">Fragen dazu</h2>
       <div class="abschnitt__inhalt">
-        <dl class="fragen">
-          {a.fragen.map((f) => <div><dt>{f.frage}</dt><dd>{f.antwort}</dd></div>)}
-        </dl>
+        <Klappfragen fragen={a.fragen} />
       </div>
     </div>
   </section>
@@ -155,9 +155,7 @@ const fragen = {
     <div class="innen">
       <h2 id="anlass-praktisch">Abholung, Lieferung und Bezahlung</h2>
       <div class="abschnitt__inhalt">
-        <dl class="fragen">
-          {praktisch.map((f) => <div><dt>{f.frage}</dt><dd>{f.antwort}</dd></div>)}
-        </dl>
+        <Klappfragen fragen={praktisch} />
       </div>
     </div>
   </section>
@@ -165,9 +163,7 @@ const fragen = {
   <section class="abschnitt" aria-labelledby="anlass-ablauf">
     <div class="innen">
       <h2 id="anlass-ablauf">{ablauf.titel}</h2>
-      <ol class="schritte abschnitt__inhalt">
-        {ablauf.punkte.map((punkt) => <li><b>{punkt.titel}</b><span>{punkt.text}</span></li>)}
-      </ol>
+      <div class="abschnitt__inhalt"><Schritte punkte={ablauf.punkte} /></div>
     </div>
   </section>
 </Seite>
@@ -187,8 +183,5 @@ const fragen = {
   }
   .karte h3 {
     font-size: 32px;
-  }
-  .schritte li {
-    grid-template-columns: 54px 1fr;
   }
 </style>
