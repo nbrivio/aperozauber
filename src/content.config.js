@@ -148,9 +148,11 @@ const anlaesse = defineCollection({
     ruf: z.object({ titel: z.string().min(1), text: z.string().min(1) }),
     bild: image(),
     bildAlt: altText,
+    // Zwei weitere Bilder neben dem einen Satz, der die Lage der Person trifft.
+    bilder: z.array(z.object({ bild: image(), bildAlt: altText })).length(2),
     // Dateinamen der passenden Kreationen, in der Reihenfolge der Empfehlung.
     kreationen: z.array(z.string()).min(1),
-    fragen: z.array(z.object({ frage: z.string().min(1), antwort: z.string().min(1) })).min(3),
+    fragen: z.array(z.object({ frage: z.string().min(1), antwort: z.string().min(1) })).min(2).max(3),
     freigegeben: z.boolean(),
   }),
 });

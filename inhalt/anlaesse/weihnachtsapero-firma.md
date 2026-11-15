@@ -21,6 +21,11 @@ abnehmen:
 ruf:
   titel: "Wann stosst ihr an?"
   text: "Schreib mir Datum, Ort und Anzahl Personen. Im Dezember lohnt es sich, früh anzufragen."
+bilder:
+  - bild: ../../src/assets/bilder/bergzauber-von-oben.webp
+    bildAlt: "Bergzauber von oben: Käse, Trockenfleisch, Trauben, Nüsse und Grissini auf einem Holzbrett, daneben Rosmarin"
+  - bild: ../../src/assets/bilder/bergzauber-seite.webp
+    bildAlt: "Bergzauber von der Seite, im Hintergrund die Küche"
 fragen:
   - frage: "Bis wann müssen wir für den Weihnachtsapéro anfragen?"
     antwort: "Die Fristen für die Festtage und meine Ferien stehen jeweils im Hinweis ganz oben auf der Seite, sobald sie feststehen. Steht dort nichts, frag einfach mit deinem Datum an."
@@ -28,12 +33,6 @@ fragen:
     antwort: "Eine Platte in Grösse L reicht für 10 bis 16 Personen. Für 30 Personen kombiniere ich mehrere Platten. Schreib mir die Anzahl, dann schlage ich eine Zusammenstellung vor."
   - frage: "Können wir auf Rechnung bezahlen?"
     antwort: "Ja. Firmen bezahlen nach Vereinbarung auf Rechnung, zahlbar innert 20 Tagen netto."
-  - frage: "Was ist bei Allergien im Team?"
-    antwort: "Teil mir Allergien und Unverträglichkeiten bei der Anfrage mit. Trotz grösster Sorgfalt kann ich eine Kreuzkontamination nicht vollständig ausschliessen."
-  - frage: "Was, wenn der Termin verschoben wird?"
-    antwort: "Bis 7 Tage vor dem Anlass ist die Absage kostenlos. 6 bis 3 Tage vorher verrechne ich 50 %, bei weniger als 72 Stunden 100 % des Auftragswerts. Bereits eingekaufte Spezialprodukte kann ich zusätzlich verrechnen."
 freigegeben: false
 ---
-Im Dezember landet der Weihnachtsapéro oft bei jemandem, der daneben noch alles andere erledigt. Wenn das bei dir so ist, mache ich es dir einfach: Du schreibst mir Datum und Anzahl Personen, ich melde mich mit einem Vorschlag und dem Preis.
-
-Ein Apéro zum Jahresende ist ein Danke ans Team. Deshalb stelle ich jede Platte von Hand zusammen und richte sie mit Sorgfalt an. Das sieht man.
+Im Dezember landet der Weihnachtsapéro oft bei jemandem, der daneben noch alles andere erledigt. Ich mache es dir einfach.

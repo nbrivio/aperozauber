@@ -28,8 +28,10 @@ const kreationen = a.kreationen.map((id) => {
 const karten = await Promise.all(kreationen.map(async (k) => ({ id: k.id, k: k.data, Content: (await render(k)).Content })));
 const ablauf = (await getEntry('texte', 'ablauf')).data;
 const info = (await getEntry('seiten', 'info')).data;
-// Abholung, Lieferung, Bezahlung und Kühlung stehen im Wortlaut der Info-Seite auch hier.
-const praktisch = ['Abholung', 'Lieferst', 'bezahlen', 'kühlen'].map((wort) => {
+// Abholung, Lieferung und Bezahlung stehen im Wortlaut der Info-Seite auch hier.
+const praktisch = ['Abholung', 'Lieferst', 'bezahlen']
+  .filter((wort) => !(wort === 'Lieferst' && a.fragen.some((f) => /Liefer/.test(f.frage))))
+  .map((wort) => {
   const treffer = info.fragen.find((f) => f.frage.includes(wort));
   if (!treffer) throw new Error(`Info-Seite: Frage mit «${wort}» fehlt.`);
   return treffer;
@@ -72,19 +74,13 @@ const fragen = {
     </div>
   </Titelblatt>
 
-  <section class="abschnitt" aria-labelledby="anlass-text">
+  <section class="moment" aria-labelledby="anlass-moment">
+    <h2 class="verborgen" id="anlass-moment">{a.kurz}: worum es geht</h2>
     <div class="innen">
-      <h2 id="anlass-text">{a.art === 'firma' ? 'Ein Apéro, um den du dich nicht kümmern musst' : 'So wird es euer Apéro'}</h2>
-      <div class="abschnitt__inhalt prosa"><Content /></div>
-    </div>
-  </section>
-
-  <section class="abschnitt" aria-labelledby="anlass-abnehmen">
-    <div class="innen">
-      <h2 id="anlass-abnehmen">Das nehme ich dir ab</h2>
-      <dl class="punkte abschnitt__inhalt">
-        {a.abnehmen.map((p) => <div><dt>{p.titel}</dt><dd>{p.text}</dd></div>)}
-      </dl>
+      <div class="moment__bilder">
+        {a.bilder.map((b) => <Picture src={b.bild} alt={b.bildAlt} formats={['avif', 'webp']} widths={[360, 640]} sizes="(max-width: 900px) 60vw, 380px" loading="lazy" />)}
+      </div>
+      <div class="moment__text gross"><Content /></div>
     </div>
   </section>
 
@@ -114,6 +110,15 @@ const fragen = {
     </div>
   </section>
 
+  <section class="abschnitt" aria-labelledby="anlass-abnehmen">
+    <div class="innen">
+      <h2 id="anlass-abnehmen">Das nehme ich dir ab</h2>
+      <dl class="punkte punkte--drei">
+        {a.abnehmen.map((p) => <div><dt>{p.titel}</dt><dd>{p.text}</dd></div>)}
+      </dl>
+    </div>
+  </section>
+
   <section class="abschnitt" aria-labelledby="anlass-ruf">
     <div class="innen">
       <h2 id="anlass-ruf">{a.ruf.titel}</h2>
@@ -133,18 +138,9 @@ const fragen = {
 
   <section class="abschnitt" aria-labelledby="anlass-fragen">
     <div class="innen">
-      <h2 id="anlass-fragen">Fragen dazu</h2>
+      <h2 id="anlass-fragen">Gut zu wissen</h2>
       <div class="abschnitt__inhalt">
-        <Klappfragen fragen={a.fragen} />
-      </div>
-    </div>
-  </section>
-
-  <section class="abschnitt" aria-labelledby="anlass-praktisch">
-    <div class="innen">
-      <h2 id="anlass-praktisch">Abholung, Lieferung und Bezahlung</h2>
-      <div class="abschnitt__inhalt">
-        <Klappfragen fragen={praktisch} />
+        <Klappfragen fragen={[...a.fragen, ...praktisch]} />
       </div>
     </div>
   </section>
@@ -152,6 +148,67 @@ const fragen = {
 </Seite>
 
 <style>
+  .moment {
+    padding: 0 var(--rand) clamp(70px, 9vw, 130px);
+  }
+  .moment .innen {
+    display: grid;
+    gap: clamp(40px, 6vw, 80px);
+    align-items: center;
+  }
+  .moment__bilder {
+    position: relative;
+    aspect-ratio: 5 / 4;
+    max-width: 640px;
+    width: 100%;
+  }
+  .moment__bilder :global(picture) {
+    display: contents;
+  }
+  .moment__bilder :global(img) {
+    position: absolute;
+    object-fit: cover;
+    box-shadow: 0 22px 44px rgb(20 28 23 / 0.26);
+  }
+  .moment__bilder :global(picture:first-child img) {
+    left: 0;
+    top: 0;
+    width: 62%;
+    height: 86%;
+    transform: rotate(-2.5deg);
+  }
+  .moment__bilder :global(picture:last-child img) {
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    height: 66%;
+    transform: rotate(3deg);
+  }
+  .moment__text {
+    max-width: 22em;
+    font-size: clamp(26px, 3.2vw, 44px);
+    line-height: 1.15;
+  }
+  .punkte--drei {
+    gap: 0;
+  }
+  @media (min-width: 900px) {
+    .moment .innen {
+      grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+    }
+    .punkte--drei {
+      grid-column: 1 / -1;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0 clamp(24px, 3vw, 48px);
+      margin-top: 12px;
+    }
+    .punkte--drei > :global(div),
+    .punkte--drei > :global(div:first-child) {
+      padding: 0;
+      border-top: 0;
+      align-content: start;
+    }
+  }
   .abschnitt--breit {
     padding-bottom: 0;
   }

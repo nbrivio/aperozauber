@@ -21,6 +21,11 @@ abnehmen:
 ruf:
   titel: "Wann ist der letzte Tag?"
   text: "Schreib mir Datum, Ort und Anzahl Personen. Ich melde mich mit einem Vorschlag."
+bilder:
+  - bild: ../../src/assets/bilder/bergzauber.webp
+    bildAlt: "Bergzauber-Platte mit Käse, Trockenfleisch, Trauben und Nüssen auf dunklem Tisch"
+  - bild: ../../src/assets/bilder/fruechtezauber.webp
+    bildAlt: "Früchtezauber-Platte mit Blutorangen, Erdbeeren, Trauben und Heidelbeeren"
 fragen:
   - frage: "Wie viele Platten braucht es für unser Team?"
     antwort: "Eine Platte in Grösse S reicht für 4 bis 6 Personen, M für 6 bis 10, L für 10 bis 16. Für ein grösseres Team kombiniere ich mehrere Platten. Schreib mir die Anzahl, dann schlage ich eine Zusammenstellung vor."
@@ -28,12 +33,6 @@ fragen:
     antwort: "Ja. Meine Antworten gehen an die Adresse oder Nummer, die du mir angibst. Zeit und Ort der Lieferung oder Abholung legen wir zusammen fest."
   - frage: "Das Team legt zusammen. Geht es auch ohne Firmenrechnung?"
     antwort: "Ja. Du bezahlst bei der Abholung per Twint oder bar. Auf Wunsch schicke ich dir einen Einzahlungsschein, damit du den Betrag vorher überweisen kannst."
-  - frage: "Lieferst du ins Büro?"
-    antwort: "Gegen Aufpreis liefere ich an den Firmensitz oder an den Ort des Abschieds. Gib mir bei der Anfrage den Ort an, damit ich die Lieferung offerieren kann."
-  - frage: "Was, wenn sich das Datum ändert?"
-    antwort: "Bis 7 Tage vor dem Anlass ist die Absage kostenlos. 6 bis 3 Tage vorher verrechne ich 50 %, bei weniger als 72 Stunden 100 % des Auftragswerts. Bereits eingekaufte Spezialprodukte kann ich zusätzlich verrechnen."
 freigegeben: false
 ---
-Nach vielen gemeinsamen Jahren soll der letzte Tag nicht mit einer Tüte Chips am Stehtisch enden. Ein Abschiedsapéro ist der Moment, in dem das Team zusammenkommt, Geschichten erzählt und Danke sagt. Ich sorge dafür, dass der Tisch dazu passt.
-
-Pensionierung, Stellenwechsel oder der Abschied aus dem Team: Du schreibst mir Datum und Anzahl Personen. Wenn du mir sagst, was die Person besonders gern mag, achte ich bei der Zusammenstellung darauf.
+Nach vielen gemeinsamen Jahren soll der letzte Tag nicht mit einer Tüte Chips am Stehtisch enden. Ich sorge dafür, dass der Tisch zum Danke passt.

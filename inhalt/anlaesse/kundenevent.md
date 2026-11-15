@@ -21,17 +21,16 @@ abnehmen:
 ruf:
   titel: "Wann empfangt ihr eure Gäste?"
   text: "Schreib mir Datum, Ort und die ungefähre Anzahl Gäste. Ich melde mich mit einem Vorschlag."
+bilder:
+  - bild: ../../src/assets/bilder/bergzauber-seite.webp
+    bildAlt: "Bergzauber von der Seite, im Hintergrund die Küche"
+  - bild: ../../src/assets/bilder/fruechtezauber.webp
+    bildAlt: "Früchtezauber-Platte mit Blutorangen, Erdbeeren, Trauben und Heidelbeeren"
 fragen:
-  - frage: "Lieferst du an die Event-Location?"
-    antwort: "Ja, gegen Aufpreis. Gib mir bei der Anfrage den Ort an, damit ich die Lieferung offerieren kann."
   - frage: "Wie viele Platten braucht es für 40 Gäste?"
     antwort: "Eine Platte in Grösse L reicht für 10 bis 16 Personen. Für 40 Gäste kombiniere ich mehrere Platten. Schreib mir die Anzahl, dann schlage ich eine Zusammenstellung vor."
   - frage: "Können wir auf Rechnung bezahlen?"
     antwort: "Ja. Firmen bezahlen nach Vereinbarung auf Rechnung, zahlbar innert 20 Tagen netto."
-  - frage: "Was passiert, wenn der Anlass verschoben wird?"
-    antwort: "Bis 7 Tage vor dem Anlass ist die Absage kostenlos. 6 bis 3 Tage vorher verrechne ich 50 %, bei weniger als 72 Stunden 100 % des Auftragswerts. Bereits eingekaufte Spezialprodukte kann ich zusätzlich verrechnen."
 freigegeben: false
 ---
-Du verantwortest den Anlass, und der Apéro soll dabei nicht das sein, was dir Sorgen macht. Jede Platte ist ein Einzelstück, von Hand zusammengestellt und mit einem Auge für Farben und Details angerichtet. Das sehen eure Gäste, bevor sie zugreifen.
-
-Eröffnung, Jubiläum oder ein Abend für eure Kundschaft: Menge, Zusammenstellung und Lieferung stimmen wir in Ruhe ab. Verbindlich wird die Bestellung mit meiner schriftlichen Bestätigung, damit du weisst, woran du bist.
+Du verantwortest den Anlass. Der Apéro soll dabei nicht das sein, was dir Sorgen macht.

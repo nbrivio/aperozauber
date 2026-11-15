@@ -21,6 +21,11 @@ abnehmen:
 ruf:
   titel: "Wann kommt die Familie zusammen?"
   text: "Schreib mir Datum, Anzahl Gäste und ob Kinder dabei sind. Ich schlage dir eine Zusammenstellung vor."
+bilder:
+  - bild: ../../src/assets/bilder/fruechtezauber.webp
+    bildAlt: "Früchtezauber-Platte mit Blutorangen, Erdbeeren, Trauben und Heidelbeeren"
+  - bild: ../../src/assets/bilder/bergzauber-seite.webp
+    bildAlt: "Bergzauber von der Seite, im Hintergrund die Küche"
 fragen:
   - frage: "Wir sind Gross und Klein. Was passt für alle?"
     antwort: "Eine Mischung. Der Bergzauber bringt Käse und Trockenfleisch, der Waldmeister Gemüse mit Dips, der Früchtezauber Früchte und süsse Kleinigkeiten. So findet jede und jeder etwas."
@@ -28,12 +33,6 @@ fragen:
     antwort: "Teil mir Allergien und Unverträglichkeiten bei der Anfrage mit. Trotz grösster Sorgfalt kann ich eine Kreuzkontamination nicht vollständig ausschliessen."
   - frage: "Wie viele Platten brauchen wir?"
     antwort: "Eine Platte in Grösse S reicht für 4 bis 6 Personen, M für 6 bis 10, L für 10 bis 16. Für eine grössere Runde kombiniere ich mehrere Platten. Schreib mir die Anzahl Gäste, dann schlage ich dir eine Zusammenstellung vor."
-  - frage: "Wie kommen die Platten zu uns?"
-    antwort: "Du holst sie zum vereinbarten Termin bei mir in Villmergen ab, in Holzkisten und mit Kühlelementen. Gegen Aufpreis liefere ich sie auch zu euch nach Hause oder an den Ort der Feier."
-  - frage: "Was geschieht mit Platten und Kisten nach dem Fest?"
-    antwort: "Für Platten und Kisten erhebe ich ein Depot von CHF 50. Du bringst sie nach dem Fest zurück und erhältst das Depot wieder."
 freigegeben: false
 ---
-An jedem Familienfest gibt es jemanden, der an alles denkt. Wenn du das bist: Den Apéro kannst du mir überlassen. Er ist der Moment, in dem alle ankommen, die Kinder schon etwas in der Hand haben und die Grosseltern ins Erzählen kommen.
-
-Taufe, Konfirmation oder ein Fest ohne besonderen Grund: Ich stelle die Platten von Hand zusammen und richte sie so an, dass sie auf dem Tisch Freude machen.
+An jedem Familienfest gibt es jemanden, der an alles denkt. Wenn du das bist: Den Apéro kannst du mir überlassen.
