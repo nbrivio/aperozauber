@@ -112,3 +112,6 @@ Aus 72 neuen Fotos sind 42 eingebaut, jedes mit Alt-Text. Die Originale liegen i
 - **Themenseiten:** Der Abschnitt mit der Frage und dem zweiten Knopf in der Seitenmitte entfällt. Die drei Punkte unter «Das nehme ich dir ab» haben je nur noch einen kurzen Satz.
 - **Logowand:** sie & er ist dazugekommen, die Überschrift lautet «Mit diesen Firmen arbeite ich regelmässig zusammen».
 - **Kundenstimmen aus Google (15.11.2026):** Die Stimmen sind wörtliche Auszüge aus Google-Rezensionen, mit Vorname, erstem Buchstaben des Nachnamens und dem Vermerk «Google-Rezension». Neue Stimmen kommen in `inhalt/stimmen.json`. Sterne stehen nicht im Seitencode.
+- **Firmenseite neu (15.11.2026):** Titelbild mit Sibylle am Buffet, sechs Bilder als Fläche, vier kurze Punkte, die vier Platten als Karten mit Bild und Preisen, die Logowand, der Ablauf. Vorher standen dort Listen ohne Bild.
+- **Über mich:** unter dem Text sechs Bilder von Platten und Broten mit Verweis auf alle Kreationen, für alle, die direkt auf dieser Seite landen.
+- **Rundes Porträt:** wieder das frühere Bild im Gegenlicht. Im Terrassenbild ist das Gesicht für einen runden Ausschnitt zu klein.

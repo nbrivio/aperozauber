@@ -2,21 +2,14 @@
 // Stimmen und Firmenlogos erscheinen nur mit Einverständnis. Solange keine erfasst sind,
 // zeigt die Testadresse die leeren Plätze, die richtige Adresse lässt den Teil weg.
 import { getEntry } from 'astro:content';
-import { Image } from 'astro:assets';
-import { stimmen, firmen } from '../../inhalt/stimmen.js';
+import { stimmen } from '../../inhalt/stimmen.js';
+import Firmenwand from '../Firmenwand.astro';
 import { betrieb } from '../../inhalt/betrieb.js';
 import { istLive } from '../../inhalt/stufe.js';
 
 const t = (await getEntry('texte', 'stimmen')).data;
 const plaetze = ['Hier steht, was einer Kundin vom Abend geblieben ist.', 'Hier ein Satz aus einem Firmenapéro.', 'Und hier einer von einem Geburtstag.'];
 const zeigeStimmen = stimmen.length > 0 || !istLive;
-const zeigeWand = firmen.length > 0 || !istLive;
-const dateien = import.meta.glob('../../assets/firmen/*.png', { eager: true, import: 'default' });
-const wand = firmen.map((f) => {
-  const bild = f.logo && dateien[`../../assets/firmen/${f.logo}`];
-  if (f.logo && !bild) throw new Error(`Firmenlogo fehlt: src/assets/firmen/${f.logo}`);
-  return { ...f, bild };
-});
 ---
 
 <section class="stimmen blatt" id="stimmen" aria-labelledby="stimmen-titel">
@@ -41,21 +34,7 @@ const wand = firmen.map((f) => {
         </div>
       )
     }
-    {
-      zeigeWand && (
-        <div class="wand">
-          <p class="etikett">{t.etikett}</p>
-          <ul data-spalten={wand.length > 0 ? (wand.length <= 5 ? wand.length : Math.ceil(wand.length / 2)) : undefined}>
-            {wand.length > 0
-              ? wand.map((f) => {
-                  const inhalt = f.bild ? <Image src={f.bild} alt={`Logo von ${f.name}`} width={Math.min(f.bild.width, 400)} densities={[1, 2]} loading="lazy" /> : f.name;
-                  return <li data-mass={f.mass}>{f.adresse ? <a href={f.adresse} rel="noopener noreferrer" aria-label={`${f.name}, zur Website`}>{inhalt}</a> : inhalt}</li>;
-                })
-              : [1, 2, 3, 4, 5].map((n) => <li>Firmenlogo {n}</li>)}
-          </ul>
-        </div>
-      )
-    }
+    <Firmenwand />
     <div class="insta">
       <p class="gross">{t.satz}</p>
       <a class="knopf" href={betrieb.instagram} rel="noopener noreferrer">{t.knopf}</a>

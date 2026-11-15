@@ -1,39 +1,77 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection, getEntry, render } from 'astro:content';
+import { Picture } from 'astro:assets';
 import Seite from '../layouts/Seite.astro';
 import Titelblatt from '../components/Titelblatt.astro';
-import { pfad } from '../inhalt/pfad.js';
-import { preiszeile } from '../inhalt/preis.js';
+import Galerie from '../components/Galerie.astro';
+import Firmenwand from '../components/Firmenwand.astro';
+import Preise from '../components/Preise.astro';
 import Schritte from '../components/Schritte.astro';
+import { pfad } from '../inhalt/pfad.js';
 
+// Für Firmen: Die Bilder überzeugen, der Text sagt nur das Nötige.
 const s = (await getEntry('seiten', 'firmenapero')).data;
 const ablauf = (await getEntry('texte', 'ablauf')).data;
-const kreationen = (await getCollection('kreationen')).sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
+const platten = (await getCollection('kreationen')).filter((k) => k.data.art === 'kreation').sort((a, b) => a.data.reihenfolge - b.data.reihenfolge);
+const karten = await Promise.all(platten.map(async (k) => ({ id: k.id, k: k.data, Content: (await render(k)).Content })));
 const krumen = [['Firmenapéro', '/firmenapero/']];
 ---
 
 <Seite titel={s.seitentitel} beschreibung={s.beschreibung} pfad={krumen}>
-  <Titelblatt krumen={krumen} etikett={s.etikett} titel={s.titel}>
+  <Titelblatt krumen={krumen} etikett={s.etikett} titel={s.titel} bild>
     <p class="gross">{s.lead}</p>
     <a class="knopf" href="#anfrage" data-fuer="Firma">Als Firma anfragen</a>
+    <div class="bild" slot="bild">
+      <Picture src={s.bild} alt={s.bildAlt} formats={['avif', 'webp']} widths={[520, 760]} sizes="(max-width: 560px) 90vw, 520px" loading="eager" fetchpriority="high" />
+    </div>
   </Titelblatt>
 
-  <section class="abschnitt" aria-labelledby="firma-wissen">
+  <section class="abschnitt abschnitt--bilder" aria-labelledby="firma-bilder">
+    <div class="innen">
+      <h2 id="firma-bilder">So sieht das bei euch aus</h2>
+    </div>
+    <Galerie bilder={s.galerie} />
+  </section>
+
+  <section class="abschnitt abschnitt--voll" aria-labelledby="firma-wissen">
     <div class="innen">
       <h2 id="firma-wissen">Für euren Anlass</h2>
-      <dl class="punkte abschnitt__inhalt">
+      <dl class="punkte punkte--vier">
         {s.punkte.map((p) => <div><dt>{p.titel}</dt><dd>{p.text}</dd></div>)}
       </dl>
     </div>
   </section>
 
-  <section class="abschnitt" aria-labelledby="firma-kreationen">
+  <section class="abschnitt abschnitt--breit" aria-labelledby="firma-kreationen">
     <div class="innen">
       <h2 id="firma-kreationen">Die Kreationen</h2>
-      <ul class="verweise abschnitt__inhalt">
-        {kreationen.map(({ id, data: k }) => <li><a href={pfad(`/angebot/${id}/`)}><span>{k.name} <small>{preiszeile(k)}</small></span></a></li>)}
-      </ul>
+      <a class="weiter abschnitt__inhalt" href={pfad('/angebot/')}>Alle Kreationen und Beilagen</a>
     </div>
+    <div class="gitter">
+      {
+        karten.map(({ id, k, Content }) => (
+          <article class="karte">
+            <div class="bild">
+              <Picture src={k.bild} alt={k.bildAlt} formats={['avif', 'webp']} widths={[330, 660]} sizes="(max-width: 640px) 90vw, 330px" loading="lazy" />
+            </div>
+            <div class="inhalt">
+              <h3><a href={pfad(`/angebot/${id}/`)}>{k.name}</a></h3>
+              {k.notiz && <p class="notiz">{k.notiz}</p>}
+              <Content />
+              <Preise kreation={k} />
+              <div class="fuss">
+                <a href="#anfrage" data-kreation={id} data-fuer="Firma" aria-label={`${k.name} anfragen`}>Anfragen</a>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="abschnitt abschnitt--wand" aria-labelledby="firma-wand">
+    <h2 class="verborgen" id="firma-wand">Firmen, die bei mir bestellen</h2>
+    <Firmenwand />
   </section>
 
   <section class="abschnitt" aria-labelledby="firma-ablauf">
@@ -45,11 +83,56 @@ const krumen = [['Firmenapéro', '/firmenapero/']];
 </Seite>
 
 <style>
-  .verweise small {
-    font: 500 12px/1 var(--az-font-body);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-left: 10px;
-    white-space: nowrap;
+  .abschnitt--bilder {
+    padding-inline: 0;
+  }
+  .abschnitt--bilder .innen {
+    margin: 0 var(--rand) 28px;
+  }
+  .abschnitt--breit {
+    padding-bottom: 0;
+  }
+  .abschnitt--breit .innen {
+    margin-bottom: 28px;
+  }
+  .gitter {
+    padding-inline: 0;
+  }
+  .abschnitt--breit .gitter {
+    padding-bottom: clamp(70px, 9vw, 130px);
+  }
+  .karte h3 {
+    font-size: 32px;
+  }
+  .abschnitt--wand :global(.wand) {
+    margin-top: 0;
+  }
+  .punkte--vier {
+    gap: 0;
+  }
+  @media (min-width: 1100px) {
+    .gitter {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 900px) {
+    /* Der Inhalt läuft über die ganze Breite, der Titel bleibt deshalb nicht stehen. */
+    .abschnitt--voll h2,
+    .abschnitt--bilder h2 {
+      position: static;
+      grid-column: 1 / -1;
+    }
+    .punkte--vier {
+      grid-column: 1 / -1;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0 clamp(24px, 3vw, 48px);
+      margin-top: 12px;
+    }
+    .punkte--vier > :global(div),
+    .punkte--vier > :global(div:first-child) {
+      padding: 0;
+      border-top: 0;
+      align-content: start;
+    }
   }
 </style>

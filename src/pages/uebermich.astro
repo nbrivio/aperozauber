@@ -3,6 +3,7 @@ import { getEntry, render } from 'astro:content';
 import { Picture } from 'astro:assets';
 import Seite from '../layouts/Seite.astro';
 import Titelblatt from '../components/Titelblatt.astro';
+import Galerie from '../components/Galerie.astro';
 import { betrieb } from '../inhalt/betrieb.js';
 import { pfad } from '../inhalt/pfad.js';
 
@@ -27,9 +28,27 @@ const person = {
       <Picture src={s.bild} alt={s.bildAlt} formats={['avif', 'webp']} widths={[448, 896]} sizes="(max-width: 560px) 90vw, 520px" loading="eager" />
     </div>
   </Titelblatt>
+
+  {
+    s.galerie && (
+      <section class="abschnitt abschnitt--bilder" aria-labelledby="ueber-bilder">
+        <div class="innen">
+          <h2 id="ueber-bilder">Das mache ich</h2>
+          <a class="weiter abschnitt__inhalt" href={pfad('/angebot/')}>Alle Kreationen mit Preisen</a>
+        </div>
+        <Galerie bilder={s.galerie} />
+      </section>
+    )
+  }
 </Seite>
 
 <style>
+  .abschnitt--bilder {
+    padding-inline: 0;
+  }
+  .abschnitt--bilder .innen {
+    margin: 0 var(--rand) 28px;
+  }
   .ueber {
     margin-top: clamp(26px, 3.4vw, 48px);
     max-width: 50ch;

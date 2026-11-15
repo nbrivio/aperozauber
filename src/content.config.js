@@ -119,6 +119,8 @@ const seiten = defineCollection({
         punkte: z.array(z.object({ titel: z.string().min(1), text: z.string().min(1) })).optional(),
         bild: image().optional(),
         bildAlt: altText.optional(),
+        // Sechs Bilder als Fläche: das erste steht gross.
+        galerie: z.array(z.object({ bild: image(), bildAlt: altText })).length(6).optional(),
         quelle: z.string().optional(),
         freigegeben: z.boolean(),
       })
