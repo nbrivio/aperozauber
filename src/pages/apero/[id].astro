@@ -110,7 +110,7 @@ const fragen = {
     </div>
   </section>
 
-  <section class="abschnitt" aria-labelledby="anlass-abnehmen">
+  <section class="abschnitt abschnitt--voll" aria-labelledby="anlass-abnehmen">
     <div class="innen">
       <h2 id="anlass-abnehmen">Das nehme ich dir ab</h2>
       <dl class="punkte punkte--drei">
@@ -195,6 +195,11 @@ const fragen = {
   @media (min-width: 900px) {
     .moment .innen {
       grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+    }
+    /* Der Inhalt läuft über die ganze Breite, der Titel bleibt deshalb nicht stehen. */
+    .abschnitt--voll h2 {
+      position: static;
+      grid-column: 1 / -1;
     }
     .punkte--drei {
       grid-column: 1 / -1;

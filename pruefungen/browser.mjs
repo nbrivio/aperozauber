@@ -42,6 +42,29 @@ for (const seite of seiten) {
     const { violations } = await new AxeBuilder({ page: fenster }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa', 'best-practice']).analyze();
     for (const v of violations) b.melde(ort, `${v.id}: ${v.help} (${v.nodes.length}x, ${v.nodes[0].target.join(' ')})`);
 
+    // Stehende Titel dürfen beim Scrollen nie über Text ihres Abschnitts liegen.
+    const ueberlappt = await fenster.evaluate(async () => {
+      const funde = new Set();
+      const hoehe = document.documentElement.scrollHeight;
+      for (let y = 0; y < hoehe; y += 160) {
+        scrollTo(0, y);
+        await new Promise((weiter) => requestAnimationFrame(weiter));
+        for (const titel of document.querySelectorAll('h1, h2')) {
+          if (getComputedStyle(titel).position !== 'sticky') continue;
+          const t = titel.getBoundingClientRect();
+          if (t.width === 0 || t.bottom < 0 || t.top > innerHeight) continue;
+          for (const e of titel.closest('section')?.querySelectorAll('p, dt, dd, li, summary, td, th, b, a') ?? []) {
+            if (titel.contains(e) || e.contains(titel)) continue;
+            const r = e.getBoundingClientRect();
+            if (r.width > 0 && r.left < t.right - 2 && r.right > t.left + 2 && r.top < t.bottom - 2 && r.bottom > t.top + 2) funde.add(titel.textContent.trim().slice(0, 40));
+          }
+        }
+      }
+      scrollTo(0, 0);
+      return [...funde];
+    });
+    for (const titel of ueberlappt) b.melde(ort, `Titel liegt beim Scrollen über Text: ${titel}`);
+
     // Tastatur: jedes Ziel erreichbar, Fokus sichtbar und im Bild.
     const ziele = await fenster.locator('a[href], button, input, select, textarea, [tabindex="0"]').count();
     for (let i = 0; i < ziele; i += 1) {
