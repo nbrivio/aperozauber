@@ -22,5 +22,5 @@ punkte:
     text: "Das Beste am Apéro sind die Menschen drumherum."
     bild: ../../src/assets/bilder/hand-am-tisch.webp
     bildAlt: "Eine Hand greift nach der Apéroplatte auf einem weiss gedeckten Tisch, daneben ein Glas"
-freigegeben: false
+freigegeben: true
 ---

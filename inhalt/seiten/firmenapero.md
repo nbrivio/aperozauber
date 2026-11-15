@@ -4,7 +4,6 @@ etikett: "Für Firmen"
 seitentitel: "Firmenapéro im Freiamt"
 beschreibung: "Apéro-Kreationen für Teamanlass, Kundenevent, Eröffnung und Jubiläum. Von Hand gestaltet in Villmergen, geliefert an den Firmensitz, auf Rechnung."
 lead: "Für Teamanlässe, Kundenevents, Abschiede, Eröffnungen und Jubiläen stelle ich Apéro-Kreationen von Hand zusammen. Ihr habt Zeit für eure Gäste."
-quelle: "Neuer Text aus den Angaben der Startseite und der AGB. Noch nicht von Sibylle gelesen."
 bild: ../../src/assets/bilder/sibylle-buffet.webp
 bildAlt: "Sibylle lacht und trägt eine runde Apéroplatte zum Buffet"
 galerie:
@@ -29,5 +28,5 @@ punkte:
     text: "Nach Vereinbarung, zahlbar innert 20 Tagen netto."
   - titel: "Menge"
     text: "Drei Grössen für 4 bis 16 Personen. Für mehr kombiniere ich Platten."
-freigegeben: false
+freigegeben: true
 ---

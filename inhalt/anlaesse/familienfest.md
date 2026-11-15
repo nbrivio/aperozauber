@@ -30,6 +30,6 @@ fragen:
     antwort: "Teil mir Allergien und Unverträglichkeiten bei der Anfrage mit. Trotz grösster Sorgfalt kann ich eine Kreuzkontamination nicht vollständig ausschliessen."
   - frage: "Wie viele Platten brauchen wir?"
     antwort: "Eine Platte in Grösse S reicht für 4 bis 6 Personen, M für 6 bis 10, L für 10 bis 16. Für eine grössere Runde kombiniere ich mehrere Platten. Schreib mir die Anzahl Gäste, dann schlage ich dir eine Zusammenstellung vor."
-freigegeben: false
+freigegeben: true
 ---
 An jedem Familienfest gibt es jemanden, der an alles denkt. Wenn du das bist: Den Apéro kannst du mir überlassen.

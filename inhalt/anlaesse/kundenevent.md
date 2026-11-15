@@ -28,6 +28,6 @@ fragen:
     antwort: "Eine Platte in Grösse L reicht für 10 bis 16 Personen. Für 40 Gäste kombiniere ich mehrere Platten. Schreib mir die Anzahl, dann schlage ich eine Zusammenstellung vor."
   - frage: "Können wir auf Rechnung bezahlen?"
     antwort: "Ja. Firmen bezahlen nach Vereinbarung auf Rechnung, zahlbar innert 20 Tagen netto."
-freigegeben: false
+freigegeben: true
 ---
 Du verantwortest den Anlass. Der Apéro soll dabei nicht das sein, was dir Sorgen macht.

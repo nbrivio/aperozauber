@@ -30,6 +30,6 @@ fragen:
     antwort: "Ja. Meine Antworten gehen an die Adresse oder Nummer, die du mir angibst. Zeit und Ort der Lieferung oder Abholung legen wir zusammen fest."
   - frage: "Das Team legt zusammen. Geht es auch ohne Firmenrechnung?"
     antwort: "Ja. Du bezahlst bei der Abholung per Twint oder bar. Auf Wunsch schicke ich dir einen Einzahlungsschein, damit du den Betrag vorher überweisen kannst."
-freigegeben: false
+freigegeben: true
 ---
 Nach vielen gemeinsamen Jahren soll der letzte Tag nicht mit einer Tüte Chips am Stehtisch enden. Ich sorge dafür, dass der Tisch zum Danke passt.

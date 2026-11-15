@@ -30,6 +30,6 @@ fragen:
     antwort: "Ja. Firmen bezahlen nach Vereinbarung auf Rechnung, zahlbar innert 20 Tagen netto."
   - frage: "Im Team essen nicht alle Fleisch. Was passt?"
     antwort: "Der Waldmeister bringt Gemüse mit Dips, der Antipastizauber Olivenpasten, eingelegtes Gemüse und Grissini. Schreib mir, wer was isst, dann stimme ich die Zusammenstellung darauf ab."
-freigegeben: false
+freigegeben: true
 ---
 «Kannst du noch einen Apéro organisieren?» Wenn dieser Satz bei dir gelandet ist, bist du hier richtig.

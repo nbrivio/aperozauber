@@ -30,6 +30,6 @@ fragen:
     antwort: "Ja. Selbstgebackenes Brot, Zwiebel-Birnen-Chutney und Feigensenf gibt es auch einzeln."
   - frage: "Sind die Platten immer gleich?"
     antwort: "Im Gegenteil, jede Platte wird individuell gestaltet. Ich stelle sie mit dem zusammen, was gerade Saison hat."
-freigegeben: false
+freigegeben: true
 ---
 Du lädst ein, weil du deine Freunde sehen willst. Nicht, weil du einen Abend lang zwischen Küche und Tisch pendeln möchtest.

@@ -30,6 +30,6 @@ fragen:
     antwort: "Die Platten bereite ich frisch auf den Tag vor. Den Abholtermin legen wir zusammen fest. Nach der Abholung müssen die Platten gekühlt bleiben."
   - frage: "Wie viele Platten brauchen wir?"
     antwort: "Eine Platte in Grösse S reicht für 4 bis 6 Personen, M für 6 bis 10, L für 10 bis 16. Für eine grössere Runde kombiniere ich mehrere Platten. Schreib mir die Anzahl Gäste, dann schlage ich dir eine Zusammenstellung vor."
-freigegeben: false
+freigegeben: true
 ---
 Das Essen im Ofen, die letzten Geschenke auf dem Tisch, die Gäste fast vor der Tür. Der Apéro ist der eine Punkt, den du abgeben kannst.

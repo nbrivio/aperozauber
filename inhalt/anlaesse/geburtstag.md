@@ -30,6 +30,6 @@ fragen:
     antwort: "Ja. Viele nehmen zum Bergzauber einen Früchtezauber dazu, als süssen Auftakt oder als Finale."
   - frage: "Ich plane den Apéro als Überraschung. Geht das?"
     antwort: "Ja. Schreib mir, für wen der Apéro ist. Ich antworte dir an die Adresse oder Nummer, die du mir angibst, und den Abholtermin legen wir zusammen fest."
-freigegeben: false
+freigegeben: true
 ---
 Die ersten Gäste klingeln, und du stehst noch am Schneidebrett? Dieses Jahr nicht. Du stellst die Platte auf den Tisch und bist von der ersten Minute an dabei.

@@ -10,5 +10,5 @@ punkte:
     text: "Frisch auf den Tag, zur Abholung in Villmergen oder geliefert."
   - titel: "Ihr geniesst zusammen"
     text: "Du bist Gastgeberin oder Gastgeber und sitzt selbst am Tisch."
-freigegeben: false
+freigegeben: true
 ---

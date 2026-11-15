@@ -15,6 +15,6 @@ meldungen:
   unterwegs: "Deine Anfrage ist unterwegs zu mir."
   fehler: "Das hat leider nicht geklappt. Deine Angaben sind noch da. Versuch es nochmals oder schreib mir an anfrage@aperozauber.ch."
   kontaktFehlt: "Damit ich dir antworten kann, brauche ich deinen Namen und eine E-Mail-Adresse oder Telefonnummer."
-freigegeben: false
+freigegeben: true
 ---
 Eine Anfrage ist noch keine Bestellung. Verbindlich wird es erst mit meiner Bestätigung.

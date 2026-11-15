@@ -4,7 +4,6 @@ etikett: "Gut zu wissen"
 seitentitel: "Abholung, Lieferung, Depot und Bezahlung"
 beschreibung: "Zutaten, Abholung in Villmergen, Lieferung, Depot, Bezahlung und Kühlung: die Antworten zu deinem Apéro von Sibylle’s Apérozauber."
 lead: "Alles beginnt mit einer Idee und Überzeugung. Mir liegt die Liebe zum Detail besonders am Herzen. Mein Anspruch ist, Lebensmittel von höchster Qualität zu verwenden und regionale Produkte zu bevorzugen."
-quelle: "Bisherige Seite, Stand 13.11.2026, durchgehend in die Du-Form gesetzt. Barzahlung ist möglich (Entscheid 13.11.2026). Absagen und Allergien nach AGB."
 fragen:
   - frage: "Was für Zutaten werden verwendet?"
     antwort: "Bei mir findest du nur handverlesene Produkte, sorgfältig ausgewählt unter anderem von lokalen Anbietern wie der Metzgerei, dem Käseladen nebenan und dem regionalen Markt. Die Herkunft jedes einzelnen Produkts ist mir wichtig. Auf Wunsch nenne ich dir gerne die jeweiligen Hersteller. Da ich bewusst auf feste Lieferanten verzichte, um die Vielfalt zu erhalten, kann mein Angebot variieren. So kann ich dir stets frische Produkte der Saison anbieten."
@@ -22,6 +21,6 @@ fragen:
     antwort: "Teil mir Allergien und Unverträglichkeiten bei der Anfrage mit. Welche Allergene eine Kreation enthält, sage ich dir gerne auf Anfrage. Trotz grösster Sorgfalt kann ich eine Kreuzkontamination nicht vollständig ausschliessen."
   - frage: "Kann ich wieder absagen?"
     antwort: "Bis 7 Tage vor dem Anlass ist die Absage kostenlos. 6 bis 3 Tage vorher verrechne ich 50 %, bei weniger als 72 Stunden 100 % des Auftragswerts. Bereits eingekaufte Spezialprodukte kann ich zusätzlich verrechnen."
-freigegeben: false
+freigegeben: true
 ---
 Keines der Angebote passt zu deinem Anlass? Kein Problem, dann schreib mir, und wir finden eine individuelle Lösung. Ich freue mich, von dir zu hören.

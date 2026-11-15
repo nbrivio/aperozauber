@@ -5,7 +5,7 @@ titel: "Ich bin Sibylle. Und ich liebe es, wenn Menschen *zusammenkommen*"
 bild: ../../src/assets/bilder/sibylle-terrasse.webp
 bildAlt: "Sibylle steht lachend mit einem Glas in der Hand auf einem Kiesplatz vor einem alten Haus"
 knopf: "Mehr über mich"
-freigegeben: false
+freigegeben: true
 ---
 Ich lebe mit meiner Familie im Aargau. Schon mein ganzes Leben lang bin ich kreativ und neugierig. Ich habe eine Ausbildung als Malerin und in der Pflege abgeschlossen.
 

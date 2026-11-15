@@ -5,7 +5,6 @@ seitentitel: "Über mich: Sibylle Brivio"
 beschreibung: "Sibylle Brivio aus Villmergen gestaltet Apéro-Kreationen von Hand. Wer hinter dem Apérozauber steht."
 bild: ../../src/assets/bilder/sibylle-terrasse.webp
 bildAlt: "Sibylle steht lachend mit einem Glas in der Hand auf einem Kiesplatz vor einem alten Haus"
-quelle: "Wortlaut der bisherigen Seite, Stand 13.11.2026, ohne Altersangabe (Entscheid 13.11.2026)."
 galerie:
   - bild: ../../src/assets/bilder/korb-und-brot.webp
     bildAlt: "Apéroplatte im Korb und ein Brotkorb mit Blumen auf einer Wiese"
@@ -19,7 +18,7 @@ galerie:
     bildAlt: "Korb mit selbstgebackenen Broten, in Papier gewickelt und mit rosa Schleifen gebunden"
   - bild: ../../src/assets/bilder/brote-bretter.webp
     bildAlt: "Selbstgebackene Brote in Körben und auf Holzbrettern"
-freigegeben: false
+freigegeben: true
 ---
 Ich lebe mit meiner Familie im Aargau. Schon mein ganzes Leben lang bin ich kreativ und neugierig. Ich habe eine Ausbildung als Malerin und in der Pflege abgeschlossen.
 

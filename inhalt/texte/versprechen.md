@@ -6,7 +6,7 @@ etikett: "Mein Versprechen"
 satz: "Ich kümmere mich um den Apéro. Du um die Menschen."
 bild: ../../src/assets/bilder/sibylle.webp
 bildAlt: "Sibylle im Gegenlicht vor Bäumen, sie lächelt in die Kamera"
-freigegeben: false
+freigegeben: true
 ---
 Jede Kreation stelle ich selbst und von Hand zusammen.  
 Was reif ist, kommt drauf.  

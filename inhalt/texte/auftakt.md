@@ -6,6 +6,6 @@ zeig: "scrollen und aufmachen"
 titel: "Das Beste am Apéro? Die Menschen *drumherum*"
 bild: ../../src/assets/bilder/auftakt.webp
 bildAlt: "Üppige Apéroplatte mit Käse, Trockenfleisch-Rosen, Feigen, Trauben, Nüssen und Nelken, von einer Hand gehalten"
-freigegeben: false
+freigegeben: true
 ---
 Ich gestalte Apéro-Kreationen mit Liebe zum Detail, damit du mehr Zeit für deine Gäste hast.
