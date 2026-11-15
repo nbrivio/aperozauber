@@ -87,3 +87,8 @@ Jede Themenseite spricht die eine Person an, die den Apéro organisiert, in der 
 - **Abgleich mit den AGB:** Absage nennt überall auch die Spezialprodukte (AGB Punkt 9). Die Info-Seite sagt, dass es Auskunft zu Allergenen gibt. Datenschutz ergänzt um Weitergabe, freiwillige Angaben zu Allergien und Herausgabe.
 - **Fragen zum Aufklappen (14.11.2026):** Auf den Themenseiten stehen «Fragen dazu» und «Abholung, Lieferung und Bezahlung» als Fragen, die Antwort öffnet sich auf Wunsch. Ohne Skript, mit Tastatur bedienbar, die Antworten bleiben im HTML. Auch die Fragen auf `/info/` klappen auf.
 - **Ablauf mit Zeichnungen (14.11.2026):** Die vier Schritte tragen je eine kleine Zeichnung von Hand (Kalender, Zettel, Brett, Gläser), auf Startseite, Firmenseite und Themenseiten. Sie liegen in `src/components/Schritte.astro`.
+
+## Umbrüche und Firmenlogos (15.11.2026)
+
+- **Saubere Umbrüche in Titeln:** Jeder Satz eines Titels steht auf eigener Zeile («Das Beste am Apéro?» / «Die Menschen drumherum»). Das gilt automatisch für alle Titel aus den Inhaltsdateien. Ein senkrechter Strich `|` im Titel setzt einen Umbruch von Hand. Fliesstext lässt kein einzelnes Wort allein auf der letzten Zeile.
+- **Firmenlogos:** Kaiser & Korn und Feldhaas stehen unter «Diese Firmen haben schon bei mir bestellt», freigestellt, einfarbig in der Schriftfarbe und mit Verweis auf die Website. Neue Logos: Datei nach `src/assets/firmen/`, Eintrag in `inhalt/firmen.json`.

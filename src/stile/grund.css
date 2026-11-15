@@ -105,9 +105,15 @@
     text-wrap: balance;
     overflow-wrap: anywhere;
   }
+  /* Jeder Satz eines Titels steht auf eigener Zeile. */
+  .satzzeile {
+    display: block;
+  }
 
   p {
     margin: 0;
+    /* Kein einzelnes Wort allein auf der letzten Zeile. */
+    text-wrap: pretty;
   }
 
   [hidden] {

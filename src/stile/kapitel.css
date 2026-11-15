@@ -769,11 +769,29 @@
     padding: 8px;
   }
   .wand li:has(img) {
-    border-style: solid;
-    border-color: var(--az-linie);
+    border: 0;
+    padding: 0;
+    aspect-ratio: auto;
+    height: 112px;
+  }
+  .wand li a {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 10px 18px;
+    opacity: 0.82;
+    transition: opacity 0.25s var(--kurve);
+  }
+  .wand li a:hover,
+  .wand li a:focus-visible {
+    opacity: 1;
   }
   .wand li img {
-    max-height: 100%;
+    width: auto;
+    height: auto;
+    max-width: min(100%, 190px);
+    max-height: 92px;
     object-fit: contain;
   }
   .wand li:last-child:nth-child(odd) {
@@ -783,7 +801,8 @@
   }
   @media (min-width: 800px) {
     .wand ul {
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(var(--spalten, 5), minmax(0, 240px));
+      gap: 12px 48px;
     }
     .wand li:last-child:nth-child(odd) {
       grid-column: auto;

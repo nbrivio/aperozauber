@@ -1,1 +1,4 @@
-[]
+[
+  { "name": "Kaiser & Korn", "logo": "kaiser-und-korn.png", "adresse": "https://www.kaiserundkorn.ch/", "einverstaendnis": true },
+  { "name": "Feldhaas", "logo": "feldhaas.png", "adresse": "https://feldhaas.ch/", "einverstaendnis": true }
+]
