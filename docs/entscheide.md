@@ -91,7 +91,7 @@ Jede Themenseite spricht die eine Person an, die den Apéro organisiert, in der 
 ## Umbrüche und Firmenlogos (15.11.2026)
 
 - **Saubere Umbrüche in Titeln:** Jeder Satz eines Titels steht auf eigener Zeile («Das Beste am Apéro?» / «Die Menschen drumherum»). Das gilt automatisch für alle Titel aus den Inhaltsdateien. Ein senkrechter Strich `|` im Titel setzt einen Umbruch von Hand. Fliesstext lässt kein einzelnes Wort allein auf der letzten Zeile.
-- **Firmenlogos:** Kaiser & Korn und Feldhaas stehen unter «Diese Firmen haben schon bei mir bestellt», freigestellt, einfarbig in der Schriftfarbe und mit Verweis auf die Website. Neue Logos: Datei nach `src/assets/firmen/`, Eintrag in `inhalt/firmen.json`.
+- **Firmenlogos:** Kaiser & Korn und Feldhaas stehen unter «Mit diesen Firmen arbeite ich regelmässig zusammen» (Wortlaut seit 15.11.2026), freigestellt, einfarbig in der Schriftfarbe und mit Verweis auf die Website. Neue Logos: Datei nach `src/assets/firmen/`, Eintrag in `inhalt/firmen.json`.
 - **Themenseiten mit weniger Text (15.11.2026):** Statt zwei Absätzen steht ein einziger Satz zur Lage der Person, gross gesetzt neben zwei Bildern. «Das nehme ich dir ab» steht in drei Spalten. Aus zwei Frageblöcken wird einer, «Gut zu wissen», mit höchstens drei eigenen Fragen und Abholung, Lieferung, Bezahlung. Absage und Kühlung stehen nur noch auf `/info/` und in den AGB. Das gilt nur für die Themenseiten.
 
 ## Neue Bilder (15.11.2026)
