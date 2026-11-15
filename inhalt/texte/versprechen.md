@@ -8,4 +8,6 @@ bild: ../../src/assets/bilder/sibylle-portraet.webp
 bildAlt: "Sibylle lacht in die Kamera"
 freigegeben: false
 ---
-Jede Kreation stelle ich selbst und von Hand zusammen. Was reif ist, kommt drauf. Deshalb gleicht keine der anderen.
+Jede Kreation stelle ich selbst und von Hand zusammen.  
+Was reif ist, kommt drauf.  
+Deshalb gleicht keine der anderen.

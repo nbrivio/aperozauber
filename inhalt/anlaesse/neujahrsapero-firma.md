@@ -13,14 +13,11 @@ reihenfolge: 9
 kreationen: [bergzauber, antipastizauber, waldmeister]
 abnehmen:
   - titel: "Ein Auftakt, der sitzt"
-    text: "Das Jahr beginnt an einem schön gedeckten Tisch. Jede Platte stelle ich von Hand zusammen."
+    text: "Das Jahr beginnt an einem schön gedeckten Tisch."
   - titel: "Früh geplant, entspannt gestartet"
-    text: "Schreib mir schon im Dezember. Dann steht der Apéro, bevor im Januar alle zurück sind."
+    text: "Schreib mir schon im Dezember."
   - titel: "Lieferung und Rechnung"
-    text: "Ich liefere gegen Aufpreis an den Firmensitz. Bezahlt wird nach Vereinbarung auf Rechnung, zahlbar innert 20 Tagen netto."
-ruf:
-  titel: "Wann stosst ihr aufs neue Jahr an?"
-  text: "Schreib mir Datum, Ort und Anzahl Personen. Ich melde mich mit einem Vorschlag und dem Preis."
+    text: "Gegen Aufpreis geliefert, auf Rechnung bezahlt."
 bilder:
   - bild: ../../src/assets/bilder/platte-basilikum.webp
     bildAlt: "Runde Platte mit Rohschinken, Salami-Rose, Oliven, Tomaten und Basilikum"

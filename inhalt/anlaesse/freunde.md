@@ -13,14 +13,11 @@ reihenfolge: 3
 kreationen: [antipastizauber, bergzauber, zwiebel-birnen-chutney, feigensenf]
 abnehmen:
   - titel: "Gastgeben ohne Aufwand"
-    text: "Kein Einkauf nach der Arbeit, kein Anrichten in letzter Minute. Die Platte kommt fertig auf den Tisch."
+    text: "Die Platte kommt fertig auf den Tisch."
   - titel: "Von Hand gemacht"
-    text: "Was reif ist, kommt drauf. Deshalb gleicht keine Platte der anderen."
+    text: "Was reif ist, kommt drauf."
   - titel: "Passend zur Runde"
-    text: "Vier Personen oder sechzehn: Du sagst mir, wie viele ihr seid, ich schlage dir die Grösse vor."
-ruf:
-  titel: "Wann kommen deine Freunde?"
-  text: "Schreib mir das Datum und wie viele ihr seid. Ich melde mich mit einem Vorschlag."
+    text: "Für vier Personen oder für sechzehn."
 bilder:
   - bild: ../../src/assets/bilder/langes-brett.webp
     bildAlt: "Langes Holzbrett mit Käse, Rohschinken, Trauben, Brombeeren und einem Dip, von einer Hand gehalten"

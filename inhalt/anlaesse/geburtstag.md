@@ -13,14 +13,11 @@ reihenfolge: 1
 kreationen: [bergzauber, fruechtezauber, brot]
 abnehmen:
   - titel: "Kein Einkaufen, kein Rüsten"
-    text: "Ich wähle aus, schneide und richte an. Du packst zu Hause nur aus und stellst die Platte auf den Tisch."
+    text: "Du packst nur aus und stellst die Platte auf den Tisch."
   - titel: "Die richtige Menge"
-    text: "Du sagst mir, wie viele Gäste kommen. Ich schlage dir vor, welche Platten in welcher Grösse passen."
+    text: "Du nennst die Gästezahl, ich schlage die Platten vor."
   - titel: "Ein Tisch, der Freude macht"
-    text: "Jede Platte ist ein Einzelstück, mit einem Auge für Farben und Details angerichtet."
-ruf:
-  titel: "Wann feierst du?"
-  text: "Schreib mir das Datum und wie viele Gäste kommen. Ich melde mich mit einem Vorschlag, und du hast einen Punkt weniger auf der Liste."
+    text: "Jede Platte ist ein Einzelstück."
 bilder:
   - bild: ../../src/assets/bilder/fruechte-rosen.webp
     bildAlt: "Früchteplatte mit Feigen, Erdbeeren, Brombeeren, kleinen Donuts und rosa Rosen"

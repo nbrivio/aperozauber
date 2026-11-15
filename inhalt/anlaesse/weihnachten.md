@@ -13,14 +13,11 @@ reihenfolge: 4
 kreationen: [bergzauber, fruechtezauber, antipastizauber]
 abnehmen:
   - titel: "Ein Punkt weniger"
-    text: "Du kümmerst dich um das Festessen, ich um den Auftakt. Der Apéro steht, bevor die Gäste da sind."
+    text: "Du kümmerst dich ums Festessen, ich um den Auftakt."
   - titel: "Frisch auf den Tag"
-    text: "Ich bereite die Platten frisch vor. Den Abholtermin legen wir zusammen fest."
+    text: "Den Abholtermin legen wir zusammen fest."
   - titel: "Festlich angerichtet"
-    text: "Jedes Schälchen hat seinen Platz, nichts liegt zufällig. Das sieht man, sobald die Platte auf dem Tisch steht."
-ruf:
-  titel: "Wann feiert ihr?"
-  text: "Schreib mir Datum und Anzahl Gäste. Vor den Festtagen lohnt es sich, früh anzufragen."
+    text: "Jedes Stück hat seinen Platz."
 bilder:
   - bild: ../../src/assets/bilder/schnee-salami.webp
     bildAlt: "Apéroplatte im Schnee mit Salami, Kirschtomaten, Oliven, Käsewürfeln und weissen Rosen"

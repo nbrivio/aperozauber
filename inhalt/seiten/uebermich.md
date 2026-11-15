@@ -3,8 +3,8 @@ titel: "Ich bin nicht irgendein Catering. *Ich bin Sibylle*"
 etikett: "Über mich"
 seitentitel: "Über mich: Sibylle Brivio"
 beschreibung: "Sibylle Brivio aus Villmergen gestaltet Apéro-Kreationen von Hand. Wer hinter dem Apérozauber steht."
-bild: ../../src/assets/bilder/sibylle-buffet.webp
-bildAlt: "Sibylle lacht und trägt eine runde Apéroplatte zum Buffet"
+bild: ../../src/assets/bilder/sibylle-terrasse.webp
+bildAlt: "Sibylle steht lachend mit einem Glas in der Hand auf einem Kiesplatz vor einem alten Haus"
 quelle: "Wortlaut der bisherigen Seite, Stand 13.11.2026, ohne Altersangabe (Entscheid 13.11.2026)."
 freigegeben: false
 ---

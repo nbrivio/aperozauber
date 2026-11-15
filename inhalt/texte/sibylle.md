@@ -2,8 +2,8 @@
 kapitel: sibylle
 etikett: "Die Frau hinter dem Apérozauber"
 titel: "Ich bin Sibylle. Und ich liebe es, wenn Menschen *zusammenkommen*"
-bild: ../../src/assets/bilder/sibylle-brotkorb.webp
-bildAlt: "Sibylle steht im Garten und hält einen Korb mit selbstgebackenem Brot"
+bild: ../../src/assets/bilder/sibylle-terrasse.webp
+bildAlt: "Sibylle steht lachend mit einem Glas in der Hand auf einem Kiesplatz vor einem alten Haus"
 knopf: "Mehr über mich"
 freigegeben: false
 ---

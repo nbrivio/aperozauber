@@ -13,14 +13,11 @@ reihenfolge: 5
 kreationen: [bergzauber, waldmeister, antipastizauber]
 abnehmen:
   - titel: "Wenig Aufwand für dich"
-    text: "Du schreibst mir Datum und Anzahl Personen. Ich melde mich mit einem Vorschlag und dem Preis."
+    text: "Eine Anfrage, ein Vorschlag mit Preis."
   - titel: "Für alle etwas"
-    text: "Herzhaftes, Gemüse mit Dips, Antipasti. Sag mir, wer kein Fleisch isst oder etwas nicht verträgt."
+    text: "Auch für alle, die kein Fleisch essen."
   - titel: "Lieferung und Rechnung"
-    text: "Ich liefere gegen Aufpreis an den Firmensitz. Bezahlt wird nach Vereinbarung auf Rechnung, zahlbar innert 20 Tagen netto."
-ruf:
-  titel: "Wann trifft sich das Team?"
-  text: "Schreib mir Datum, Ort und Anzahl Personen. Verbindlich wird es erst mit meiner Bestätigung."
+    text: "Gegen Aufpreis geliefert, auf Rechnung bezahlt."
 bilder:
   - bild: ../../src/assets/bilder/gemuese.webp
     bildAlt: "Gemüseplatte mit Karotten, Peperoni, Gurken, Radieschen und zwei Dips"

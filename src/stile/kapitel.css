@@ -264,7 +264,7 @@
   /* Bilderstapel */
   .stapel {
     position: relative;
-    height: 420vh;
+    height: calc(100vh + var(--karten, 4) * 80vh);
   }
   .stapel .halt {
     display: grid;

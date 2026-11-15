@@ -13,14 +13,11 @@ reihenfolge: 7
 kreationen: [bergzauber, antipastizauber, fruechtezauber]
 abnehmen:
   - titel: "Ein würdiger Rahmen"
-    text: "Von Hand angerichtet, mit Sorgfalt bis ins Detail. Man sieht, dass sich jemand etwas überlegt hat."
+    text: "Man sieht, dass sich jemand etwas überlegt hat."
   - titel: "Persönlich abgestimmt"
-    text: "Lieber Käse, lieber süss, kein Fleisch: Sag mir, was die Person mag, und ich stimme die Zusammenstellung darauf ab."
+    text: "Sag mir, was die Person mag."
   - titel: "Einfach bezahlt"
-    text: "Zahlt die Firma, stelle ich nach Vereinbarung eine Rechnung. Legt das Team zusammen, bezahlst du bei der Abholung per Twint oder bar."
-ruf:
-  titel: "Wann ist der letzte Tag?"
-  text: "Schreib mir Datum, Ort und Anzahl Personen. Ich melde mich mit einem Vorschlag."
+    text: "Auf Firmenrechnung oder per Twint aus der Teamkasse."
 bilder:
   - bild: ../../src/assets/bilder/kiste-rohschinken.webp
     bildAlt: "Holzkiste mit Rohschinken, Salami-Rosen, Parmesan, Oliven, Tomaten und einem Käsemesser"

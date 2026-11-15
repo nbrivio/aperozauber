@@ -8,7 +8,6 @@ import Angebot from '../components/kapitel/Angebot.astro';
 import Ablauf from '../components/kapitel/Ablauf.astro';
 import Sibylle from '../components/kapitel/Sibylle.astro';
 import Stimmen from '../components/kapitel/Stimmen.astro';
-import FuerWen from '../components/kapitel/FuerWen.astro';
 import Recht from '../components/kapitel/Recht.astro';
 import { betrieb } from '../inhalt/betrieb.js';
 import { verlangeFreigabe } from '../inhalt/stufe.js';
@@ -32,7 +31,6 @@ verlangeFreigabe(await getCollection('kreationen'), 'bestaetigt', 'Kreationen');
   <Ablauf />
   <Sibylle />
   <Stimmen />
-  <FuerWen />
   <Recht />
 </Seite>
 

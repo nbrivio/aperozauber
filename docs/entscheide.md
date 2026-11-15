@@ -103,3 +103,12 @@ Aus 72 neuen Fotos sind 42 eingebaut, jedes mit Alt-Text. Die Originale liegen i
 - **Themenseiten:** Jede hat ein eigenes Titelbild und zwei eigene Bilder, passend zum Anlass: Geburtstagsballon, weiss gedeckter Festtisch, Korb in der Blumenwiese, Platten im Schnee, Buffet im Laden, Tisch mit mehreren Platten. Kein Foto steht auf zwei Themenseiten.
 - **Neue Themenseite** `/apero/neujahrsapero-firma/` für den Neujahrsapéro von Firmen und Teams.
 
+## Feinschliff (15.11.2026, Nachmittag)
+
+- **Sibylle:** Im Kapitel «Ich bin Sibylle» und auf «Über mich» steht wieder das Terrassenbild. Das runde Porträt oben bleibt das neue.
+- **Startseite:** Der Block «Für Private / Für Firmen» ist entfernt.
+- **Bilderstapel:** Der Takt richtet sich nach der Anzahl Bilder. Vorher war er auf vier Bilder fest eingestellt, das fünfte kam nicht ganz an.
+- **Umbrüche:** «Ich kümmere mich um den Apéro.» / «Du um die Menschen.» und die drei Sätze darunter stehen je auf eigener Zeile.
+- **Themenseiten:** Der Abschnitt mit der Frage und dem zweiten Knopf in der Seitenmitte entfällt. Die drei Punkte unter «Das nehme ich dir ab» haben je nur noch einen kurzen Satz.
+- **Logowand:** sie & er ist dazugekommen, die Überschrift lautet «Mit diesen Firmen arbeite ich regelmässig zusammen».
+

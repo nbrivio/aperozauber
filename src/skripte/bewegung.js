@@ -19,6 +19,8 @@ function bewegung() {
   const legenden = [...stapel.querySelectorAll('.legenden p')];
   let offen = false;
   let aktiv = 0;
+  // Je Bild ein Stück Scrollweg.
+  stapel.style.setProperty('--karten', bilder.length);
 
   // Das Fenster ist kein Kreis, sondern wie von Hand ausgeschnitten: ein Kreis mit ein paar weichen Wellen.
   const schnitt = (() => {
@@ -67,10 +69,12 @@ function bewegung() {
     // Stapel: die Zeile zieht durch, die Bilder legen sich aufeinander.
     const q = fortschritt(stapel, vh);
     zeile.style.setProperty('--x', `${(vw * 0.7 - q * (zeile.scrollWidth + vw * 0.2)).toFixed(1)}px`);
+    // Der Takt richtet sich nach der Anzahl Bilder, damit auch das letzte ganz ankommt.
+    const schritt = 0.75 / Math.max(1, bilder.length - 1);
     let oben = 0;
     bilder.forEach((bild, i) => {
       if (i === 0) return;
-      const t = weich(begrenzt((q - (0.12 + (i - 1) * 0.25)) / 0.2));
+      const t = weich(begrenzt((q - (0.12 + (i - 1) * schritt)) / (schritt * 0.8)));
       bild.style.setProperty('--q', t.toFixed(4));
       if (t > 0.6) oben = i;
     });

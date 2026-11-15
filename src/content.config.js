@@ -144,8 +144,6 @@ const anlaesse = defineCollection({
     knopf: z.string().min(1),
     // Drei Dinge, die Sibylle der Person abnimmt, die den Apéro organisiert.
     abnehmen: z.array(z.object({ titel: z.string().min(1), text: z.string().min(1) })).length(3),
-    // Ruf zur Anfrage mitten auf der Seite.
-    ruf: z.object({ titel: z.string().min(1), text: z.string().min(1) }),
     bild: image(),
     bildAlt: altText,
     // Zwei weitere Bilder neben dem einen Satz, der die Lage der Person trifft.

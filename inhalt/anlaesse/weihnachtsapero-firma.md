@@ -13,14 +13,11 @@ reihenfolge: 8
 kreationen: [bergzauber, waldmeister, fruechtezauber]
 abnehmen:
   - titel: "Ein klarer Vorschlag"
-    text: "Du nennst mir die Anzahl Personen. Ich schlage Platten und Grössen vor und nenne dir den Preis, bevor du etwas zusagst."
+    text: "Du kennst den Preis, bevor du zusagst."
   - titel: "Für alle im Team"
-    text: "Herzhaftes, Gemüse mit Dips, Süsses. Sag mir, wer kein Fleisch isst oder etwas nicht verträgt."
+    text: "Herzhaftes, Gemüse mit Dips, Süsses."
   - titel: "Lieferung und Rechnung"
-    text: "Ich liefere gegen Aufpreis an den Firmensitz. Bezahlt wird nach Vereinbarung auf Rechnung, zahlbar innert 20 Tagen netto."
-ruf:
-  titel: "Wann stosst ihr an?"
-  text: "Schreib mir Datum, Ort und Anzahl Personen. Im Dezember lohnt es sich, früh anzufragen."
+    text: "Gegen Aufpreis geliefert, auf Rechnung bezahlt."
 bilder:
   - bild: ../../src/assets/bilder/schnee-crostini.webp
     bildAlt: "Platte vor Schnee mit Salami, Tomaten, Oliven, Crostini und einer weissen Rose"

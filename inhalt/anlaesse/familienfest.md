@@ -13,14 +13,11 @@ reihenfolge: 2
 kreationen: [bergzauber, waldmeister, fruechtezauber]
 abnehmen:
   - titel: "Für Gross und Klein"
-    text: "Käse und Trockenfleisch, Gemüse mit Dips, Früchte und süsse Kleinigkeiten. Ich mische so, dass jede und jeder zugreift."
+    text: "Ich mische so, dass jede und jeder zugreift."
   - titel: "Bereit zum Aufstellen"
-    text: "Du bekommst die Platten in Holzkisten, gekühlt und fertig angerichtet. Auspacken, hinstellen, anstossen."
+    text: "Auspacken, hinstellen, anstossen."
   - titel: "Du bist bei deinen Gästen"
-    text: "Während die Familie ankommt, stehst du nicht am Schneidebrett. Der Apéro ist schon da."
-ruf:
-  titel: "Wann kommt die Familie zusammen?"
-  text: "Schreib mir Datum, Anzahl Gäste und ob Kinder dabei sind. Ich schlage dir eine Zusammenstellung vor."
+    text: "Der Apéro ist schon da, wenn die Familie ankommt."
 bilder:
   - bild: ../../src/assets/bilder/platte-weisse-blumen.webp
     bildAlt: "Platte mit Rohschinken, Käse, Feigen, Trauben, getrockneten Aprikosen und weissen Blumen"
