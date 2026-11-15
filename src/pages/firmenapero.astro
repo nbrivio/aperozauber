@@ -42,12 +42,12 @@ const krumen = [['Firmenapéro', '/firmenapero/']];
     </div>
   </section>
 
-  <section class="abschnitt abschnitt--breit" aria-labelledby="firma-kreationen">
+  <section class="abschnitt abschnitt--schiene" aria-labelledby="firma-kreationen">
     <div class="innen">
       <h2 id="firma-kreationen">Die Kreationen</h2>
       <a class="weiter abschnitt__inhalt" href={pfad('/angebot/')}>Alle Kreationen und Beilagen</a>
     </div>
-    <div class="gitter">
+    <div class="schiene" tabindex="0" role="group" aria-label="Kreationen, seitlich blättern">
       {
         karten.map(({ id, k, Content }) => (
           <article class="karte">
@@ -89,17 +89,12 @@ const krumen = [['Firmenapéro', '/firmenapero/']];
   .abschnitt--bilder .innen {
     margin: 0 var(--rand) 28px;
   }
-  .abschnitt--breit {
-    padding-bottom: 0;
-  }
-  .abschnitt--breit .innen {
-    margin-bottom: 28px;
-  }
-  .gitter {
+  /* Die Karten stehen nebeneinander und lassen sich seitlich blättern, wie auf der Startseite. */
+  .abschnitt--schiene {
     padding-inline: 0;
   }
-  .abschnitt--breit .gitter {
-    padding-bottom: clamp(70px, 9vw, 130px);
+  .abschnitt--schiene .innen {
+    margin: 0 var(--rand) 22px;
   }
   .karte h3 {
     font-size: 32px;
@@ -109,11 +104,6 @@ const krumen = [['Firmenapéro', '/firmenapero/']];
   }
   .punkte--vier {
     gap: 0;
-  }
-  @media (min-width: 1100px) {
-    .gitter {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
   }
   @media (min-width: 900px) {
     /* Der Inhalt läuft über die ganze Breite, der Titel bleibt deshalb nicht stehen. */
