@@ -6,8 +6,8 @@ beschreibung: "Apéroplatten für den Weihnachtsapéro im Team: von Hand gestalt
 lead: "Du organisierst den Weihnachtsapéro für dein Team? Ich bereite die Platten vor und liefere sie zu euch."
 kurz: "Weihnachtsapéro für Firmen"
 knopf: "Weihnachtsapéro fürs Team anfragen"
-bild: ../../src/assets/bilder/bergzauber.webp
-bildAlt: "Bergzauber-Platte mit Käse, Trockenfleisch, Trauben und Nüssen auf dunklem Tisch"
+bild: ../../src/assets/bilder/schnee-trauben.webp
+bildAlt: "Apéroplatte im Schnee mit Trauben, Rohschinken, Salami, Käse und pinken Rosen"
 art: firma
 reihenfolge: 8
 kreationen: [bergzauber, waldmeister, fruechtezauber]
@@ -22,10 +22,10 @@ ruf:
   titel: "Wann stosst ihr an?"
   text: "Schreib mir Datum, Ort und Anzahl Personen. Im Dezember lohnt es sich, früh anzufragen."
 bilder:
-  - bild: ../../src/assets/bilder/bergzauber-von-oben.webp
-    bildAlt: "Bergzauber von oben: Käse, Trockenfleisch, Trauben, Nüsse und Grissini auf einem Holzbrett, daneben Rosmarin"
-  - bild: ../../src/assets/bilder/bergzauber-seite.webp
-    bildAlt: "Bergzauber von der Seite, im Hintergrund die Küche"
+  - bild: ../../src/assets/bilder/schnee-crostini.webp
+    bildAlt: "Platte vor Schnee mit Salami, Tomaten, Oliven, Crostini und einer weissen Rose"
+  - bild: ../../src/assets/bilder/tisch-gedeckt.webp
+    bildAlt: "Gedeckter Tisch mit Gemüseplatte, Früchteplatte, Käseplatte, Brot und Sonnenblumen"
 fragen:
   - frage: "Bis wann müssen wir für den Weihnachtsapéro anfragen?"
     antwort: "Die Fristen für die Festtage und meine Ferien stehen jeweils im Hinweis ganz oben auf der Seite, sobald sie feststehen. Steht dort nichts, frag einfach mit deinem Datum an."

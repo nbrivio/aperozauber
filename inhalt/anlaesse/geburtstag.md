@@ -6,8 +6,8 @@ beschreibung: "Apéroplatten für die Geburtstagsfeier, von Hand gestaltet in Vi
 lead: "An deinem Geburtstag gehörst du zu deinen Gästen, nicht in die Küche. Ich bereite den Apéro vor, du stösst an."
 kurz: "Geburtstag"
 knopf: "Geburtstagsapéro anfragen"
-bild: ../../src/assets/bilder/fruechtezauber.webp
-bildAlt: "Früchtezauber-Platte mit Blutorangen, Erdbeeren, Trauben und Heidelbeeren"
+bild: ../../src/assets/bilder/geburtstag.webp
+bildAlt: "Apéroplatte zum Geburtstag mit Käse, Rohschinken, Trauben, Erdbeeren, Rosen und einem kleinen Geburtstagsballon"
 art: privat
 reihenfolge: 1
 kreationen: [bergzauber, fruechtezauber, brot]
@@ -22,10 +22,10 @@ ruf:
   titel: "Wann feierst du?"
   text: "Schreib mir das Datum und wie viele Gäste kommen. Ich melde mich mit einem Vorschlag, und du hast einen Punkt weniger auf der Liste."
 bilder:
-  - bild: ../../src/assets/bilder/bergzauber-nah.webp
-    bildAlt: "Oliven, Camembert im Glas und Grissini aus der Nähe"
-  - bild: ../../src/assets/bilder/bergzauber-seite.webp
-    bildAlt: "Bergzauber von der Seite, im Hintergrund die Küche"
+  - bild: ../../src/assets/bilder/fruechte-rosen.webp
+    bildAlt: "Früchteplatte mit Feigen, Erdbeeren, Brombeeren, kleinen Donuts und rosa Rosen"
+  - bild: ../../src/assets/bilder/platte-rosa-rosen.webp
+    bildAlt: "Runde Platte mit Käse, Trockenfleisch-Rosen, Feigen, Trauben, Mandeln und rosa Rosen"
 fragen:
   - frage: "Wie viele Platten brauche ich für meine Gäste?"
     antwort: "Eine Platte in Grösse S reicht für 4 bis 6 Personen, M für 6 bis 10, L für 10 bis 16. Für eine grössere Runde kombiniere ich mehrere Platten. Schreib mir die Anzahl Gäste, dann schlage ich dir eine Zusammenstellung vor."

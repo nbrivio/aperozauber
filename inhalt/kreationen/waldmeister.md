@@ -7,7 +7,8 @@ groessen:
   - { groesse: M, personen: "6 bis 10", preis: 100 }
   - { groesse: L, personen: "10 bis 16", preis: 120 }
 notiz: "der Bunte"
-ton: gruen
+bild: ../../src/assets/bilder/waldmeister.webp
+bildAlt: "Waldmeister: Karotten, Peperoni, Gurken und Radieschen rund um zwei Schalen mit Dips"
 bestaetigt: false
 ---
 Gemüse der Saison mit verschiedenen Hummus-Sorten und Kräuterdips.

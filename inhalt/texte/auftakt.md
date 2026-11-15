@@ -4,8 +4,8 @@ etikett: "Apéro-Kreationen aus Villmergen"
 hand: "More apéro, per favore."
 zeig: "scrollen und aufmachen"
 titel: "Das Beste am Apéro? Die Menschen *drumherum*"
-bild: ../../src/assets/bilder/bergzauber-von-oben.webp
-bildAlt: "Bergzauber von oben: Käse, Trockenfleisch, Trauben, Nüsse und Grissini auf einem Holzbrett, daneben Rosmarin"
+bild: ../../src/assets/bilder/auftakt.webp
+bildAlt: "Üppige Apéroplatte mit Käse, Trockenfleisch-Rosen, Feigen, Trauben, Nüssen und Nelken, von einer Hand gehalten"
 freigegeben: false
 ---
 Ich gestalte Apéro-Kreationen mit Liebe zum Detail, damit du mehr Zeit für deine Gäste hast.

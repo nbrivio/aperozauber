@@ -6,8 +6,8 @@ beschreibung: "Apéroplatten für Kundenevent, Eröffnung und Firmenjubiläum. V
 lead: "Wenn Kundinnen und Kunden kommen, zählt der erste Eindruck. Ich gestalte Platten, die man gern anschaut und noch lieber leer isst."
 kurz: "Kundenevent"
 knopf: "Apéro für unseren Anlass anfragen"
-bild: ../../src/assets/bilder/bergzauber-von-oben.webp
-bildAlt: "Bergzauber von oben: Käse, Trockenfleisch, Trauben, Nüsse und Grissini auf einem Holzbrett, daneben Rosmarin"
+bild: ../../src/assets/bilder/buffet-laden.webp
+bildAlt: "Apéro-Buffet in einem Modegeschäft: mehrere Platten, Brotkorb und Blumen auf einem Tisch"
 art: firma
 reihenfolge: 6
 kreationen: [bergzauber, antipastizauber, fruechtezauber]
@@ -22,10 +22,10 @@ ruf:
   titel: "Wann empfangt ihr eure Gäste?"
   text: "Schreib mir Datum, Ort und die ungefähre Anzahl Gäste. Ich melde mich mit einem Vorschlag."
 bilder:
-  - bild: ../../src/assets/bilder/bergzauber-seite.webp
-    bildAlt: "Bergzauber von der Seite, im Hintergrund die Küche"
-  - bild: ../../src/assets/bilder/fruechtezauber.webp
-    bildAlt: "Früchtezauber-Platte mit Blutorangen, Erdbeeren, Trauben und Heidelbeeren"
+  - bild: ../../src/assets/bilder/buffet-laden-nah.webp
+    bildAlt: "Apéroplatten und Blumen auf einem Tisch im Laden, im Hintergrund das Schaufenster"
+  - bild: ../../src/assets/bilder/platte-dahlien.webp
+    bildAlt: "Apéroplatte mit Käse, Feigen, Zwetschgen und Dahlien auf einem Tisch mit Blumenvasen"
 fragen:
   - frage: "Wie viele Platten braucht es für 40 Gäste?"
     antwort: "Eine Platte in Grösse L reicht für 10 bis 16 Personen. Für 40 Gäste kombiniere ich mehrere Platten. Schreib mir die Anzahl, dann schlage ich eine Zusammenstellung vor."

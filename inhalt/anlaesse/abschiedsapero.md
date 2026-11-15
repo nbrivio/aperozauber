@@ -6,8 +6,8 @@ beschreibung: "Apéroplatten für den Abschiedsapéro bei Pensionierung oder Ste
 lead: "Jemand aus dem Team geht, und du organisierst den Abschied. Ich bereite einen Apéro vor, der zeigt, dass diese Person geschätzt wird."
 kurz: "Abschiedsapéro"
 knopf: "Abschiedsapéro anfragen"
-bild: ../../src/assets/bilder/bergzauber-nah.webp
-bildAlt: "Oliven, Camembert im Glas und Grissini aus der Nähe"
+bild: ../../src/assets/bilder/platte-nelken.webp
+bildAlt: "Üppige Platte mit Käse, Trockenfleisch-Rosen, Feigen, Trauben, Nüssen und pfirsichfarbenen Nelken"
 art: firma
 reihenfolge: 7
 kreationen: [bergzauber, antipastizauber, fruechtezauber]
@@ -22,10 +22,10 @@ ruf:
   titel: "Wann ist der letzte Tag?"
   text: "Schreib mir Datum, Ort und Anzahl Personen. Ich melde mich mit einem Vorschlag."
 bilder:
-  - bild: ../../src/assets/bilder/bergzauber.webp
-    bildAlt: "Bergzauber-Platte mit Käse, Trockenfleisch, Trauben und Nüssen auf dunklem Tisch"
-  - bild: ../../src/assets/bilder/fruechtezauber.webp
-    bildAlt: "Früchtezauber-Platte mit Blutorangen, Erdbeeren, Trauben und Heidelbeeren"
+  - bild: ../../src/assets/bilder/kiste-rohschinken.webp
+    bildAlt: "Holzkiste mit Rohschinken, Salami-Rosen, Parmesan, Oliven, Tomaten und einem Käsemesser"
+  - bild: ../../src/assets/bilder/platte-orange-blumen.webp
+    bildAlt: "Runde Platte mit Salami-Rosen, Käse, Feigen, getrockneten Aprikosen und orangen Blumen"
 fragen:
   - frage: "Wie viele Platten braucht es für unser Team?"
     antwort: "Eine Platte in Grösse S reicht für 4 bis 6 Personen, M für 6 bis 10, L für 10 bis 16. Für ein grösseres Team kombiniere ich mehrere Platten. Schreib mir die Anzahl, dann schlage ich eine Zusammenstellung vor."

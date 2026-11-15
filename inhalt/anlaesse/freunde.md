@@ -6,8 +6,8 @@ beschreibung: "Apéroplatten für den Abend mit Freunden. Eine Platte reicht fü
 lead: "Für Abende, an denen niemand als Erstes nach Hause will. Ich kümmere mich um den Apéro, du um deine Freunde."
 kurz: "Abend mit Freunden"
 knopf: "Apéro für meine Runde anfragen"
-bild: ../../src/assets/bilder/bergzauber-nah.webp
-bildAlt: "Oliven, Camembert im Glas und Grissini aus der Nähe"
+bild: ../../src/assets/bilder/korb-blumenwiese.webp
+bildAlt: "Apéroplatte im geflochtenen Korb in einer Blumenwiese, mit Käse, Trockenfleisch, Nüssen und einem Glas Chutney"
 art: privat
 reihenfolge: 3
 kreationen: [antipastizauber, bergzauber, zwiebel-birnen-chutney, feigensenf]
@@ -22,10 +22,10 @@ ruf:
   titel: "Wann kommen deine Freunde?"
   text: "Schreib mir das Datum und wie viele ihr seid. Ich melde mich mit einem Vorschlag."
 bilder:
-  - bild: ../../src/assets/bilder/bergzauber.webp
-    bildAlt: "Bergzauber-Platte mit Käse, Trockenfleisch, Trauben und Nüssen auf dunklem Tisch"
-  - bild: ../../src/assets/bilder/bergzauber-seite.webp
-    bildAlt: "Bergzauber von der Seite, im Hintergrund die Küche"
+  - bild: ../../src/assets/bilder/langes-brett.webp
+    bildAlt: "Langes Holzbrett mit Käse, Rohschinken, Trauben, Brombeeren und einem Dip, von einer Hand gehalten"
+  - bild: ../../src/assets/bilder/kaese-basilikum.webp
+    bildAlt: "Platte mit Weichkäse, Hartkäse, Basilikum, Tomaten, Crackern, Nüssen und einem Käsemesser"
 fragen:
   - frage: "Reicht eine Platte für einen ganzen Abend?"
     antwort: "Eine Platte ist als Apéro gedacht: S für 4 bis 6 Personen, M für 6 bis 10, L für 10 bis 16. Soll der Apéro das Essen ersetzen, sag es mir bei der Anfrage, dann schlage ich dir eine grössere Zusammenstellung vor."

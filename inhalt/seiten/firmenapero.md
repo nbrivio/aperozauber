@@ -7,7 +7,7 @@ lead: "Für Teamanlässe, Kundenevents, Abschiede, Eröffnungen und Jubiläen st
 quelle: "Neuer Text aus den Angaben der Startseite und der AGB. Noch nicht von Sibylle gelesen."
 punkte:
   - titel: "Anlässe"
-    text: "Teamanlass, Kundenevent, Abschiedsapéro, Weihnachtsapéro, Eröffnung oder Jubiläum."
+    text: "Teamanlass, Kundenevent, Abschiedsapéro, Weihnachts- und Neujahrsapéro, Eröffnung oder Jubiläum."
   - titel: "Lieferung"
     text: "Ich liefere gegen Aufpreis an den Firmensitz oder die Event-Location. Abholung in Villmergen ist ebenso möglich."
   - titel: "Rechnung"

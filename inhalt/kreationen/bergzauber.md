@@ -8,7 +8,7 @@ groessen:
   - { groesse: L, personen: "10 bis 16", preis: 140 }
 notiz: "der Herzhafte"
 bild: ../../src/assets/bilder/bergzauber.webp
-bildAlt: "Bergzauber-Platte mit Käse, Trockenfleisch, Trauben und Nüssen auf dunklem Tisch"
+bildAlt: "Bergzauber auf rundem Holzbrett: Käse, Trockenfleisch-Rosen, Oliven, Nüsse, Trauben und Brombeeren"
 bestaetigt: false
 ---
 Schweizer Hart- und Weichkäse, Salsiz, Bündnerfleisch, Essiggurken, Silberzwiebeln, Oliven, Nüsse, Konfitüren.

@@ -6,8 +6,8 @@ beschreibung: "Apéroplatten für Weihnachten und die Festtage zu Hause, von Han
 lead: "An den Festtagen hast du genug zu tun. Den Apéro übernehme ich, damit du beim Anstossen dabei bist."
 kurz: "Weihnachten"
 knopf: "Weihnachtsapéro anfragen"
-bild: ../../src/assets/bilder/bergzauber.webp
-bildAlt: "Bergzauber-Platte mit Käse, Trockenfleisch, Trauben und Nüssen auf dunklem Tisch"
+bild: ../../src/assets/bilder/schnee-rosen.webp
+bildAlt: "Apéroplatte vor verschneitem Boden mit Trauben, Mandeln, Salami, Käse und rosa Rosen"
 art: privat
 reihenfolge: 4
 kreationen: [bergzauber, fruechtezauber, antipastizauber]
@@ -22,10 +22,10 @@ ruf:
   titel: "Wann feiert ihr?"
   text: "Schreib mir Datum und Anzahl Gäste. Vor den Festtagen lohnt es sich, früh anzufragen."
 bilder:
-  - bild: ../../src/assets/bilder/bergzauber-nah.webp
-    bildAlt: "Oliven, Camembert im Glas und Grissini aus der Nähe"
-  - bild: ../../src/assets/bilder/fruechtezauber.webp
-    bildAlt: "Früchtezauber-Platte mit Blutorangen, Erdbeeren, Trauben und Heidelbeeren"
+  - bild: ../../src/assets/bilder/schnee-salami.webp
+    bildAlt: "Apéroplatte im Schnee mit Salami, Kirschtomaten, Oliven, Käsewürfeln und weissen Rosen"
+  - bild: ../../src/assets/bilder/kaese-ueppig.webp
+    bildAlt: "Dicht belegte Platte mit Käse, Trockenfleisch, Feigen, Trauben, getrockneten Aprikosen und einem Käsemesser"
 fragen:
   - frage: "Bis wann muss ich für Weihnachten anfragen?"
     antwort: "Die Fristen für die Festtage und meine Ferien stehen jeweils im Hinweis ganz oben auf der Seite, sobald sie feststehen. Steht dort nichts, frag einfach mit deinem Datum an."

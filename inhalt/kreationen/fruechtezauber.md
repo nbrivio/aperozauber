@@ -8,7 +8,7 @@ groessen:
   - { groesse: L, personen: "10 bis 16", preis: 110 }
 notiz: "der Süsse"
 bild: ../../src/assets/bilder/fruechtezauber.webp
-bildAlt: "Früchtezauber-Platte mit Blutorangen, Erdbeeren, Trauben und Heidelbeeren"
+bildAlt: "Früchtezauber mit Feigen, Erdbeeren, Brombeeren, Trauben, kleinen Donuts und Rosen"
 bestaetigt: false
 ---
 Saisonale Früchte mit süssen Kleinigkeiten. Als Auftakt oder als Finale.

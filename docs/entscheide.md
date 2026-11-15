@@ -93,3 +93,13 @@ Jede Themenseite spricht die eine Person an, die den Apéro organisiert, in der 
 - **Saubere Umbrüche in Titeln:** Jeder Satz eines Titels steht auf eigener Zeile («Das Beste am Apéro?» / «Die Menschen drumherum»). Das gilt automatisch für alle Titel aus den Inhaltsdateien. Ein senkrechter Strich `|` im Titel setzt einen Umbruch von Hand. Fliesstext lässt kein einzelnes Wort allein auf der letzten Zeile.
 - **Firmenlogos:** Kaiser & Korn und Feldhaas stehen unter «Diese Firmen haben schon bei mir bestellt», freigestellt, einfarbig in der Schriftfarbe und mit Verweis auf die Website. Neue Logos: Datei nach `src/assets/firmen/`, Eintrag in `inhalt/firmen.json`.
 - **Themenseiten mit weniger Text (15.11.2026):** Statt zwei Absätzen steht ein einziger Satz zur Lage der Person, gross gesetzt neben zwei Bildern. «Das nehme ich dir ab» steht in drei Spalten. Aus zwei Frageblöcken wird einer, «Gut zu wissen», mit höchstens drei eigenen Fragen und Abholung, Lieferung, Bezahlung. Absage und Kühlung stehen nur noch auf `/info/` und in den AGB. Das gilt nur für die Themenseiten.
+
+## Neue Bilder (15.11.2026)
+
+Aus 72 neuen Fotos sind 42 eingebaut, jedes mit Alt-Text. Die Originale liegen im Ordner `Website` auf dem Computer, im Repository liegen die aufbereiteten Fassungen unter `src/assets/bilder/`.
+
+- **Startseite:** Auftakt mit der üppigen Platte, rundes Porträt und Gartenbild von Sibylle, Bilderstapel mit fünf Bildern. Das letzte zeigt Hände am Tisch: «Und dann greifen alle zu».
+- **Kreationen:** Jede der sieben Karten hat ein Foto, «Bild folgt» gibt es nicht mehr.
+- **Themenseiten:** Jede hat ein eigenes Titelbild und zwei eigene Bilder, passend zum Anlass: Geburtstagsballon, weiss gedeckter Festtisch, Korb in der Blumenwiese, Platten im Schnee, Buffet im Laden, Tisch mit mehreren Platten. Kein Foto steht auf zwei Themenseiten.
+- **Neue Themenseite** `/apero/neujahrsapero-firma/` für den Neujahrsapéro von Firmen und Teams.
+

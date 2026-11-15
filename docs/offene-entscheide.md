@@ -10,8 +10,10 @@
 - [ ] Liefergebiet, Vorlaufzeit und Höchstzahl Aufträge pro Tag.
 - [ ] Telefon: Im Fuss steht die Nummer aus dem bisherigen Impressum, wie im Prototyp. Bleibt sie, bis die Geschäftsnummer da ist?
 - [ ] Kreationen: Texte aus dem Prototyp, Grössen und Richtpreise von der bisherigen Seite (Stand 13.11.2026), alles als Entwurf markiert. Zu bestätigen. Es fehlen die Allergene je Kreation.
-- [ ] Bilder: Fotos für Waldmeister, Antipastizauber, Brot, Chutney und Feigensenf. Fotos mit Menschen am Tisch für den Auftakt.
-- [ ] Bilder in Originalgrösse: Die sieben Bilder stammen aus dem Prototyp und sind für grosse Bildschirme zu klein. Das Bild im Auftakt wird dort sichtbar weich.
+- [x] Bilder: 42 neue Fotos sind eingebaut (15.11.2026), die bisherigen sieben sind gelöscht.
+- [ ] Feigensenf: Es gibt kein eigenes Foto. Die Karte zeigt drei Gläser im Korb, deren Etikett «Birnen.Zwiebel.Feigen Chutney» nennt. Ein Foto vom Feigensenf wäre richtig.
+- [ ] Chutney: Auf den Fotos heisst es «Birnen.Zwiebel.Feigen Chutney» und «Mirabellen Chutney», auf der Seite «Zwiebel-Birnen-Chutney». Welcher Name gilt, und gibt es das Mirabellen-Chutney auch zu bestellen?
+- [ ] Bilder in Originalgrösse: Die neuen Fotos sind 1536 Pixel breit. Das reicht für alle Plätze ausser dem Auftakt auf sehr grossen Bildschirmen. Für den Auftakt wäre ein Querformat in Originalgrösse ideal.
 - [ ] Hosting der richtigen Seite: GitHub Pages kennt keine echten Weiterleitungen, keine eigenen Sicherheits-Kopfzeilen und keinen Formularversand. Bei Hostpoint bestehen nur Domain und Mail. Zu entscheiden mit Phase 3.
 - [ ] Firmenlogos und Kundenstimmen mit Einverständnis.
 - [x] Rechtstexte: Impressum, AGB und Qualität & Hygiene stehen im Wortlaut auf `/impressum/`.
