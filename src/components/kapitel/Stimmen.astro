@@ -49,7 +49,7 @@ const wand = firmen.map((f) => {
             {wand.length > 0
               ? wand.map((f) => {
                   const inhalt = f.bild ? <Image src={f.bild} alt={`Logo von ${f.name}`} width={Math.min(f.bild.width, 400)} densities={[1, 2]} loading="lazy" /> : f.name;
-                  return <li>{f.adresse ? <a href={f.adresse} rel="noopener noreferrer" aria-label={`${f.name}, zur Website`}>{inhalt}</a> : inhalt}</li>;
+                  return <li data-mass={f.mass}>{f.adresse ? <a href={f.adresse} rel="noopener noreferrer" aria-label={`${f.name}, zur Website`}>{inhalt}</a> : inhalt}</li>;
                 })
               : [1, 2, 3, 4, 5].map((n) => <li>Firmenlogo {n}</li>)}
           </ul>

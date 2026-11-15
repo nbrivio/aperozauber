@@ -1,5 +1,7 @@
 [
   {"name": "Kaiser & Korn", "logo": "kaiser-und-korn.png", "adresse": "https://www.kaiserundkorn.ch/", "einverstaendnis": true},
   {"name": "Feldhaas", "logo": "feldhaas.png", "adresse": "https://feldhaas.ch/", "einverstaendnis": true},
-  {"name": "Brückenwerk Kinder & Jugend", "logo": "brueckenwerk.png", "adresse": "https://www.xn--brckenwerk-beb.ch/", "einverstaendnis": true}
+  {"name": "Brückenwerk Kinder & Jugend", "logo": "brueckenwerk.png", "adresse": "https://www.xn--brckenwerk-beb.ch/", "einverstaendnis": true},
+  {"name": "Wedding with Jenni", "logo": "wedding-with-jenni.png", "adresse": "https://www.weddingwithjenni.ch/", "mass": "breit", "einverstaendnis": true},
+  {"name": "WEY", "logo": "wey.png", "adresse": "https://wey-store.ch/", "mass": "klein", "einverstaendnis": true}
 ]

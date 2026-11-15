@@ -8,6 +8,8 @@ const stimme = z.object({ text: z.string().min(1), von: z.string().min(1), einve
 const firma = z.object({
   name: z.string().min(1),
   logo: z.string().regex(/^[a-z0-9-]+\.png$/).optional(),
+  // Optischer Ausgleich: schwere Zeichen kleiner, schmale Schriftzüge breiter.
+  mass: z.enum(['klein', 'breit']).optional(),
   adresse: z.string().url().startsWith('https://').optional(),
   einverstaendnis: z.literal(true),
 });
