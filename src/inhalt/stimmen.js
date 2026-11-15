@@ -3,7 +3,11 @@ import stimmenRoh from '../../inhalt/stimmen.json';
 import firmenRoh from '../../inhalt/firmen.json';
 
 // Beides nur mit Einverständnis, das Feld hält fest, dass es vorliegt.
-const stimme = z.object({ text: z.string().min(1), von: z.string().min(1), einverstaendnis: z.literal(true) });
+// Eine Stimme ist entweder eine öffentliche Rezension mit Quelle, als wörtlicher Auszug,
+// oder eine persönliche Rückmeldung mit festgehaltenem Einverständnis.
+const stimme = z
+  .object({ text: z.string().min(1), von: z.string().min(1), quelle: z.string().min(1).optional(), einverstaendnis: z.literal(true).optional() })
+  .refine((s) => s.quelle || s.einverstaendnis, { message: 'Eine Stimme braucht eine Quelle oder das Einverständnis.' });
 // Logo: Dateiname in src/assets/firmen, freigestellt und einfarbig. Adresse: Website der Firma.
 const firma = z.object({
   name: z.string().min(1),

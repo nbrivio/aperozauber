@@ -729,9 +729,35 @@
     margin: 0;
     font: italic 400 24px/1.2 var(--az-font-display);
   }
+  /* Echte Stimmen: gross gesetzt, ohne Rahmen, der Name darunter. */
+  figure.stimme {
+    border: 0;
+    border-top: 1px solid var(--az-ink);
+    padding: 22px 0 0;
+    align-content: start;
+    gap: 18px;
+  }
+  figure.stimme blockquote {
+    font-size: clamp(26px, 2.6vw, 38px);
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+  figure.stimme blockquote::before {
+    content: '«';
+  }
+  figure.stimme blockquote::after {
+    content: '»';
+  }
+  figure.stimme figcaption {
+    order: 2;
+  }
   @media (min-width: 800px) {
     .dreier {
       grid-template-columns: repeat(3, 1fr);
+    }
+    .dreier:has(figure) {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px clamp(28px, 4vw, 64px);
     }
   }
   .insta {

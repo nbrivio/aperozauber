@@ -111,4 +111,4 @@ Aus 72 neuen Fotos sind 42 eingebaut, jedes mit Alt-Text. Die Originale liegen i
 - **Umbrüche:** «Ich kümmere mich um den Apéro.» / «Du um die Menschen.» und die drei Sätze darunter stehen je auf eigener Zeile.
 - **Themenseiten:** Der Abschnitt mit der Frage und dem zweiten Knopf in der Seitenmitte entfällt. Die drei Punkte unter «Das nehme ich dir ab» haben je nur noch einen kurzen Satz.
 - **Logowand:** sie & er ist dazugekommen, die Überschrift lautet «Mit diesen Firmen arbeite ich regelmässig zusammen».
-
+- **Kundenstimmen aus Google (15.11.2026):** Die Stimmen sind wörtliche Auszüge aus Google-Rezensionen, mit Vorname, erstem Buchstaben des Nachnamens und dem Vermerk «Google-Rezension». Neue Stimmen kommen in `inhalt/stimmen.json`. Sterne stehen nicht im Seitencode.

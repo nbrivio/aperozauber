@@ -28,7 +28,7 @@ const wand = firmen.map((f) => {
           {stimmen.length > 0
             ? stimmen.map((s) => (
                 <figure class="stimme">
-                  <figcaption class="etikett">{s.von}</figcaption>
+                  <figcaption class="etikett">{[s.von, s.quelle].filter(Boolean).join(" · ")}</figcaption>
                   <blockquote>{s.text}</blockquote>
                 </figure>
               ))
