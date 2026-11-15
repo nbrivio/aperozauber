@@ -45,7 +45,7 @@ const wand = firmen.map((f) => {
       zeigeWand && (
         <div class="wand">
           <p class="etikett">{t.etikett}</p>
-          <ul style={wand.length > 0 ? `--spalten:${Math.min(wand.length, 5)}` : undefined}>
+          <ul data-spalten={wand.length > 0 ? Math.min(wand.length, 5) : undefined}>
             {wand.length > 0
               ? wand.map((f) => {
                   const inhalt = f.bild ? <Image src={f.bild} alt={`Logo von ${f.name}`} width={Math.min(f.bild.width, 400)} densities={[1, 2]} loading="lazy" /> : f.name;

@@ -804,6 +804,19 @@
       grid-template-columns: repeat(var(--spalten, 5), minmax(0, 240px));
       gap: 12px 48px;
     }
+    /* Die Policy lässt keine Stile im Markup zu, deshalb über das Attribut. */
+    .wand ul[data-spalten='1'] {
+      --spalten: 1;
+    }
+    .wand ul[data-spalten='2'] {
+      --spalten: 2;
+    }
+    .wand ul[data-spalten='3'] {
+      --spalten: 3;
+    }
+    .wand ul[data-spalten='4'] {
+      --spalten: 4;
+    }
     .wand li:last-child:nth-child(odd) {
       grid-column: auto;
       width: auto;
