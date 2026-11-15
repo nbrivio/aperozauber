@@ -1,7 +1,6 @@
 ---
 titel: "Datenschutz"
 reihenfolge: 4
-vermerk: "Entwurf. Diese Erklärung gibt es auf der heutigen Seite noch nicht. Sie wird vor der Veröffentlichung geprüft."
 punkte:
   - begriff: "Verantwortlich"
     text: "Sibylle’s Apérozauber, Sibylle Brivio, Anglikerstrasse 46, 5612 Villmergen, anfrage@aperozauber.ch"
@@ -19,5 +18,5 @@ punkte:
     text: "So lange, wie es für die Bestellung und die gesetzlichen Pflichten nötig ist."
   - begriff: "Deine Rechte"
     text: "Auskunft, Berichtigung, Löschung und Herausgabe deiner Daten. Eine Nachricht an anfrage@aperozauber.ch genügt."
-freigegeben: false
+freigegeben: true
 ---

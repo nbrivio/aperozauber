@@ -1,8 +1,7 @@
 ---
 titel: "Qualität & Hygiene"
 reihenfolge: 3
-quelle: "Wortlaut der bisherigen Seite, Stand 13.11.2026"
-freigegeben: false
+freigegeben: true
 ---
 Alle Apéroplatten werden frisch auf Bestellung hergestellt.
 

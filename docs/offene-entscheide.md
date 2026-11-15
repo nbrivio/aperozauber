@@ -36,4 +36,6 @@
   - Lebensmittelrecht: Bei offen abgegebenem Fleisch ist die Herkunft schriftlich anzugeben, und über Allergene muss Auskunft möglich sein. Mit dem Lebensmittelinspektorat klären, wie das bei Bestellung über die Website zu lösen ist. Die Allergene je Kreation fehlen noch.
   - Impressum: Telefonnummer steht im Fuss, nicht im Impressum.
 - [ ] Themenseiten: Abschiedsapéro und Weihnachtsapéro für Firmen sind neu. Alle acht Texte sind auf die organisierende Person geschrieben und noch nicht von Sibylle gelesen.
+- [x] Rechtstexte freigegeben (15.11.2026): Impressum, AGB, Qualität & Hygiene und Datenschutz gelten als final, die Entwurfsvermerke sind entfernt. Impressum, AGB und Hygiene entsprechen dem Wortlaut der bisherigen Seite, in den AGB ohne Geschenkboxen. Der Datenschutz ist neu geschrieben.
+- [ ] Datenschutz nachführen, sobald sich die Technik ändert: Der Absatz «Anfrage» stimmt, solange das Formular das Mailprogramm öffnet. Mit dem direkten Versand und mit dem endgültigen Hosting (Anbieter und Land) muss er angepasst werden.
 

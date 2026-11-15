@@ -2,8 +2,7 @@
 titel: "Allgemeine Geschäftsbedingungen"
 kurz: "AGB"
 reihenfolge: 2
-quelle: "Wortlaut der bisherigen Seite, Stand 13.11.2026. In Punkt 2 sind die Geschenkboxen gestrichen (Entscheid 13.11.2026)."
-freigegeben: false
+freigegeben: true
 ---
 <h3 id="agb-1">1. Geltungsbereich</h3>
 

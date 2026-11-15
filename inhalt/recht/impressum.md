@@ -1,7 +1,6 @@
 ---
 titel: "Impressum"
 reihenfolge: 1
-quelle: "Wortlaut der bisherigen Seite, Stand 13.11.2026"
 punkte:
   - begriff: "Anbieterin"
     text: "Sibylle’s Apérozauber, Inhaberin: Sibylle Brivio"
@@ -13,5 +12,5 @@ punkte:
     text: "www.aperozauber.ch"
   - begriff: "Verantwortlich für den Inhalt"
     text: "Sibylle Brivio"
-freigegeben: false
+freigegeben: true
 ---
