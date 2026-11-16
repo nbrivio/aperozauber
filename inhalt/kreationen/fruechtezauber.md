@@ -9,6 +9,6 @@ groessen:
 notiz: "der Süsse"
 bild: ../../src/assets/bilder/fruechtezauber.webp
 bildAlt: "Früchtezauber mit Feigen, Erdbeeren, Brombeeren, Trauben, kleinen Donuts und Rosen"
-bestaetigt: false
+bestaetigt: true
 ---
 Saisonale Früchte mit süssen Kleinigkeiten. Als Auftakt oder als Finale.

@@ -9,6 +9,6 @@ groessen:
 notiz: "der Herzhafte"
 bild: ../../src/assets/bilder/bergzauber.webp
 bildAlt: "Bergzauber auf rundem Holzbrett: Käse, Trockenfleisch-Rosen, Oliven, Nüsse, Trauben und Brombeeren"
-bestaetigt: false
+bestaetigt: true
 ---
 Schweizer Hart- und Weichkäse, Salsiz, Bündnerfleisch, Essiggurken, Silberzwiebeln, Oliven, Nüsse, Konfitüren.

@@ -45,7 +45,6 @@ const kreationen = defineCollection({
         if (!k.bestaetigt) return;
         if (!k.notiz) fehlt('notiz', 'Ein bestätigter Eintrag braucht seine Notiz.');
         if (!k.bild) fehlt('bild', 'Ein bestätigter Eintrag braucht ein Bild.');
-        if (!k.allergene) fehlt('allergene', 'Allergene angeben, bei keinen eine leere Liste.');
       }),
 });
 

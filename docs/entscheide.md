@@ -115,3 +115,4 @@ Aus 72 neuen Fotos sind 42 eingebaut, jedes mit Alt-Text. Die Originale liegen i
 - **Firmenseite neu (15.11.2026):** Titelbild mit Sibylle am Buffet, sechs Bilder als Fläche, vier kurze Punkte, die vier Platten als Karten mit Bild und Preisen, die Logowand, der Ablauf. Vorher standen dort Listen ohne Bild.
 - **Über mich:** unter dem Text sechs Bilder von Platten und Broten mit Verweis auf alle Kreationen, für alle, die direkt auf dieser Seite landen.
 - **Rundes Porträt:** wieder das frühere Bild im Gegenlicht. Im Terrassenbild ist das Gesicht für einen runden Ausschnitt zu klein.
+- 16.11.2026: Allergenliste je Kreation nicht nötig (Entscheid Nicolas). Die AGB (Punkt 8) nennen die möglichen Allergene, die Info-Seite sagt «auf Anfrage». Alle Kreationen bestätigt, Prüfregel entfernt.

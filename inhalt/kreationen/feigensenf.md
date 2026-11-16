@@ -7,6 +7,6 @@ notiz: "süss und scharf"
 einheit: Glas
 bild: ../../src/assets/bilder/glaeser-im-korb.webp
 bildAlt: "Drei Gläser mit rosa Schleifen in einem Weidenkorb mit Holzwolle"
-bestaetigt: false
+bestaetigt: true
 ---
 Selbst gemacht, im Glas.

@@ -9,6 +9,6 @@ groessen:
 notiz: "der Italiener"
 bild: ../../src/assets/bilder/antipastizauber.webp
 bildAlt: "Antipastizauber: Salami-Rosen, Rohschinken, Kirschtomaten, Oliven, Parmesan, Artischocken und Cracker"
-bestaetigt: false
+bestaetigt: true
 ---
 Olivenpasten, Tomatenaufstrich, getrocknete Tomaten, eingelegtes Gemüse, Trockenfleisch, Grissini und Brot.

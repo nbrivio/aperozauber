@@ -9,6 +9,6 @@ groessen:
 notiz: "der Bunte"
 bild: ../../src/assets/bilder/waldmeister.webp
 bildAlt: "Waldmeister: Karotten, Peperoni, Gurken und Radieschen rund um zwei Schalen mit Dips"
-bestaetigt: false
+bestaetigt: true
 ---
 Gemüse der Saison mit verschiedenen Hummus-Sorten und Kräuterdips.
