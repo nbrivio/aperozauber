@@ -17,6 +17,8 @@ const vorhanden = (pfad) => access(pfad).then(() => true, () => false);
 for (const datei of seiten) {
   const ort = relative('dist', datei);
   const html = await readFile(datei, 'utf8');
+  // Weiterleitungen (siehe weiterleitungen.js) sind keine Seiten, die Umstellungsprüfung kontrolliert sie.
+  if (/http-equiv="refresh"/.test(html)) continue;
   const kopf = html.slice(0, html.indexOf('</head>'));
   const rumpf = html.slice(html.indexOf('<body'));
   const metas = [...kopf.matchAll(/<meta\s[^>]*>/g)].map((m) => m[0]);
