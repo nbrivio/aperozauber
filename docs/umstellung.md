@@ -22,7 +22,7 @@ Ziel: Die neue Seite ersetzt die bisherige (Squarespace) ohne Verlust an Sichtba
 ## Vor dem Umstellungstag
 
 1. Bei Hostpoint «Zone herunterladen» und die Datei aufbewahren (Rückweg).
-2. In GitHub unter Settings → Pages die Domain `aperozauber.ch` verifizieren (TXT `_github-pages-challenge-nbrivio`). Das verhindert, dass jemand anderes die Domain auf Pages beansprucht.
+2. Erledigt (17.11.2026): Domain `aperozauber.ch` ist bei GitHub verifiziert (TXT `_github-pages-challenge-nbrivio`). Der Eintrag muss dauerhaft stehen bleiben.
 3. Erledigt: Domain-Property `aperozauber.ch` in der Search Console ist bestätigt. Die bisherige Property `https://www.aperozauber.ch/` bleibt bestehen und zeigt nach dem Umhängen, ob die alten Adressen ankommen.
 
 ## Umstellungstag
@@ -38,7 +38,7 @@ Ziel: Die neue Seite ersetzt die bisherige (Squarespace) ohne Verlust an Sichtba
    - Neu: `www` als CNAME auf `nbrivio.github.io`
    - Neu: `@` als A auf `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
    - Neu: `@` als AAAA auf `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`
-   - **Nicht anfassen:** MX (auch der Wildcard-MX), SPF, `autoconfig`, `autodiscover`, `lists`, der Google-TXT-Eintrag und der Squarespace-Bestätigungs-CNAME
+   - **Nicht anfassen:** die beiden TXT-Einträge (Google und GitHub), MX (auch der Wildcard-MX), SPF, `autoconfig`, `autodiscover`, `lists`, der Google-TXT-Eintrag und der Squarespace-Bestätigungs-CNAME
 5. **HTTPS:** In Pages warten, bis das Zertifikat ausgestellt ist (Minuten bis eine Stunde), dann «Enforce HTTPS» setzen. Die Variante ohne www leitet GitHub automatisch auf www um.
 6. **Prüfen** (nach Weitergabe der DNS-Änderung):
    - `https://www.aperozauber.ch/`, `/angebot`, `/uebermich`, `/info`, `/impressum` laden, ebenso `/home` und `/cart` (müssen auf Startseite bzw. Angebot springen)
