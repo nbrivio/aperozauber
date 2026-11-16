@@ -11,12 +11,19 @@ Ziel: Die neue Seite ersetzt die bisherige (Squarespace) ohne Verlust an Sichtba
 - **Trockenlauf:** Bei jedem Push baut ein eigener Job die Seite mit den Einstellungen der richtigen Adresse und lässt alle Prüfungen laufen, inklusive `pruefen:umstellung` (alle bisherigen Adressen kommen an, kein Verweis auf die Testadresse, richtiges Canonical, Sitemap, keine versehentliche Sperre).
 - **Preise, Überschriften, Beschreibungen:** Die Preise stimmen mit der bisherigen Seite überein. Die Seitentitel sind neu geschrieben und auf die Suche ausgerichtet.
 
-## Eine Woche vorher
+## Ist-Stand der DNS-Zone bei Hostpoint (16.11.2026)
 
-1. Bei Hostpoint die heutigen DNS-Einträge der Domain exportieren oder abfotografieren (für den Rückweg).
-2. Die TTL der Einträge `@` und `www` auf 300 Sekunden stellen und einen Tag warten.
-3. In GitHub unter Settings → Pages die Domain `aperozauber.ch` verifizieren (TXT-Eintrag `_github-pages-challenge-nbrivio`). Das verhindert, dass jemand anderes die Domain auf Pages beansprucht.
-4. In der Search Console die Domain-Property `aperozauber.ch` anlegen (TXT-Eintrag bei Hostpoint). Das ist unabhängig vom Umhängen möglich.
+- `@` hat zwei A-Einträge auf Squarespace (`198.185.159.144`, `198.185.159.145`), dazu ein Wildcard-A `*` auf `198.185.159.145`. Es gibt keinen eigenen Eintrag für `www`, er läuft über das Wildcard.
+- Mail: MX `mx1` und `mx2.mail.hostpoint.ch` für `@` und `*`, SPF `v=spf1 redirect=spf.mail.hostpoint.ch`, CNAME `autoconfig`, `autodiscover` und `lists` auf Hostpoint. **Alles bleibt.**
+- CNAME `e5p9sbfsjssfkzfzg86s` auf `verify.squarespace.com`: Bestätigung für Squarespace, bleibt bis zum Ende des Rückwegs.
+- TXT `google-site-verification=…`: Search Console, bleibt dauerhaft.
+- Alle A- und CNAME-Einträge haben schon TTL 300 Sekunden, eine Absenkung ist nicht nötig. Es gibt weder AAAA noch CAA.
+
+## Vor dem Umstellungstag
+
+1. Bei Hostpoint «Zone herunterladen» und die Datei aufbewahren (Rückweg).
+2. In GitHub unter Settings → Pages die Domain `aperozauber.ch` verifizieren (TXT `_github-pages-challenge-nbrivio`). Das verhindert, dass jemand anderes die Domain auf Pages beansprucht.
+3. Erledigt: Domain-Property `aperozauber.ch` in der Search Console ist bestätigt. Die bisherige Property `https://www.aperozauber.ch/` bleibt bestehen und zeigt nach dem Umhängen, ob die alten Adressen ankommen.
 
 ## Umstellungstag
 
@@ -26,11 +33,12 @@ Ziel: Die neue Seite ersetzt die bisherige (Squarespace) ohne Verlust an Sichtba
    - `SITE_STUFE` = `live`
 2. **Bau auslösen:** Workflow «Prüfen und veröffentlichen» mit «Run workflow». Er muss grün sein.
 3. **Domain in Pages eintragen:** Settings → Pages → Custom domain = `www.aperozauber.ch`. Ab jetzt leitet die Testadresse auf die richtige Adresse um.
-4. **DNS bei Hostpoint umstellen:**
-   - `www` als CNAME auf `nbrivio.github.io`
-   - `@` (ohne www) als A-Einträge auf `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` und als AAAA auf `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`
-   - Alte Einträge, die auf Squarespace zeigen, entfernen
-   - **MX, SPF, DKIM, DMARC und alle anderen Mail-Einträge nicht anfassen.** Ein CAA-Eintrag, falls vorhanden, muss `letsencrypt.org` erlauben.
+4. **DNS bei Hostpoint umstellen** (Reihenfolge einhalten, in einem Zug):
+   - Löschen: die zwei A-Einträge auf `@` (`198.185.159.144`, `198.185.159.145`) und das Wildcard-A `*` auf `198.185.159.145`
+   - Neu: `www` als CNAME auf `nbrivio.github.io`
+   - Neu: `@` als A auf `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+   - Neu: `@` als AAAA auf `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`
+   - **Nicht anfassen:** MX (auch der Wildcard-MX), SPF, `autoconfig`, `autodiscover`, `lists`, der Google-TXT-Eintrag und der Squarespace-Bestätigungs-CNAME
 5. **HTTPS:** In Pages warten, bis das Zertifikat ausgestellt ist (Minuten bis eine Stunde), dann «Enforce HTTPS» setzen. Die Variante ohne www leitet GitHub automatisch auf www um.
 6. **Prüfen** (nach Weitergabe der DNS-Änderung):
    - `https://www.aperozauber.ch/`, `/angebot`, `/uebermich`, `/info`, `/impressum` laden, ebenso `/home` und `/cart` (müssen auf Startseite bzw. Angebot springen)
@@ -42,10 +50,10 @@ Ziel: Die neue Seite ersetzt die bisherige (Squarespace) ohne Verlust an Sichtba
 
 ## Rückweg
 
-Bis zur Bestätigung durch die Prüfung das Squarespace-Abo nicht kündigen. Notfalls die alten DNS-Einträge zurückschreiben (wegen der kurzen TTL greift das binnen Minuten) und die Variable `SITE_STUFE` wieder auf `test` setzen.
+Bis zur Bestätigung durch die Prüfung das Squarespace-Abo nicht kündigen. Notfalls die drei alten A-Einträge zurückschreiben und die GitHub-Einträge löschen (TTL ist 300 Sekunden, das greift binnen Minuten) und die Variable `SITE_STUFE` wieder auf `test` setzen.
 
 ## Nach der Umstellung
 
 - Eine Woche lang in der Search Console unter «Seiten» beobachten: keine Fehler bei «Nicht gefunden (404)» für die bisherigen Adressen.
-- Die TTL wieder auf einen normalen Wert (z. B. 3600) erhöhen.
+- Nach ein bis zwei Wochen den Squarespace-Bestätigungs-CNAME löschen und die TTL der neuen Einträge auf 3600 erhöhen.
 - Datenschutztext prüfen, sobald die Anfrage nicht mehr über das Mailprogramm, sondern direkt verschickt wird.
