@@ -48,6 +48,28 @@ jobs:
         with:
           path: dist
 
+  prod-trockenlauf:
+    name: Trockenlauf für www.aperozauber.ch
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    # Baut und prüft die Seite so, wie sie auf der richtigen Adresse laufen wird. Es wird nichts veröffentlicht.
+    env:
+      SITE_ADRESSE: https://www.aperozauber.ch
+      SITE_PFAD: /
+      SITE_STUFE: live
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Bauen und alle Prüfungen mit den Einstellungen der richtigen Adresse
+        run: npm run pruefen
+
   veroeffentlichen:
     name: Veröffentlichen
     needs: pruefen
