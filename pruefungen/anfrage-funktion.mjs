@@ -45,12 +45,12 @@ gleich('einzeilig', einzeilig('a\n\nb', 10), 'a b');
 const best = bestaetigungsMail(gut.daten);
 wahr('Betreff Bestätigung', best.betreff === 'Deine Anfrage bei Sibylle’s Apérozauber');
 wahr('Anrede', best.text.startsWith('Hallo Anna\n'));
-wahr('Zusammenfassung', best.text.includes('- Datum: 19.12.2026') && best.text.includes('2 × Bergzauber M'));
-wahr('Hinweis automatisch', best.text.includes('automatisch verschickt'));
+wahr('Zusammenfassung', best.text.includes('Das ist bei mir angekommen:') && best.text.includes('- Datum: 19.12.2026') && best.text.includes('2 × Bergzauber M'));
+wahr('Ton: Sibylle, kein Dienst', best.text.includes('Mein Apérozauber') && !/automatisch|Kundenservice|Ihre/.test(best.text));
 wahr('keine Zusage, kein Preis', !/CHF|innerhalb von|Stunden/.test(best.text));
 wahr('Link Info', best.text.includes('https://www.aperozauber.ch/info/'));
 const leer = bestaetigungsMail(pruefeAnfrage({ name: '1234', kontakt: 'a@b.ch' }).daten);
-wahr('ohne Angaben', leer.text.startsWith('Hallo\n') && !leer.text.includes('Das habe ich notiert'));
+wahr('ohne Angaben', leer.text.startsWith('Hallo\n') && !leer.text.includes('Das ist bei mir angekommen'));
 
 const tel = mitteilungsMail(pruefeAnfrage({ name: 'Ben', kontakt: '079 123 45 67', anlass: 'Geburtstag' }).daten, { bestaetigungUm: null, selbstLink: 'x' });
 wahr('Telefon: WhatsApp und Anruf', tel.text.includes('https://wa.me/41791234567?text=') && tel.text.includes('tel:+41791234567'));

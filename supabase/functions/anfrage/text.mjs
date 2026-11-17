@@ -78,23 +78,25 @@ export function zusammenfassung(d) {
 
 export function bestaetigungsMail(d) {
   const gruss = vorname(d.name);
-  const notiert = zusammenfassung(d).map((z) => `- ${z}`);
+  const angekommen = zusammenfassung(d).map((z) => `- ${z}`);
   const text = [
     gruss ? `Hallo ${gruss}` : 'Hallo',
     '',
-    'Danke für deine Anfrage. Sie ist bei mir angekommen.',
-    ...(notiert.length ? ['', 'Das habe ich notiert:', ...notiert] : []),
+    'Danke für deine Anfrage, ich freue mich auf deinen Apéro!',
+    ...(angekommen.length ? ['', 'Das ist bei mir angekommen:', ...angekommen] : []),
     '',
-    'Ich schaue mir alles in Ruhe an und melde mich persönlich bei dir, falls nötig mit einer kurzen Rückfrage, und schicke dir danach das Angebot. Wenn du in der Zwischenzeit etwas ergänzen möchtest, antworte einfach auf diese Mail.',
+    'Ich schaue mir alles in Ruhe an und melde mich persönlich bei dir, vielleicht mit einer kurzen Frage. Danach bekommst du mein Angebot.',
     '',
-    'Fragen zu Abholung, Lieferung und Bezahlung beantworte ich dir hier:',
+    'Fällt dir noch etwas ein? Antworte einfach auf diese Mail, sie landet direkt bei mir.',
+    '',
+    'Wie Abholung, Lieferung und Bezahlung laufen, steht hier:',
     `${SEITE}/info/`,
     '',
     'Herzlich',
     'Sibylle',
-    'Sibylle’s Apérozauber, Villmergen',
     '',
-    'Diese Bestätigung wurde automatisch verschickt. Deine Antwort kommt direkt bei mir an.',
+    'Dein Anlass. Mein Apérozauber.',
+    'Sibylle’s Apérozauber, Villmergen',
   ].join('\n');
   return { betreff: 'Deine Anfrage bei Sibylle’s Apérozauber', text };
 }
