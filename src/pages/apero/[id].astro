@@ -65,7 +65,7 @@ const fragen = {
 };
 ---
 
-<Seite titel={a.seitentitel} beschreibung={a.beschreibung} pfad={krumen} daten={[angebot, fragen]} anlass={a.kurz}>
+<Seite titel={a.seitentitel} beschreibung={a.beschreibung} pfad={krumen} daten={[angebot, fragen]} anlass={a.ort ? undefined : a.kurz}>
   <Titelblatt krumen={krumen} etikett={a.etikett} titel={a.titel} bild>
     <p class="gross">{a.lead}</p>
     <a class="knopf" href="#anfrage" data-fuer={a.art === 'firma' ? 'Firma' : 'Privat'}>{a.knopf}</a>

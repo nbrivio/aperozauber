@@ -141,6 +141,8 @@ const anlaesse = defineCollection({
     reihenfolge: z.number().int(),
     // Kurzname für den Pfad, etwa «Geburtstag».
     kurz: z.string().min(1),
+    // Nur bei Ortsseiten: der Ort. Dann ist die Seite kein Anlass und füllt das Formular nicht vor.
+    ort: z.string().min(1).optional(),
     // Beschriftung des Knopfs, auf den Anlass bezogen.
     knopf: z.string().min(1),
     // Drei Dinge, die Sibylle der Person abnimmt, die den Apéro organisiert.
