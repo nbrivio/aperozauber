@@ -17,9 +17,10 @@
     "pruefen:vermerke": "node pruefungen/vermerke.mjs",
     "pruefen:browser": "node pruefungen/browser.mjs",
     "pruefen:ladezeit": "node pruefungen/ladezeit.mjs",
-    "pruefen": "npm run build && npm run pruefen:html && npm run pruefen:gate && npm run pruefen:umstellung && npm run pruefen:sendezeit && npm run pruefen:kontrast && npm run pruefen:vermerke && npm run pruefen:browser && npm run pruefen:ladezeit",
+    "pruefen": "npm run build && npm run pruefen:html && npm run pruefen:gate && npm run pruefen:umstellung && npm run pruefen:sendezeit && npm run pruefen:anfrage && npm run pruefen:kontrast && npm run pruefen:vermerke && npm run pruefen:browser && npm run pruefen:ladezeit",
     "pruefen:umstellung": "node pruefungen/umstellung.mjs",
-    "pruefen:sendezeit": "node pruefungen/sendezeit.mjs"
+    "pruefen:sendezeit": "node pruefungen/sendezeit.mjs",
+    "pruefen:anfrage": "node pruefungen/anfrage-funktion.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "3.7.4",

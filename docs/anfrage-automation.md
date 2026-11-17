@@ -58,14 +58,22 @@ Der Text verspricht keine Antwortzeit, weil die Website auch keine nennt (siehe 
 | Datenschutz | Text anpassen: Anfrage wird auf dem Server gespeichert, Anbieter und Land nennen, Löschfrist 90 Tage |
 | Doppelte Anfragen | gleiche E-Mail innerhalb von 10 Minuten: nur eine Bestätigung |
 
-## Was ich morgen mache (Reihenfolge)
+## Stand (17.11.2026) und Einrichtung
 
-1. Supabase-Projekt in Zürich anlegen, Schema einspielen, Zugriffsschutz prüfen.
-2. Funktion `anfrage` und Versandfunktion schreiben und mit Testanfragen prüfen (Fenster, Zeitumstellung, Spam, Doppelte).
-3. Hostpoint-SMTP-Zugang als Geheimnis hinterlegen. **Dafür brauche ich von dir das Passwort des Postfachs `anfrage@aperozauber.ch` nicht im Chat**: du trägst es selbst in den Geheimnissen von Supabase ein, ich sage dir wo.
-4. Variable `SITE_ANFRAGE_ZIEL` setzen, Seite neu bauen, Datenschutzseite aktualisieren.
-5. Testanfrage von dir, Mitteilung an Sibylle, Bestätigung nach 20 Minuten.
-6. DMARC prüfen: Falls für `aperozauber.ch` noch keine DMARC-Regel besteht, setzen wir eine zurückhaltende (`p=none` mit Berichten), damit Bestätigungen nicht im Spam landen.
+Gebaut und getestet (ohne Server): Eingabeprüfung, Kontakterkennung (E-Mail, Telefon, WhatsApp-Nummer), Mailtexte, Versandzeitpunkt. Die Funktion liegt in `supabase/functions/anfrage/`, das Schema in `supabase/migrations/001_anfragen.sql`, der Zeitplan als Vorlage in `002_zeitplan.sql.vorlage`.
+
+Schutz der Funktion: erlaubte Herkünfte (nur die Website), Grössenbegrenzung, Spamfeld und Mindestdauer, höchstens 6 Anfragen pro Stunde je Absender (gesalzener Hash der IP), alle Texte gesäubert, keine Umbrüche in Kopfzeilen, Tabelle ohne Zugriff von aussen, Löschung nach 90 Tagen.
+
+SMTP: `asmtp.mail.hostpoint.ch`, Port 465 mit SSL (Hostpoint nennt 465 SSL und 587 STARTTLS). Zugang ist die volle Adresse `anfrage@aperozauber.ch` mit ihrem Passwort.
+
+Reihenfolge der Einrichtung:
+1. Projekt in Supabase anlegen (Region Zürich). Entscheid von Nicolas nötig, weil es Kosten verursachen kann und in der Organisation von Ryse liegen würde.
+2. Schema einspielen, Funktion bereitstellen, Geheimnisse setzen: `CRON_GEHEIMNIS`, `TOKEN_GEHEIMNIS`, `IP_SALZ` (zufällig, setze ich), `SMTP_USER` und `SMTP_PASS` (setzt Nicolas selbst im Supabase-Dashboard unter Edge Functions, Secrets).
+3. SMTP-Probe: `versand?probe` prüft Anmeldung bei Hostpoint, ohne etwas zu senden.
+4. Zeitplan einspielen.
+5. Variable `SITE_ANFRAGE_ZIEL` in GitHub auf `https://<projekt>.supabase.co/functions/v1/anfrage` setzen, Bau auslösen.
+6. Datenschutztext (Absatz «Anfrage» und «Weitergabe») anpassen. Das geschieht im selben Bau wie Schritt 5, nie später.
+7. Testanfrage von Nicolas auf der richtigen Adresse: Mitteilung an Sibylle sofort, Bestätigung nach etwa 20 Minuten.
 
 ## Risiken
 

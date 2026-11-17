@@ -1,0 +1,19 @@
+-- Wird nach dem Anlegen der Geheimnisse eingespielt (siehe docs/anfrage-automation.md). Platzhalter in <...> ersetzen.
+-- Das Geheimnis liegt im Tresor der Datenbank, nicht im Zeitplan.
+select vault.create_secret('<CRON_GEHEIMNIS>', 'cron_geheimnis');
+
+select cron.schedule(
+  'anfragen-versand',
+  '* * * * *',
+  $$
+  select net.http_post(
+    url := 'https://<PROJEKT>.supabase.co/functions/v1/anfrage/versand',
+    headers := jsonb_build_object(
+      'Content-Type', 'application/json',
+      'x-cron', (select decrypted_secret from vault.decrypted_secrets where name = 'cron_geheimnis')
+    ),
+    body := '{}'::jsonb,
+    timeout_milliseconds := 20000
+  );
+  $$
+);

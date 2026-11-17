@@ -1,5 +1,5 @@
 // Prüft die Regel für die automatische Bestätigung: 20 Minuten nach der Anfrage, nur zwischen 08:00 und 21:00.
-import { sendezeit } from '../supabase/functions/_shared/sendezeit.mjs';
+import { sendezeit } from '../supabase/functions/anfrage/sendezeit.mjs';
 import { bericht } from './dateien.mjs';
 
 const b = bericht('Sendezeit');
