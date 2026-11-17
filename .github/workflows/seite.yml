@@ -39,7 +39,7 @@ jobs:
       - name: Abhängigkeiten nach Sperrdatei einrichten
         run: npm ci --ignore-scripts
       - name: Bekannte Sicherheitslücken
-        run: npm audit --audit-level=high
+        run: npm run pruefen:abhaengigkeiten
       - name: Bauen und alle Prüfungen
         run: npm run pruefen
       - name: Seite übergeben
