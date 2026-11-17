@@ -80,7 +80,7 @@ export function bestaetigungsMail(d) {
   const gruss = vorname(d.name);
   const angekommen = zusammenfassung(d).map((z) => `- ${z}`);
   const text = [
-    gruss ? `Hallo ${gruss}` : 'Hallo',
+    gruss ? `Hoi ${gruss}` : 'Hoi',
     '',
     'Danke für deine Anfrage, ich freue mich auf deinen Apéro!',
     ...(angekommen.length ? ['', 'Das ist bei mir angekommen:', ...angekommen] : []),
