@@ -2,7 +2,9 @@
 // Ohne Abhängigkeiten, damit sie in den Prüfungen unter Node läuft und in Supabase unter Deno.
 
 const SEITE = 'https://www.aperozauber.ch';
-const steuer = /[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F\u2028\u2029]/g;
+// Steuerzeichen inkl. Zeilen- und Absatztrenner (U+2028/U+2029). Diese zwei werden zur Laufzeit
+// zusammengesetzt, weil sie als Quelltext-Zeichen von Werkzeugen zerstoert werden koennen.
+const steuer = new RegExp('[\\x00-\\x08\\x0B\\x0C\\x0E-\\x1F\\x7F' + String.fromCharCode(0x2028, 0x2029) + ']', 'g');
 
 /** Text säubern: Steuerzeichen raus, Ränder weg, Länge begrenzen. Zeilenumbrüche bleiben. */
 export function bereinige(wert, max) {
