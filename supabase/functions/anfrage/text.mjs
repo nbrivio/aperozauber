@@ -92,7 +92,7 @@ export function bestaetigungsMail(d) {
     'Wie Abholung, Lieferung und Bezahlung laufen, steht hier:',
     `${SEITE}/info/`,
     '',
-    'Herzlich',
+    'Liäbi Grüäss',
     'Sibylle',
     '',
     'Dein Anlass. Mein Apérozauber.',
