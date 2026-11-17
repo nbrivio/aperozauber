@@ -49,9 +49,15 @@ function anfrage() {
     return zeilen.join('\n');
   }
 
+  const wa = formular.querySelector('[data-whatsapp]');
+  const waBasis = wa?.getAttribute('href');
+
   function auffrischen() {
     for (const eingabe of mengen()) eingabe.closest('.menge').classList.toggle('gewaehlt', Number(eingabe.value) > 0);
-    vorschau.textContent = nachricht(angaben());
+    const text = nachricht(angaben());
+    vorschau.textContent = text;
+    // WhatsApp öffnet mit denselben Angaben als vorbereiteter Nachricht.
+    if (wa) wa.href = `${waBasis}?text=${encodeURIComponent(text)}`;
   }
 
   function melde(text, fehler = false) {

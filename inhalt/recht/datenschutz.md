@@ -10,6 +10,8 @@ punkte:
     text: "Um deine Anfrage zu beantworten, die Bestellung auszuführen und abzurechnen."
   - begriff: "Anfrage"
     text: "Die Anfrage verlässt diese Seite über dein eigenes Mailprogramm. Die Seite selbst speichert und überträgt keine Angaben aus dem Formular."
+  - begriff: "WhatsApp"
+    text: "Du kannst mir auch per WhatsApp schreiben. Der Link öffnet WhatsApp mit einer vorbereiteten Nachricht, abgeschickt wird sie erst, wenn du auf Senden drückst. Dann gelten zusätzlich die Datenschutzbestimmungen von WhatsApp (Meta). Wer das nicht möchte, erreicht mich per E-Mail oder Telefon."
   - begriff: "Website"
     text: "Keine Cookies, kein Tracking, keine fremden Schriften oder Skripte. Der Hosting-Anbieter verarbeitet technische Zugriffsdaten."
   - begriff: "Weitergabe"

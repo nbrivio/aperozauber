@@ -15,3 +15,6 @@ const schema = z.object({
 });
 
 export const betrieb = schema.parse(roh);
+
+// WhatsApp-Direktlink auf dieselbe Nummer wie das Telefon im Impressum.
+export const whatsapp = `https://wa.me/${betrieb.telefon.replace(/\D/g, '')}`;

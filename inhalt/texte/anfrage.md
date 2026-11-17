@@ -8,6 +8,7 @@ meldungen:
   fenster: "Dein Apéro"
   oeffnen: "Apéro anfragen"
   oder: "Oder schreib mir direkt:"
+  whatsapp: "Lieber per WhatsApp?"
   auswahl: "Was darf es sein?"
   dank: "Danke!"
   gesendet: "Danke für deine Anfrage. Ich melde mich bei dir."

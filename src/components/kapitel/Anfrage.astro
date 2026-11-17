@@ -6,7 +6,7 @@ import { getCollection, getEntry, render } from 'astro:content';
 import { Picture } from 'astro:assets';
 import { titelAlsHtml } from '../../inhalt/titel.js';
 import { mengenwort, preiszeile, preisJeGroesse } from '../../inhalt/preis.js';
-import { betrieb } from '../../inhalt/betrieb.js';
+import { betrieb, whatsapp } from '../../inhalt/betrieb.js';
 import { pfad } from '../../inhalt/pfad.js';
 
 const text = await getEntry('texte', 'anfrage');
@@ -28,7 +28,7 @@ const telefon = betrieb.telefon.replaceAll(' ', ' ');
       <div class="gross"><Content /></div>
       <a class="knopf hell" href="#anfrage">{m.oeffnen}</a>
       <p class="hinweis">
-        {m.oder} <a href={`mailto:${betrieb.email}`}>{betrieb.email}</a> · <a href={`tel:${betrieb.telefon.replaceAll(' ', '')}`}>{telefon}</a>
+        {m.oder} <a href={`mailto:${betrieb.email}`}>{betrieb.email}</a> · <a href={`tel:${betrieb.telefon.replaceAll(' ', '')}`}>{telefon}</a> · <a href={whatsapp} rel="noopener noreferrer">WhatsApp</a>
       </p>
     </div>
 
@@ -104,6 +104,7 @@ const telefon = betrieb.telefon.replaceAll(' ', ' ');
         </div>
         <div class="wege">
           <button class="knopf hell" type="submit">{t.knopf}</button>
+          <a class="wa-link" data-whatsapp href={whatsapp} target="_blank" rel="noopener noreferrer">{m.whatsapp}</a>
         </div>
         <p class="meldung" data-meldung role="status"></p>
         <div class="hinweis">

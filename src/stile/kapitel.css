@@ -1225,6 +1225,15 @@
   .wege .knopf {
     font-family: var(--az-font-body);
   }
+  .wa-link {
+    color: inherit;
+    font: 500 var(--fs-klein) / 1 var(--az-font-body);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-underline-offset: 0.4em;
+    padding: 0.9375rem 0.25rem;
+  }
   .wege {
     display: flex;
     flex-wrap: wrap;
