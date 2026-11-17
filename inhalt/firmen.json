@@ -4,5 +4,6 @@
   {"name": "Brückenwerk Kinder & Jugend", "logo": "brueckenwerk.png", "adresse": "https://www.xn--brckenwerk-beb.ch/", "einverstaendnis": true},
   {"name": "Wedding with Jenni", "logo": "wedding-with-jenni.png", "adresse": "https://www.weddingwithjenni.ch/", "mass": "breit", "einverstaendnis": true},
   {"name": "WEY", "logo": "wey.png", "adresse": "https://wey-store.ch/", "mass": "klein", "einverstaendnis": true},
-  {"name": "sie & er Dessous und mehr", "logo": "sie-und-er.png", "adresse": "https://www.sieunder-dessous.ch/", "einverstaendnis": true}
+  {"name": "sie & er Dessous und mehr", "logo": "sie-und-er.png", "adresse": "https://www.sieunder-dessous.ch/", "einverstaendnis": true},
+  {"name": "Blumen Bahnhof", "logo": "blumen-bahnhof.png", "adresse": "https://blumen-bahnhof.ch/", "einverstaendnis": true}
 ]
