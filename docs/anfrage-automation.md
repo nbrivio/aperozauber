@@ -1,6 +1,12 @@
 # Anfrage-Automatisierung: Bestätigung 20 Minuten nach der Anfrage
 
-Ziel: Wer eine Anfrage schickt, bekommt etwa 20 Minuten später eine persönliche, ruhige Bestätigung, nie vor 08:00 und nie ab 21:00 Uhr. Sibylle sieht jede Anfrage sofort. Persönliche Bestellungen bleiben geschützt.
+Ziel: Wer eine Anfrage schickt, bekommt etwa 20 Minuten später eine ruhige Bestätigung, nie vor 08:00 und nie ab 21:00 Uhr. Es ist nur eine Bestätigung. Sibylle meldet sich danach selbst mit einer Rückfrage (WhatsApp, Mail oder Telefon) und schickt das Angebot. Sibylle sieht jede Anfrage sofort. Persönliche Bestellungen bleiben geschützt.
+
+## Hostpoint oder Supabase?
+
+Beides, mit klarer Aufgabenteilung:
+- **Hostpoint** bleibt Postfach und Absender (`anfrage@aperozauber.ch`). Der Autoresponder dort antwortet nur sofort, kennt keine Verzögerung, kein Zeitfenster und keine Angaben aus dem Formular. Er kann die gewünschte Regel nicht.
+- **Supabase** nimmt die Anfrage entgegen, merkt sie sich (verhindert verlorene Anfragen), rechnet den Versandzeitpunkt aus und schickt die Mail über den Hostpoint-Server ab. Es ist dünn gehalten: eine Tabelle, zwei Funktionen.
 
 ## Ist-Stand
 
@@ -9,7 +15,7 @@ Das Formular öffnet heute das Mailprogramm (`SITE_ANFRAGE_ZIEL` ist nicht geset
 ## Aufbau (Empfehlung)
 
 1. **Formular** sendet per POST an eine Funktion in Supabase (Region Zürich). Die Adresse kommt als Variable `SITE_ANFRAGE_ZIEL`, die Seite lässt sie dann automatisch in der Sicherheitsrichtlinie zu.
-2. **Funktion `anfrage`** prüft die Eingabe (Längen, Spamfeld, Mindestdauer, Rate-Limit je Absender), speichert die Anfrage und schickt sofort eine Mitteilung an `anfrage@aperozauber.ch`. Darin steht die ganze Anfrage und ein Knopf «Ich antworte selbst». Er verhindert die automatische Bestätigung.
+2. **Funktion `anfrage`** prüft die Eingabe (Längen, Spamfeld, Mindestdauer, Rate-Limit je Absender), speichert die Anfrage und schickt sofort eine Mitteilung an `anfrage@aperozauber.ch`. Darin stehen die ganze Anfrage, ein Link «Per WhatsApp antworten» und «Anrufen» (aus der Telefonnummer der Kundschaft, falls sie eine angegeben hat) und ein Knopf «Ich antworte selbst». Er verhindert die automatische Bestätigung, wenn du schneller bist.
 3. **Planung:** `sendezeit()` (`supabase/functions/_shared/sendezeit.mjs`, getestet) legt den Versandzeitpunkt fest: 18 bis 22 Minuten nach Eingang. Fällt er vor 08:00 oder ab 21:00 Uhr, geht die Mail am Morgen danach zwischen 08:03 und 08:25 hinaus. Sommer- und Winterzeit sind eingerechnet.
 4. **Versand:** Eine geplante Aufgabe prüft jede Minute, was fällig ist, und sendet die Bestätigung. Hat Sibylle «Ich antworte selbst» geklickt oder schon geantwortet, wird nichts gesendet.
 5. **Absender:** `Sibylle's Apérozauber <anfrage@aperozauber.ch>` über den Hostpoint-SMTP-Server derselben Postfachadresse. Damit passen SPF und Absender, es kommt kein weiterer Anbieter dazu, und eine Antwort der Kundschaft landet direkt in Sibylles Postfach. Eine Kopie geht per BCC an dieselbe Adresse.
@@ -28,7 +34,7 @@ Anfragen mit Telefonnummer statt E-Mail erhalten keine Bestätigung. Sibylle bek
 > Das habe ich notiert:
 > {Zusammenfassung: Anlass, Datum, Gäste, Ort, Bestellung}
 >
-> Ich schaue mir alles in Ruhe an und melde mich persönlich bei dir. Wenn du in der Zwischenzeit etwas ergänzen möchtest, antworte einfach auf diese Mail.
+> Ich schaue mir alles in Ruhe an und melde mich persönlich bei dir, falls nötig mit einer kurzen Rückfrage, und schicke dir danach das Angebot. Wenn du in der Zwischenzeit etwas ergänzen möchtest, antworte einfach auf diese Mail.
 >
 > Fragen zu Abholung, Lieferung und Bezahlung beantworte ich dir hier: https://www.aperozauber.ch/info/
 >

@@ -15,7 +15,7 @@ Grundsatz: Name, Adresse, Telefon und Website sind überall identisch (Impressum
 Hauptkategorie «Catering-Service». Zusätzlich «Partyservice» und was Google beim Eintippen sonst für Apéro, Platten oder Eventverpflegung vorschlägt. Nicht mehr als drei bis vier, nichts mit «Restaurant».
 
 ## Beschreibung (höchstens 750 Zeichen, hier 489)
-Von Hand gestaltete Apéroplatten aus Villmergen: Bergzauber, Antipastizauber, Früchtezauber und Waldmeister, dazu selbst gemachtes Brot, Chutney und Feigensenf. Für Geburtstage, Familienfeste und Weihnachten ebenso wie für Firmenanlässe, Kundenevents und Abschiedsapéros. Jede Platte wird für deinen Anlass einzeln gestaltet, mit handverlesenen Zutaten von regionalen Anbietern. Du holst den Apéro in Villmergen ab, auf Wunsch liefere ich ihn zu dir. Anfragen über aperozauber.ch.
+Von Hand gestaltete Apéroplatten aus Villmergen: Bergzauber, Antipastizauber, Früchtezauber und Waldmeister, dazu selbst gemachtes Brot, Chutney und Feigensenf. Für Geburtstage, Familienfeste und Weihnachten ebenso wie für Firmenanlässe, Kundenevents und Abschiedsapéros. Jede Platte wird für deinen Anlass einzeln gestaltet, mit handverlesenen Zutaten von regionalen Anbietern. Du holst den Apéro in Villmergen ab, auf Wunsch liefere ich ihn zu dir. Du schickst eine Anfrage über aperozauber.ch, ich melde mich persönlich und schicke dir das Angebot.
 
 ## Leistungen (mit Preisangabe «ab»)
 - Bergzauber S/M/L: ab CHF 100 / 120 / 140 (4 bis 6, 6 bis 10, 10 bis 16 Personen)
@@ -33,6 +33,14 @@ Dieselben sieben Einträge unter «Produkte», je mit Foto (Kreationenbilder aus
 
 ## Attribute
 Abholung, Lieferung, Online-Anfrage, Termin erforderlich, Bezahlung per Twint und bar (nur wenn Google es anbietet), Geschäftskunden willkommen.
+
+## Profil als Ganzes: Reihenfolge für maximale Wirkung
+1. Stammdaten, Kategorien, Beschreibung (Vertrauen und Auffindbarkeit)
+2. Leistungen und Produkte (Preise sichtbar, Links auf die Seiten)
+3. Fotos, mindestens 25 (der stärkste Einzelfaktor für Klicks)
+4. Fragen und Antworten
+5. Erster Beitrag zu Weihnachtsapéro Firma
+6. Rezensionsprozess
 
 ## Fotos (mindestens 25 zum Start, danach eines pro Woche)
 - Logo: Bildmarke aus dem Kopf der Seite
@@ -54,6 +62,7 @@ Alle Links mit ?utm_source=google&utm_medium=organic&utm_campaign=beitrag. Rhyth
 - Wo kann ich abholen? In Villmergen im Aargau, zum vereinbarten Termin. Die Platten sind in Holzkisten verpackt.
 - Lieferst du auch? Ja, gegen Aufpreis, nach Absprache.
 - Wie bezahle ich? Bei der Abholung per Twint oder bar. Dazu kommt das Depot von CHF 50, das du nach der Rückgabe der Platten zurückerhältst.
+- Wie läuft eine Bestellung ab? Du schickst eine Anfrage über die Website, ich melde mich persönlich mit einer kurzen Rückfrage per WhatsApp, Mail oder Telefon und schicke dir danach das Angebot. Bezahlt wird erst bei der Abholung.
 - Wie weit im Voraus muss ich bestellen? Je früher, desto besser. Frag bei deinem Datum einfach an.
 - Was ist bei Allergien? Teil sie bei der Anfrage mit. Welche Allergene eine Kreation enthält, sage ich dir gerne auf Anfrage.
 - Bis wann kann ich absagen? Bis 7 Tage vor dem Anlass kostenlos.
