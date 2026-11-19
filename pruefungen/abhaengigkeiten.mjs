@@ -38,7 +38,10 @@ for (const [kennung, m] of gefunden) {
   else if (a.pruefen_bis < heute) b.melde(kennung, `Ausnahme am ${a.pruefen_bis} abgelaufen, neu beurteilen (${m.paket})`);
   else console.log(`  hingenommen bis ${a.pruefen_bis}: ${kennung} (${m.paket}) — ${a.grund}`);
 }
+// Eine Ausnahme, deren Meldung verschwunden ist, ist Aufraeumarbeit und kein Sicherheitsproblem.
+// Sie wird angemahnt, blockiert den Bau aber nicht: sonst bricht ausgerechnet die gute Nachricht
+// die Veroeffentlichung.
 for (const kennung of Object.keys(ausnahmen)) {
-  if (!gefunden.has(kennung)) b.melde(kennung, 'wird nicht mehr gemeldet, Ausnahme entfernen');
+  if (!gefunden.has(kennung)) console.log(`  ueberfluessig: ${kennung} wird nicht mehr gemeldet, Eintrag entfernen`);
 }
 b.schliesse(`${gefunden.size} schwere Meldung(en), ${Object.keys(ausnahmen).length} hingenommen`);

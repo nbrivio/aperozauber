@@ -1,7 +1,1 @@
-{
-  "GHSA-fc5q-39xc-vjpf": {
-    "paket": "picomatch",
-    "grund": "ReDoS beim Auswerten von Glob-Mustern. Betrifft ausschliesslich das Bauen: picomatch steckt in Astros Werkzeugkette und verarbeitet nur Muster aus diesem Repo, nie Eingaben von Besuchern. Die ausgelieferte Seite enthaelt kein picomatch. Eine behobene Fassung gibt es nicht; 4.0.7 ist die neueste veroeffentlichte.",
-    "pruefen_bis": "2026-12-15"
-  }
-}
+{}
