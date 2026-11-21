@@ -60,7 +60,7 @@ Der Text verspricht keine Antwortzeit, weil die Website auch keine nennt (siehe 
 
 ## Stand (17.11.2026) und Einrichtung
 
-Gebaut und getestet (ohne Server): Eingabeprüfung, Kontakterkennung (E-Mail, Telefon, WhatsApp-Nummer), Mailtexte, Versandzeitpunkt. Die Funktion liegt in `supabase/functions/anfrage/`, das Schema in `supabase/migrations/001_anfragen.sql`, der Zeitplan als Vorlage in `002_zeitplan.sql.vorlage`.
+Gebaut und getestet (ohne Server): Eingabeprüfung, Kontakterkennung (E-Mail, Telefon, WhatsApp-Nummer), Mailtexte, Versandzeitpunkt. Die Funktion liegt in `supabase/functions/anfrage/`, das Schema in `supabase/migrations/` (001 Anfragen, 001a pg_net, 003 Wiederholungen, 004 Wachhund, 005 Zugriffszähler), der Zeitplan für den Versand als Vorlage in `002_zeitplan.sql.vorlage`.
 
 Schutz der Funktion: erlaubte Herkünfte (nur die Website), Grössenbegrenzung, Spamfeld und Mindestdauer, höchstens 6 Anfragen pro Stunde je Absender (gesalzener Hash der IP), alle Texte gesäubert, keine Umbrüche in Kopfzeilen, Tabelle ohne Zugriff von aussen, Löschung nach 90 Tagen.
 
