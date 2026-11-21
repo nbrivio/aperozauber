@@ -6,6 +6,14 @@
   .buehne {
     position: relative;
     height: 210vh;
+    --enger: 0px;
+  }
+  /* Mit Hinweisband fehlt der Bühne oben Höhe. Im Querformat wird das Fenster darum eine Spur kleiner
+     und das Siegel passt sich an (siehe .logoplatz). Dasselbe rechnet bewegung.js. */
+  @media (min-aspect-ratio: 1/1) {
+    .buehne {
+      --enger: calc(var(--band-h) / 4);
+    }
   }
   .halt {
     position: sticky;
@@ -17,7 +25,7 @@
   .fenster {
     position: absolute;
     inset: 0;
-    clip-path: circle(calc(17vmin + var(--auf, 0) * 130vmax) at 50% 53%);
+    clip-path: circle(calc(17vmin - var(--enger) + var(--auf, 0) * 130vmax) at 50% 53%);
     will-change: clip-path;
   }
   .rand {
@@ -25,7 +33,7 @@
     inset: 0;
     background: var(--az-rand);
     opacity: calc(1 - var(--auf, 0) * 3);
-    clip-path: circle(calc(17vmin + 7px) at 50% 53%);
+    clip-path: circle(calc(17vmin - var(--enger) + 7px) at 50% 53%);
   }
   .fenster picture,
   .karten picture,
@@ -69,7 +77,8 @@
     gap: 8px;
   }
   .logoplatz {
-    width: min(40vw, 18vh, 220px);
+    /* Der letzte Wert hält Siegel und Etikett über dem Fenster, auch auf niedrigen Bildschirmen und mit Hinweisband. */
+    width: min(40vw, 18vh, 220px, calc(53svh - 19vmin + var(--enger) - var(--kopf-h) - var(--band-h) - 3.25rem));
     aspect-ratio: 1;
   }
   .logoplatz img {

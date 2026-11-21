@@ -13,6 +13,7 @@ function bewegung() {
   const claim = buehne.querySelector('.claim');
   const fenster = buehne.querySelector('.fenster');
   const rand = buehne.querySelector('.rand');
+  const band = document.querySelector('.band');
   const satz = document.querySelector('[data-satz] .innen > .hand');
   const zeile = stapel.querySelector('.zeile');
   const bilder = [...stapel.querySelectorAll('.karten img')];
@@ -58,7 +59,9 @@ function bewegung() {
     claim.style.opacity = begrenzt((p - 0.5) / 0.12).toFixed(3);
     kopf.style.setProperty('--t', weich(begrenzt(p / 0.16)).toFixed(3));
     blase.classList.toggle('an', p > 0.08);
-    const radius = 0.17 * Math.min(vw, vh) + auf * 1.5 * Math.max(vw, vh);
+    // Mit Hinweisband ist das Fenster im Querformat eine Spur kleiner, wie --enger im Stil.
+    const enger = vw >= vh ? (band?.offsetHeight ?? 0) / 4 : 0;
+    const radius = 0.17 * Math.min(vw, vh) - enger + auf * 1.5 * Math.max(vw, vh);
     fenster.style.clipPath = schnitt(vw * 0.5, vh * 0.53, radius, auf * 0.5, 0);
     rand.style.clipPath = schnitt(vw * 0.5, vh * 0.53, radius, auf * 0.5, 7);
 
