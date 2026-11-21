@@ -966,39 +966,6 @@
     display: block;
     color: var(--az-linen);
   }
-  .wahl {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  .wahl label {
-    cursor: pointer;
-    position: relative;
-  }
-  .wahl input {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    margin: 0;
-    cursor: pointer;
-  }
-  .wahl span {
-    display: block;
-    border: 1px solid rgb(246 243 236 / 0.6);
-    padding: 15px 16px;
-    font: 500 13px/1 var(--az-font-body);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border-radius: 3px;
-  }
-  .wahl input:checked + span {
-    background: var(--az-paper);
-    color: var(--az-pine);
-  }
-  .wahl input:focus-visible + span {
-    outline: 2px solid var(--az-linen);
-    outline-offset: 3px;
-  }
   .feld input,
   .feld textarea {
     width: 100%;

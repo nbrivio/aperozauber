@@ -23,7 +23,6 @@ function anfrage() {
     return {
       name: feld('name'),
       kontakt: feld('kontakt'),
-      fuer: formular.querySelector('[name=fuer]:checked').value,
       // Auf einer Themenseite steht der Anlass schon fest.
       anlass: document.body.dataset.anlass ?? '',
       posten,
@@ -38,7 +37,6 @@ function anfrage() {
     const zeilen = ['Hallo Sibylle, ich möchte einen Apéro anfragen.'];
     if (a.name) zeilen.push(`Name: ${a.name}`);
     if (a.kontakt) zeilen.push(`Antwort an: ${a.kontakt}`);
-    zeilen.push(`Für: ${a.fuer}`);
     if (a.anlass) zeilen.push(`Anlass: ${a.anlass}`);
     const liste = a.posten.map((p) => `${p.anzahl} × ${p.kreation}${p.groesse ? ` ${p.groesse}` : ''}`);
     zeilen.push(`Bestellung: ${liste.length ? `\n- ${liste.join('\n- ')}` : 'noch offen'}`);
@@ -80,7 +78,7 @@ function anfrage() {
 
     // Ohne Empfänger auf dem Server geht die Anfrage über das eigene Mailprogramm.
     if (!ziel) {
-      location.href = `${adresse}?subject=${encodeURIComponent(`Apéro-Anfrage (${a.anlass || a.fuer})`)}&body=${encodeURIComponent(text)}`;
+      location.href = `${adresse}?subject=${encodeURIComponent(a.anlass ? `Apéro-Anfrage (${a.anlass})` : 'Apéro-Anfrage')}&body=${encodeURIComponent(text)}`;
       melde(texte.mailprogramm);
       return;
     }
@@ -136,7 +134,6 @@ function anfrage() {
   formular.querySelector('[data-ankunft]').hidden = false;
 
   function oeffnen(verweis) {
-    if (verweis.dataset.fuer) formular.querySelector(`[name=fuer][value="${verweis.dataset.fuer}"]`).checked = true;
     if (formular.hidden) {
       platz.querySelector('.dank')?.remove();
       formular.reset();

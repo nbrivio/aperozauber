@@ -20,7 +20,7 @@ const krumen = [['Firmenapéro', '/firmenapero/']];
 <Seite titel={s.seitentitel} beschreibung={s.beschreibung} pfad={krumen}>
   <Titelblatt krumen={krumen} etikett={s.etikett} titel={s.titel} bild>
     <p class="gross">{s.lead}</p>
-    <a class="knopf" href="#anfrage" data-fuer="Firma">Als Firma anfragen</a>
+    <a class="knopf" href="#anfrage">Als Firma anfragen</a>
     <div class="bild" slot="bild">
       <Picture src={s.bild} alt={s.bildAlt} formats={['avif', 'webp']} widths={[520, 760]} sizes="(max-width: 560px) 90vw, 520px" loading="eager" fetchpriority="high" />
     </div>
@@ -60,7 +60,7 @@ const krumen = [['Firmenapéro', '/firmenapero/']];
               <Content />
               <Preise kreation={k} />
               <div class="fuss">
-                <a href="#anfrage" data-kreation={id} data-fuer="Firma" aria-label={`${k.name} anfragen`}>Anfragen</a>
+                <a href="#anfrage" data-kreation={id} aria-label={`${k.name} anfragen`}>Anfragen</a>
               </div>
             </div>
           </article>

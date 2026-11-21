@@ -93,7 +93,6 @@ function pruefeAnfrage(roh) {
     daten: {
       name,
       kontakt,
-      fuer: roh.fuer === 'Firma' ? 'Firma' : 'Privat',
       anlass: einzeilig(roh.anlass, 80),
       posten,
       gaeste: einzeilig(roh.gaeste, 6),
@@ -164,7 +163,6 @@ function mitteilungsMail(d, { bestaetigungUm, selbstLink }) {
   const text = [
     `Neue Anfrage von ${d.name}`,
     `Kontakt: ${d.kontakt}`,
-    `Für: ${d.fuer}`,
     '',
     ...zusammenfassung(d),
     '',
@@ -185,11 +183,13 @@ function mitteilungsMail(d, { bestaetigungUm, selbstLink }) {
 
 const env = (name: string, vorgabe = '') => Deno.env.get(name) ?? vorgabe;
 const db = createClient(env('SUPABASE_URL'), env('SUPABASE_SERVICE_ROLE_KEY'), { auth: { persistSession: false } });
-const erlaubt = env('ERLAUBTE_HERKUENFTE', 'https://www.aperozauber.ch,https://aperozauber.ch,https://nbrivio.github.io').split(',');
+const erlaubt = env('ERLAUBTE_HERKUENFTE', 'https://www.aperozauber.ch,https://aperozauber.ch').split(',');
 const von = env('MAIL_VON', 'anfrage@aperozauber.ch');
 const an = env('MAIL_AN', 'anfrage@aperozauber.ch');
 const FENSTER_MINUTEN = 10; // gleiche Adresse innerhalb dieser Zeit: nur eine Bestätigung
-const MAX_PRO_STUNDE = 6; // je Absender
+const MAX_PRO_STUNDE = 6; // gespeicherte Anfragen je Absender und Stunde
+const MAX_VERSUCHE_PRO_STUNDE = 20; // Aufrufe je Absender und Stunde, gueltige wie abgewiesene
+const MAX_KOERPER = 20_000; // Bytes
 
 const post = () =>
   nodemailer.createTransport({
@@ -245,12 +245,50 @@ async function sendeBestaetigung(zeile: Record<string, any>) {
   await post().sendMail({ from: `Sibylle’s Apérozauber <${von}>`, to: zeile.email, replyTo: von, bcc: von, subject: m.betreff, text: m.text });
 }
 
+/** Liest den Körper mit harter Obergrenze, statt ihn erst ganz einzulesen und dann zu kürzen.
+ * Gibt null zurück, sobald die Grenze überschritten ist; die Verbindung wird dann abgebrochen. */
+async function koerperLesen(anfrage: Request, max: number) {
+  const leser = anfrage.body?.getReader();
+  if (!leser) return '';
+  const stuecke: Uint8Array[] = [];
+  let summe = 0;
+  for (;;) {
+    const { done, value } = await leser.read();
+    if (done) break;
+    summe += value.byteLength;
+    if (summe > max) {
+      await leser.cancel();
+      return null;
+    }
+    stuecke.push(value);
+  }
+  const alles = new Uint8Array(summe);
+  let pos = 0;
+  for (const s of stuecke) {
+    alles.set(s, pos);
+    pos += s.byteLength;
+  }
+  return new TextDecoder().decode(alles);
+}
+
 async function annehmen(anfrage: Request, herkunft: string | null) {
   if (!herkunft || !erlaubt.includes(herkunft)) return antwort(403, { ok: false });
-  if (Number(anfrage.headers.get('content-length') ?? 0) > 20_000) return antwort(413, { ok: false }, herkunft);
+  if (Number(anfrage.headers.get('content-length') ?? 0) > MAX_KOERPER) return antwort(413, { ok: false }, herkunft);
+
+  // Jeder Aufruf zählt, nicht erst der gültige. Sonst liesse sich mit ungültigen Eingaben
+  // und Treffern in die Spamfalle beliebig oft anklopfen, ohne je an die Grenze zu stossen.
+  const ip = (anfrage.headers.get('x-forwarded-for') ?? '').split(',')[0].trim() || 'unbekannt';
+  const ipHash = await sha(`${env('IP_SALZ')}:${ip}`);
+  const vorStunde = new Date(Date.now() - 3_600_000).toISOString();
+  const { count: versuche } = await db.from('zugriffe').select('id', { count: 'exact', head: true }).eq('ip_hash', ipHash).gte('zeit', vorStunde);
+  if ((versuche ?? 0) >= MAX_VERSUCHE_PRO_STUNDE) return antwort(429, { ok: false }, herkunft);
+  await db.from('zugriffe').insert({ ip_hash: ipHash });
+
+  const text = await koerperLesen(anfrage, MAX_KOERPER);
+  if (text === null) return antwort(413, { ok: false }, herkunft);
   let roh: any;
   try {
-    roh = JSON.parse((await anfrage.text()).slice(0, 20_000));
+    roh = JSON.parse(text);
   } catch {
     return antwort(400, { ok: false }, herkunft);
   }
@@ -262,9 +300,6 @@ async function annehmen(anfrage: Request, herkunft: string | null) {
   if (!geprueft.ok) return antwort(400, { ok: false, grund: geprueft.grund }, herkunft);
   const d = geprueft.daten;
 
-  const ip = (anfrage.headers.get('x-forwarded-for') ?? '').split(',')[0].trim() || 'unbekannt';
-  const ipHash = await sha(`${env('IP_SALZ')}:${ip}`);
-  const vorStunde = new Date(Date.now() - 3_600_000).toISOString();
   const { count } = await db.from('anfragen').select('id', { count: 'exact', head: true }).eq('ip_hash', ipHash).gte('eingang', vorStunde);
   if ((count ?? 0) >= MAX_PRO_STUNDE) return antwort(429, { ok: false }, herkunft);
 

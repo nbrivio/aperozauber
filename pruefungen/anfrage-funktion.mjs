@@ -23,14 +23,13 @@ wahr('ohne Name', !pruefeAnfrage({ name: '', kontakt: 'a@b.ch' }).ok);
 wahr('ohne Kontakt', !pruefeAnfrage({ name: 'Anna', kontakt: '' }).ok);
 wahr('kein Objekt', !pruefeAnfrage('x').ok && !pruefeAnfrage(null).ok && !pruefeAnfrage([]).ok);
 const gut = pruefeAnfrage({
-  name: 'Anna Muster', kontakt: 'anna@example.ch', fuer: 'Firma', anlass: 'Weihnachtsapéro', gaeste: '12', datum: '19.12.2026', ort: 'Bremgarten',
+  name: 'Anna Muster', kontakt: 'anna@example.ch', anlass: 'Weihnachtsapéro', gaeste: '12', datum: '19.12.2026', ort: 'Bremgarten',
   posten: [{ anzahl: 2, kreation: 'Bergzauber', groesse: 'M' }, { anzahl: 'x', kreation: '', groesse: 'L' }], wuensche: 'vegetarisch', nachricht: 'Hallo',
 });
 wahr('gute Anfrage', gut.ok);
 gleich('Posten gefiltert', gut.daten.posten, [{ anzahl: 2, kreation: 'Bergzauber', groesse: 'M' }]);
-gleich('Firma bleibt', gut.daten.fuer, 'Firma');
+wahr('kein Fuer mehr', !('fuer' in gut.daten) && !('fuer' in pruefeAnfrage({ name: 'A', kontakt: 'a@b.ch', fuer: 'Firma' }).daten));
 gleich('Datum falsch', pruefeAnfrage({ name: 'A', kontakt: 'a@b.ch', datum: '2026-12-19' }).daten.datum, '');
-gleich('unbekanntes Fuer', pruefeAnfrage({ name: 'A', kontakt: 'a@b.ch', fuer: 'x' }).daten.fuer, 'Privat');
 const lang = pruefeAnfrage({ name: 'A'.repeat(500), kontakt: 'a@b.ch', nachricht: 'x'.repeat(10000), posten: Array(100).fill({ anzahl: 500, kreation: 'K' }) });
 wahr('Längen begrenzt', lang.daten.name.length === 120 && lang.daten.nachricht.length === 4000 && lang.daten.posten.length === 20 && lang.daten.posten[0].anzahl === 99);
 

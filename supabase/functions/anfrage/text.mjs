@@ -53,7 +53,6 @@ export function pruefeAnfrage(roh) {
     daten: {
       name,
       kontakt,
-      fuer: roh.fuer === 'Firma' ? 'Firma' : 'Privat',
       anlass: einzeilig(roh.anlass, 80),
       posten,
       gaeste: einzeilig(roh.gaeste, 6),
@@ -124,7 +123,6 @@ export function mitteilungsMail(d, { bestaetigungUm, selbstLink }) {
   const text = [
     `Neue Anfrage von ${d.name}`,
     `Kontakt: ${d.kontakt}`,
-    `Für: ${d.fuer}`,
     '',
     ...zusammenfassung(d),
     '',

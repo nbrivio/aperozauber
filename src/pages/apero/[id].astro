@@ -68,7 +68,7 @@ const fragen = {
 <Seite titel={a.seitentitel} beschreibung={a.beschreibung} pfad={krumen} daten={[angebot, fragen]} anlass={a.ort ? undefined : a.kurz}>
   <Titelblatt krumen={krumen} etikett={a.etikett} titel={a.titel} bild>
     <p class="gross">{a.lead}</p>
-    <a class="knopf" href="#anfrage" data-fuer={a.art === 'firma' ? 'Firma' : 'Privat'}>{a.knopf}</a>
+    <a class="knopf" href="#anfrage">{a.knopf}</a>
     <div class="bild" slot="bild">
       <Picture src={a.bild} alt={a.bildAlt} formats={['avif', 'webp']} widths={[520, 760]} sizes="(max-width: 560px) 90vw, 520px" loading="eager" fetchpriority="high" />
     </div>
