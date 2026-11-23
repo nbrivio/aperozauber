@@ -24,7 +24,7 @@
     "pruefen:anfrage": "node pruefungen/anfrage-funktion.mjs"
   },
   "dependencies": {
-    "@astrojs/sitemap": "3.7.4",
+    "@astrojs/sitemap": "3.7.6",
     "astro": "7.4.11",
     "sharp": "0.35.5"
   },
